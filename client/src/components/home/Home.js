@@ -13,7 +13,6 @@ class Home extends Component{
           			<img className="img-fluid" id="imageSize" src={sportImage} alt="Sport" />
           		</div>
           	</header>
-        	
             <div className="jumbotron bg-light">
         		  <div className="container">
         			  <div className="row">
@@ -21,7 +20,7 @@ class Home extends Component{
         					  <img className="img-fluid rounded-circle float-right" src={sportsImage} alt="Sports"/>
         				  </div>
         				  <div className="col-md-7">
-        					  <h1 className="gj text-center">Start Finding Your Match!</h1>
+        					  <h1 className="text-center">Start Finding Your Match!</h1>
         				  </div>
         			  </div>
         		  </div>

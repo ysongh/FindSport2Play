@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import sportImage from '../../img/sport.png';
 import sportsImage from '../../img/sports.gif';
@@ -7,13 +8,16 @@ class Home extends Component{
   render(){
       return(
           <div>
-            <header className="jumbotron bg-primary">
+            <header className="jumbotron bg-primary mb-0">
           		<div className="container">
           			<h1 className="text-center">Welcome to FindSport2Play</h1>
           			<img className="img-fluid" id="imageSize" src={sportImage} alt="Sport" />
           		</div>
           	</header>
-            <div className="jumbotron bg-light">
+          	
+          	<Link to="/events" className="btn btn-lg text-white bg-info">List of Events</Link>
+          	
+            <div className="jumbotron bg-light mb-0">
         		  <div className="container">
         			  <div className="row">
         				  <div className="col-md-5">

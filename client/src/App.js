@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/home/Home';
 import Events from './components/events/Events';
+import Register from './components/auth/Register';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <div className="container">
             <Route exact path="/events" component={Events} />
+            <Route exact path="/register" component={Register} />
           </div>
         </div>
       </Router>

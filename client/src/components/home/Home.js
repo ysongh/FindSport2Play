@@ -16,6 +16,7 @@ class Home extends Component{
           	</header>
           	
           	<Link to="/events" className="btn btn-lg text-white bg-info">List of Events</Link>
+          	<Link to="/register" className="btn btn-lg text-white bg-info">Sign Up</Link>
           	
             <div className="jumbotron bg-light mb-0">
         		  <div className="container">

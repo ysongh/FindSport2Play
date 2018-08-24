@@ -5,6 +5,7 @@ import './App.css';
 import Home from './components/home/Home';
 import Events from './components/events/Events';
 import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <div className="container">
             <Route exact path="/events" component={Events} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
           </div>
         </div>
       </Router>

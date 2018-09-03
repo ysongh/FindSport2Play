@@ -18,4 +18,17 @@ router.get('/all', (req, res) => {
         );
 });
 
+router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
+    const eventFields = {};
+    eventFields.user = req.user.id;
+    
+    if(req.body.nameofevent) eventFields.nameofevent = req.body.nameofevent;
+    if(req.body.typeofsport) eventFields.typeofsport = req.body.typeofsport;
+    if(req.body.numberofplayer) eventFields.numberofplayer = req.body.numberofplayer;
+    if(req.body.location) eventFields.location = req.body.location;
+    if(req.body.description) eventFields.description = req.body.description;
+    
+    new Event(eventFields).save().then(event => res.json(event));
+});
+
 module.exports = router;

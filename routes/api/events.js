@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+const validateEventInput = require('../../validation/event');
+
 const Event = require('../../models/Event');
 
 router.get('/test', (req, res) => res.json({msg: "Events Work"}));
@@ -19,6 +21,12 @@ router.get('/all', (req, res) => {
 });
 
 router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
+    const {errors, isValid} = validateEventInput(req.body);
+    
+    if(!isValid){
+        return res.status(400).json(errors);
+    }
+    
     const eventFields = {};
     eventFields.user = req.user.id;
     

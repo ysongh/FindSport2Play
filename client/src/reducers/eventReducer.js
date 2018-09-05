@@ -13,7 +13,7 @@ export default function(state = initialState, action){
         case 'GET_EVENTS':
             return{
                 ...state,
-                profile: action.payload,
+                events: action.payload,
                 loading: false
             };
         default:

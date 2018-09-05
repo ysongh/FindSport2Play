@@ -4,7 +4,7 @@ import { GET_EVENTS, EVENT_LOADING } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
-    axios.get('/api/events')
+    axios.get('/api/events/all')
         .then(res =>
             dispatch({
                 type: GET_EVENTS,

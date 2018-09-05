@@ -6,8 +6,6 @@ import EventsList from './EventsList';
 import { getEvents } from '../../actions/eventActions';
 import { logoutUser } from '../../actions/authActions';
 
-import sportImage from '../../img/sport.png';
-
 class Events extends Component{
     componentDidMount(){
          this.props.getEvents();
@@ -44,19 +42,11 @@ class Events extends Component{
         return(
             <div>
                 <h1>List of Events</h1>
+                <Link to="/" className="btn btn-light">
+                    Go Back
+                </Link>
                 {isAuthenticated ? authLinks : null}
                 <div className="row">
-                    <div className="col">
-                        <div className="card" style={{width: '18rem'}}>
-                            <img className="card-img-top" src={sportImage} alt="Event" />
-                            <div className="card-body">
-                                <h5 className="card-title">Title</h5>
-                                <p className="card-text">Type of Sport</p>
-                                <p className="card-text">Number of Players</p>
-                                <Link to="/">More Info</Link>
-                            </div>
-                        </div>
-                    </div>
                     {eventContent}
                 </div>
             </div>

@@ -5,7 +5,7 @@ class EventsList extends Component{
     render(){
         const {events} = this.props;
         
-        return events.map(post => <EventItem key={event._id} event={event} />);
+        return events.map(event => <EventItem key={event._id} event={event} />);
     }
 }
 

@@ -39,4 +39,15 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     new Event(eventFields).save().then(event => res.json(event));
 });
 
+router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => {
+            if(event.user.toString() !== req.user.id){
+                return res.status(401).json({notauthorized: 'User not authorized'});
+            }
+            event.remove().then(() => res.json({success: true}));
+        })
+        .catch(err => res.status(404).json({error: err}));
+});
+
 module.exports = router;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import sportImage from '../../img/sport.png';
 
-class EventItem extends Component{
+class EventsItem extends Component{
     render(){
         const {event} = this.props;
         
@@ -27,4 +27,4 @@ class EventItem extends Component{
     }
 }
 
-export default connect(null)(EventItem);
+export default connect(null)(EventsItem);

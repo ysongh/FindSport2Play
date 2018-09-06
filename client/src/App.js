@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import './App.css';
+import Navbar from './components/layout/Navbar';
 import Home from './components/home/Home';
 import Events from './components/events/Events';
 import Register from './components/auth/Register';
@@ -33,6 +34,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <Navbar />
             <Route exact path="/" component={Home} />
             <div className="container">
               <Route exact path="/events" component={Events} />

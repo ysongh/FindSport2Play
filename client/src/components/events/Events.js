@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import EventsList from './EventsList';
+import Spinner from '../common/Spinner';
 import { getEvents } from '../../actions/eventActions';
 import { logoutUser } from '../../actions/authActions';
 
@@ -33,7 +34,7 @@ class Events extends Component{
         let eventContent;
         
         if(events === null || loading){
-            eventContent = <p>loading</p>;
+            eventContent = <Spinner />;
         }
         else{
             eventContent = <EventsList events={events} />;

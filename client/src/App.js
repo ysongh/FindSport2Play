@@ -13,6 +13,7 @@ import Home from './components/home/Home';
 import Events from './components/events/Events';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import CreateEvent from './components/create-event/CreateEvent';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -41,6 +42,7 @@ class App extends Component {
               <Route exact path="/events" component={Events} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/create-event" component={CreateEvent} />
             </div>
             <Footer />
           </div>

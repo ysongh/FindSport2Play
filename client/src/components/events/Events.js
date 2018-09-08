@@ -52,6 +52,9 @@ class Events extends Component{
                 </Link>
                 {isAuthenticated ? authLinks : null}
                 {eventContent}
+                <Link to="/create-event" className="btn btn-light mt-2">
+                    Add Event
+                </Link>
             </div>
         );
     }

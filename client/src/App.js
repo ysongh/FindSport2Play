@@ -8,6 +8,7 @@ import store from './store';
 
 import './App.css';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Home from './components/home/Home';
 import Events from './components/events/Events';
 import Register from './components/auth/Register';
@@ -41,6 +42,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
             </div>
+            <Footer />
           </div>
         </Router>
       </Provider>

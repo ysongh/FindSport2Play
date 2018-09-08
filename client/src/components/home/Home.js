@@ -16,7 +16,7 @@ class Home extends Component{
             <header className="jumbotron bg-primary mb-0">
           		<div className="container">
           			<h1 className="text-center">Welcome to FindSport2Play</h1>
-          			<img className="img-fluid" id="imageSize" src={sportImage} alt="Sport" />
+          			<img className="img-fluid mx-auto d-block" style={{width: '500px', height: '350px'}} src={sportImage} alt="Sport" />
           		</div>
           	</header>
 

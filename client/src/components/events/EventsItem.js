@@ -9,8 +9,8 @@ class EventsItem extends Component{
         const {event} = this.props;
         
         return(
-            <div className="col">
-                <div className="card" style={{width: '18rem'}}>
+            <div className="col-md-3 col-sm-6">
+                <div className="card p-1" style={{width: '18rem'}}>
                     <Link to={`/event/${event._id}`}>
                         <img className="card-img-top" src={sportImage}
                           alt="Sport" />

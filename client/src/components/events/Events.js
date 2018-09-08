@@ -37,19 +37,21 @@ class Events extends Component{
             eventContent = <Spinner />;
         }
         else{
-            eventContent = <EventsList events={events} />;
+            eventContent = (
+                <div className="row">
+                    <EventsList events={events} />
+                </div>
+            );
         }
         
         return(
             <div>
-                <h1>List of Events</h1>
+                <h1 className="text-center mt-2">List of Events</h1>
                 <Link to="/" className="btn btn-light">
                     Go Back
                 </Link>
                 {isAuthenticated ? authLinks : null}
-                <div className="row">
-                    {eventContent}
-                </div>
+                {eventContent}
             </div>
         );
     }

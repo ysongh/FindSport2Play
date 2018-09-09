@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TextFieldGroup from '../common/TextFieldGroup';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 
 class CreateEvent extends Component{
     constructor(props){
@@ -73,7 +74,7 @@ class CreateEvent extends Component{
                                   onChange={this.onChange}
                                   error={errors.location}
                                 />
-                                <TextFieldGroup
+                                <TextAreaFieldGroup
                                   placeholder="Description"
                                   name="description"
                                   type="name"

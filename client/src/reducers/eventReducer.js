@@ -1,5 +1,6 @@
 const initialState = {
-    events: null,
+    events: [],
+    event: [],
     loading: false
 };
 

@@ -1,6 +1,6 @@
 import axios from '../axios-lists';
 
-import { GET_EVENTS, EVENT_LOADING, GET_ERRORS  } from './types';
+import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS  } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
@@ -15,6 +15,24 @@ export const getEvents = () => dispatch => {
             dispatch({
                 type: GET_EVENTS,
                 payload: {}
+            })
+        );
+};
+
+export const getEvent = (id) => dispatch => {
+    dispatch(setEventLoading());
+    axios
+        .get(`/api/events/${id}`)
+        .then(res => 
+            dispatch({
+                type: GET_EVENT,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_EVENT,
+                payload: null
             })
         );
 };

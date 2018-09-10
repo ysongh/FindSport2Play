@@ -16,6 +16,12 @@ export default function(state = initialState, action){
                 events: action.payload,
                 loading: false
             };
+        case 'GET_EVENT':
+            return{
+                ...state,
+                event: action.payload,
+                loading: false
+            };
         default:
             return state;
     }

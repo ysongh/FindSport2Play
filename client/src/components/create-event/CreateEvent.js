@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import { createEvent } from '../../actions/eventActions';
 
 class CreateEvent extends Component{
     constructor(props){
@@ -19,14 +21,29 @@ class CreateEvent extends Component{
         this.onSubmit = this.onSubmit.bind(this);
     }
     
-        onSubmit(e){
-            e.preventDefault();
-            console.log('submit');
-        }
+    onSubmit(e){
+        e.preventDefault();
+        
+        const eventData = {
+            nameofevent: this.state.nameofevent,
+            typeofsport: this.state.typeofsport,
+            numberofplayer: this.state.numberofplayer,
+            location: this.state.location,
+            description: this.state.description
+        };
+        
+        this.props.createEvent(eventData, this.props.history);
+    }
     
-        onChange(e){
-            this.setState({[e.target.name]: e.target.value});
+    onChange(e){
+        this.setState({[e.target.name]: e.target.value});
+    }
+        
+    componentWillReceiveProps(nextProps){
+        if(nextProps.errors){
+            this.setState({errors: nextProps.errors});
         }
+    }
     
     render(){
         const {errors} = this.state;
@@ -93,7 +110,8 @@ class CreateEvent extends Component{
 }
 
 const mapStateToProps = state => ({
-    
+    event: state.event,
+    errors: state.errors
 });
 
-export default connect(mapStateToProps)(CreateEvent);
+export default connect(mapStateToProps, {createEvent})(withRouter(CreateEvent));

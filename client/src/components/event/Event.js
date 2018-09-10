@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Spinner from '../common/Spinner';
+import EventItem from '../event/EventItem';
 import { getEvent } from '../../actions/eventActions';
 
 class Event extends Component{
@@ -19,28 +20,18 @@ class Event extends Component{
         }
         else{
             eventContent = (
-                <div>
-                    <p>{this.props.match.params.id}</p>
-                    <p>{event.nameofevent}</p>
-                    <p>{event.typeofsport}</p>
-                    <p>{event.numberofplayer}</p>
-                    <p>{event.location}</p>
-                    <p>{event.description}</p>
-                </div>
+                <EventItem event={event} />
             );
         }
         
         return(
             <div className="post">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <Link to="/events" className="btn btn-light mb-3">
-                                Back
-                            </Link>
-                            {eventContent}
-                        </div>
-                    </div>
+                    <h1 className="text-center mt-2">{event.nameofevent}</h1>
+                    <Link to="/events" className="btn btn-light mb-3">
+                        Back
+                    </Link>
+                    {eventContent}
                 </div>
             </div>
         );

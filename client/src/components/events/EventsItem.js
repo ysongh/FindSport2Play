@@ -18,7 +18,9 @@ class EventsItem extends Component{
                     <div className="card-body">
                         <h5 className="card-title">{event.nameofevent}</h5>
                         <p className="card-text">{event.typeofsport}</p>
-                        <p className="card-text">{event.numberofplayer}</p>
+                        <p className="card-text">
+                            <i class="fas fa-users"></i> {event.numberofplayer}
+                        </p>
                         <Link to={`/event/${event._id}`} className="btn btn-info mr-1">More Info</Link>
                     </div>
                 </div>

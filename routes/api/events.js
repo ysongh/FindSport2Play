@@ -16,9 +16,18 @@ router.get('/all', (req, res) => {
             res.json(events);
         })
         .catch(err => 
-            res.status(404).json({error: err})
+            res.status(404).json({error: "Error in get api/events/all. " + err})
         );
 });
+
+router.get('/:id', (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => res.json(event))
+        .catch(err =>
+            res.status(404).json({error: "Error in get api/events/:id. " + err})
+        );
+});
+
 
 router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const {errors, isValid} = validateEventInput(req.body);
@@ -47,7 +56,7 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
             }
             event.remove().then(() => res.json({success: true}));
         })
-        .catch(err => res.status(404).json({error: err}));
+        .catch(err => res.status(404).json({error: "Error in delete api/events/:id. " + err}));
 });
 
 module.exports = router;

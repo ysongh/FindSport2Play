@@ -22,6 +22,7 @@ router.get('/all', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Event.findById(req.params.id)
+        .populate('user', ['name'])
         .then(event => res.json(event))
         .catch(err =>
             res.status(404).json({error: "Error in get api/events/:id. " + err})

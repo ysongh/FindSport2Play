@@ -30,9 +30,9 @@ class EventItem extends Component{
                 <span className="badge badge-info">Description</span>
                 <p>{event.description}</p>
                 
-                <p className="font-italic">Host By {auth.user.name}</p>
+                <p className="font-italic">Host By {event.user.name}</p>
                 
-                {event.user === auth.user.id ? (
+                {event.user._id === auth.user.id ? (
                     <button 
                         onClick={this.onDeleteClick.bind(this, event._id)}
                         type="button"

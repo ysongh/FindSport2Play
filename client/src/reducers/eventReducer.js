@@ -23,6 +23,11 @@ export default function(state = initialState, action){
                 event: action.payload,
                 loading: false
             };
+        case 'DELETE_EVENT':
+            return{
+                ...state,
+                events: state.events.filter(event => event._id !== action.payload)
+            };
         default:
             return state;
     }

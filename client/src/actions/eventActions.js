@@ -1,6 +1,6 @@
 import axios from '../axios-lists';
 
-import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS  } from './types';
+import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, DELETE_EVENT  } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
@@ -41,6 +41,23 @@ export const createEvent = (eventData, history) => dispatch => {
     axios
         .post('/api/events', eventData)
         .then(res => history.push('/events'))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+export const deleteEvent = id => dispatch => {
+    axios
+        .delete(`/api/events/${id}`)
+        .then(res => 
+            dispatch({
+                type: DELETE_EVENT,
+                payload: id
+            })
+        )
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,

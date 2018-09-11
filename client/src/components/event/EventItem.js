@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { deleteEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
     onDeleteClick(id){
-        console.log("Remove");
+        this.props.deleteEvent(id);
+        this.props.history.push('/events');
     }
     
     render(){
@@ -45,4 +49,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps)(EventItem);
+export default connect(mapStateToProps, {deleteEvent})(withRouter(EventItem));

@@ -24,6 +24,12 @@ const EventSchema = new Schema({
     description: {
         type: String
     },
+    image: {
+        type: String
+    },
+    image_id: {
+        type: String
+    },
     date:{
         type: Date,
         default: Date.now

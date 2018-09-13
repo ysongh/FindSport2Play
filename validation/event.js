@@ -24,6 +24,12 @@ module.exports = function validateProfileInput(data){
         errors.numberofplayer = 'Number of player field is required';
     }
     
+    if(!isEmpty(data.imageURL)){
+        if(!Validator.isURL(data.imageURL)){
+            errors.imageURL = 'Not a valid URL';
+        }
+    }
+    
     return {
         errors,
         isValid: isEmpty(errors)

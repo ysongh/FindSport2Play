@@ -45,6 +45,7 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     if(req.body.numberofplayer) eventFields.numberofplayer = req.body.numberofplayer;
     if(req.body.location) eventFields.location = req.body.location;
     if(req.body.description) eventFields.description = req.body.description;
+    if(req.body.imageURL) eventFields.imageURL = req.body.imageURL;
     
     new Event(eventFields).save().then(event => res.json(event));
 });

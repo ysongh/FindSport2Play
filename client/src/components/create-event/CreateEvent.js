@@ -60,7 +60,7 @@ class CreateEvent extends Component{
                             <small className="d-block pb-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup
-                                  placeholder="Name of Event"
+                                  placeholder="* Name of Event"
                                   name="nameofevent"
                                   type="name"
                                   value={this.state.nameofevent}
@@ -68,7 +68,7 @@ class CreateEvent extends Component{
                                   error={errors.nameofevent}
                                 />
                                 <TextFieldGroup
-                                  placeholder="Type of Sport"
+                                  placeholder="* Type of Sport"
                                   name="typeofsport"
                                   type="name"
                                   value={this.state.typeofsport}
@@ -76,7 +76,7 @@ class CreateEvent extends Component{
                                   error={errors.typeofsport}
                                 />
                                 <TextFieldGroup
-                                  placeholder="Number of player"
+                                  placeholder="* Number of player"
                                   name="numberofplayer"
                                   type="number"
                                   value={this.state.numberofplayer}

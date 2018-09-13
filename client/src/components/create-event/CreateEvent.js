@@ -15,6 +15,7 @@ class CreateEvent extends Component{
             numberofplayer: '',
             location: '',
             description: '',
+            image: null,
             errors: {}
         };
         this.onChange = this.onChange.bind(this);
@@ -35,7 +36,8 @@ class CreateEvent extends Component{
             typeofsport: this.state.typeofsport,
             numberofplayer: this.state.numberofplayer,
             location: this.state.location,
-            description: this.state.description
+            description: this.state.description,
+            image: this.state.image
         };
         
         this.props.createEvent(eventData, this.props.history);
@@ -43,6 +45,15 @@ class CreateEvent extends Component{
     
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
+    }
+    
+    handleUploadFile = (event) => {
+        const data = new FormData();
+        data.append('file', event.target.files[0]);
+        data.append('name', 'some value user types');
+        data.append('description', 'some value user types');
+        console.log(data);
+        this.setState({image: data});
     }
     
     render(){
@@ -58,7 +69,7 @@ class CreateEvent extends Component{
                                 Create your own event for other to play with you
                             </p>
                             <small className="d-block pb-3">* = required fields</small>
-                            <form onSubmit={this.onSubmit}>
+                            <form onSubmit={this.onSubmit} encType="multipart/form-data">
                                 <TextFieldGroup
                                   placeholder="Name of Event"
                                   name="nameofevent"
@@ -99,6 +110,13 @@ class CreateEvent extends Component{
                                   onChange={this.onChange}
                                   error={errors.description}
                                 />
+                                <input
+                                    type="file"
+                                    name="image"
+                                    onChange={this.handleUploadFile}
+                                    accept="image/*"
+                                />
+                                
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                           </form>
                         </div>

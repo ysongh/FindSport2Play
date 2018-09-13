@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
+router.post('/', passport.authenticate('jwt', {session: false}), upload.single('image'), (req, res) => {
     const {errors, isValid} = validateEventInput(req.body);
     
     if(!isValid){
@@ -66,6 +66,11 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     
     const eventFields = {};
     eventFields.user = req.user.id;
+    
+    cloudinary.uploader.upload(req.body.image.file, function(result) {
+        eventFields.image = result.secure_url;
+        eventFields.image_id = result.public_id;
+    });
     
     if(req.body.nameofevent) eventFields.nameofevent = req.body.nameofevent;
     if(req.body.typeofsport) eventFields.typeofsport = req.body.typeofsport;

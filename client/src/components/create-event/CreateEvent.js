@@ -13,6 +13,7 @@ class CreateEvent extends Component{
             nameofevent: '',
             typeofsport: '',
             numberofplayer: '',
+            imageURL: '',
             location: '',
             description: '',
             errors: {}
@@ -34,6 +35,7 @@ class CreateEvent extends Component{
             nameofevent: this.state.nameofevent,
             typeofsport: this.state.typeofsport,
             numberofplayer: this.state.numberofplayer,
+            imageURL: this.state.imageURL,
             location: this.state.location,
             description: this.state.description
         };
@@ -82,6 +84,14 @@ class CreateEvent extends Component{
                                   value={this.state.numberofplayer}
                                   onChange={this.onChange}
                                   error={errors.numberofplayer}
+                                />
+                                <TextFieldGroup
+                                  placeholder="Image URL"
+                                  name="imageURL"
+                                  type="name"
+                                  value={this.state.imageURL}
+                                  onChange={this.onChange}
+                                  error={errors.imageURL}
                                 />
                                 <TextFieldGroup
                                   placeholder="Location"

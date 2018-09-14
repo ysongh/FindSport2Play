@@ -12,7 +12,7 @@ class EventsItem extends Component{
             <div className="col-md-3 col-sm-6">
                 <div className="card p-1" style={{width: '18rem'}}>
                     <Link to={`/event/${event._id}`}>
-                        <img className="card-img-top" src={sportImage}
+                        <img className="card-img-top" style={{height: '220px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Link>
                     <div className="card-body">

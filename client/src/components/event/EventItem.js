@@ -22,13 +22,17 @@ class EventItem extends Component{
                 <p>{event.typeofsport}</p>
                 
                 <span className="badge badge-info">Number of Player</span>
-                <p>{event.numberofplayer}</p>
+                <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
                 
                 <span className="badge badge-info">Location</span>
-                <p>{event.location}</p>
+                <p>
+                    {event.location ? event.location : "To Be Announced"}
+                </p>
                 
                 <span className="badge badge-info">Description</span>
-                <p>{event.description}</p>
+                <p>
+                    {event.description ? event.location : "None"}
+                </p>
                 
                 <p className="font-italic">Host By {event.user.name}</p>
                 

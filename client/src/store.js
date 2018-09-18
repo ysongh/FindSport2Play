@@ -6,13 +6,16 @@ const initialState = {};
 
 const middleware = [thunk];
 
+let reduxTools = compose(applyMiddleware(...middleware),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+if(process.env.NODE_ENV === 'production'){
+    reduxTools = compose(applyMiddleware(...middleware));
+}
+
 const store = createStore(
     rootReducer,
     initialState,
-    compose(
-        applyMiddleware(...middleware),
-        process.env.NODE_ENV === 'production' ? null : window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+    reduxTools
 );
 
 export default store;

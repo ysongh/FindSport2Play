@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ class EventItem extends Component{
         return(
             <div className="jumbotron">
                 <span className="badge badge-info">Date</span>
-                <p>{event.date}</p>
+                <p><Moment format="MM/DD/YYYY">{event.date}</Moment></p>
                 
                 <span className="badge badge-info">Type of Sport</span>
                 <p>{event.typeofsport}</p>

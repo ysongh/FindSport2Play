@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 
 const validateEventInput = require('../../validation/event');
@@ -11,6 +10,7 @@ router.get('/test', (req, res) => res.json({msg: "Events Work"}));
 
 router.get('/all', (req, res) => {
     Event.find()
+        .sort('-date')
         .populate('user', ['name'])
         .then(events => {
             res.json(events);

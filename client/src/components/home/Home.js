@@ -26,8 +26,8 @@ class Home extends Component{
         				  <div className="col-md-5">
         					  <img className="img-fluid rounded-circle float-right" src={sportsImage} alt="Sports"/>
         				  </div>
-        				  <div className="col-md-7">
-        					  <h1 className="text-center">Start Finding Your Match!</h1>
+        				  <div className="col-md-7 text-center">
+        					  <h1>Start Finding Your Match!</h1>
         					  <Link to="/events" className="btn btn-lg text-white bg-info">Go to Events</Link>
         				  </div>
         			  </div>

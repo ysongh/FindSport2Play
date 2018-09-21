@@ -27,6 +27,12 @@ const EventSchema = new Schema({
     imageURL: {
         type: String
     },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "comment"
+        }
+    ],
     date:{
         type: Date,
         default: Date.now

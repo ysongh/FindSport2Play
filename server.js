@@ -6,6 +6,7 @@ const path = require('path');
 
 const users = require('./routes/api/users');
 const events = require('./routes/api/events');
+const comments = require('./routes/api/comments');
 
 const app = express();
 
@@ -37,6 +38,7 @@ require('./config/passport')(passport);
 
 app.use('/api/users', users);
 app.use('/api/events', events);
+app.use('/api/events/comments', comments);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

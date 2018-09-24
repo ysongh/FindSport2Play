@@ -38,7 +38,7 @@ require('./config/passport')(passport);
 
 app.use('/api/users', users);
 app.use('/api/events', events);
-app.use('/api/events/comments', comments);
+app.use('/api/events', comments);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

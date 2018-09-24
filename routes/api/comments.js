@@ -1,6 +1,33 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
-router.get('/test', (req, res) => res.json({msg: "Comments Work"}));
+const Event = require('../../models/Event');
+
+router.get('/:id/comments/test', (req, res) => {
+    Event.findById(req.params.id)
+        .then(comment => {
+            res.json({msg: "Comment Work"});
+        })
+        .catch(err =>
+            res.status(404).json({error: "Error in get api/events/:id/comments/test. " + err})
+        );
+});
+
+router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => {
+            const newComment = {
+                text: req.body.text,
+                name: req.user.name,
+                user: req.user.id
+            };
+            
+            event.comments.unshift(newComment);
+            
+            event.save()
+                .then(event => res.json(event));
+        });
+});
 
 module.exports = router;

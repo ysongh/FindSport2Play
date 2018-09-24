@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Spinner from '../common/Spinner';
 import EventItem from '../event/EventItem';
+import Comments from './comments/Comments';
 import { getEvent } from '../../actions/eventActions';
 
 class Event extends Component{
@@ -32,6 +33,7 @@ class Event extends Component{
                         Back
                     </Link>
                     {eventContent}
+                    <Comments />
                 </div>
             </div>
         );

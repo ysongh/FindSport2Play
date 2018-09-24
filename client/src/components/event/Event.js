@@ -24,6 +24,9 @@ class Event extends Component{
                 <div>
                     <EventItem event={event} />
                     <h2>Comments</h2>
+                    <Link to={`/event/${event._id}/newcomment`} className="btn btn-light mb-3">
+                        Add Comments
+                    </Link>
                     <Comments eventId={event._id} comments={event.comments} />
                 </div>
             );

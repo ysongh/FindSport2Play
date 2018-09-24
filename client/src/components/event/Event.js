@@ -21,7 +21,11 @@ class Event extends Component{
         }
         else{
             eventContent = (
-                <EventItem event={event} />
+                <div>
+                    <EventItem event={event} />
+                    <h2>Comments</h2>
+                    <Comments eventId={event._id} comments={event.comments} />
+                </div>
             );
         }
         
@@ -33,7 +37,6 @@ class Event extends Component{
                         Back
                     </Link>
                     {eventContent}
-                    <Comments />
                 </div>
             </div>
         );

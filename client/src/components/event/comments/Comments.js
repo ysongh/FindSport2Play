@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 
+import CommentItem from './CommentItem';
+
 class Comments extends Component {
     render(){
+        const {comments, eventId} = this.props;
         
-        return(
-            <div className="comment">
-                <h2>Comments</h2>
-                <div className="card card-body mb-3">
-                    <p>Some comments</p>
-                </div>
-            </div>
-        );
+        return comments.map(comment => (
+            <CommentItem key={comment._id} comment={comment} eventId={eventId} />
+        ));
     }
 }
 

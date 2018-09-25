@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
+const validateCommentInput = require('../../validation/comment');
+
 const Event = require('../../models/Event');
 
 router.get('/:id/comments/test', (req, res) => {
@@ -17,6 +19,12 @@ router.get('/:id/comments/test', (req, res) => {
 router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
         .then(event => {
+            const {errors, isValid} = validateCommentInput(req.body);
+            
+            if(!isValid){
+                return res.status(400).json(errors);
+            }
+            
             const newComment = {
                 text: req.body.text,
                 name: req.user.name,

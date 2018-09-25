@@ -70,4 +70,8 @@ class CommentForm extends Component {
   }
 }
 
-export default connect(null, {addComment})(withRouter(CommentForm)); 
+const mapStateToProps = state => ({
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, {addComment})(withRouter(CommentForm)); 

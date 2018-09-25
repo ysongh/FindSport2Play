@@ -49,6 +49,18 @@ export const createEvent = (eventData, history) => dispatch => {
         );
 };
 
+export const addComment = (eventID, commentData, history) => dispatch => {
+    axios
+        .post(`/api/events/${eventID}/comments`, commentData)
+        .then(res => history.push(`/event/${eventID}`))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
 export const deleteEvent = id => dispatch => {
     axios
         .delete(`/api/events/${id}`)

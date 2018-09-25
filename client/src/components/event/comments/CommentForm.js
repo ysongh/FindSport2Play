@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
+import { addComment } from '../../../actions/eventActions';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class CommentForm extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+  
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
       this.setState({ errors: newProps.errors });
@@ -24,7 +26,11 @@ class CommentForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    console.log(this.state.text);
+    const commentData = {
+      text : this.state.text
+    };
+    
+    this.props.addComment(this.props.match.params.id, commentData, this.props.history);
   }
 
   onChange(e) {
@@ -64,4 +70,4 @@ class CommentForm extends Component {
   }
 }
 
-export default CommentForm;
+export default connect(null, {addComment})(withRouter(CommentForm)); 

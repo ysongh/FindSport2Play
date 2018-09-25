@@ -25,9 +25,12 @@ class CommentForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    
+    const { user } = this.props.auth;
 
     const commentData = {
-      text : this.state.text
+      text : this.state.text,
+      name: user.name,
     };
     
     this.props.addComment(this.props.match.params.id, commentData, this.props.history);
@@ -71,6 +74,7 @@ class CommentForm extends Component {
 }
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   errors: state.errors
 });
 

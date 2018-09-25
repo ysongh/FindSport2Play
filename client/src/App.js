@@ -48,7 +48,7 @@ class App extends Component {
                 <PrivateRoute exact path="/create-event" component={CreateEvent} />
                 <Route exact path="/events" component={Events} />
                 <Route exact path="/event/:id" component={Event} />
-                <Route exact path="/event/:id/newcomment" component={CommentForm} />
+                <PrivateRoute exact path="/event/:id/newcomment" component={CommentForm} />
               </Switch>
             </div>
             <Footer />

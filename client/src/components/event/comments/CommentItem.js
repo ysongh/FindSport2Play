@@ -7,7 +7,7 @@ class CommentItem extends Component{
         const {comment} = this.props;
         
         return(
-            <div className="card card-body mb-3">
+            <div className="card card bg-light text-dark mb-1 p-2">
               <div className="row">
                 <div className="col-md-1">
                   <i className="far fa-user text-center"></i>

@@ -38,4 +38,23 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
         });
 });
 
+router.delete('/:id/comments/:com_id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => {
+            if(event.user.toString() !== req.user.id){
+                return res.status(401).json({notauthorized: 'User not authorized'});
+            }
+            
+            const removeIndex = event.comments
+                .map(item => item.id)
+                .indexOf(req.params.com_id);
+                
+            event.comments.splice(removeIndex, 1);
+            
+            event.save()
+                .then(event => res.json(event));
+        })
+        .catch(err => res.status(404).json(err));
+});
+
 module.exports = router;

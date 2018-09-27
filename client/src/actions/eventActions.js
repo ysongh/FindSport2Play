@@ -78,6 +78,23 @@ export const deleteEvent = id => dispatch => {
         );
 };
 
+export const deleteComment = (eventID, com_id) => dispatch => {
+     axios
+         .delete(`/api/events/${eventID}/comments/${com_id}`)
+         .then(res => 
+             dispatch({
+                type: GET_EVENT,
+                payload: res.data
+             })
+         )
+         .catch(err => 
+             dispatch({
+                 type: GET_ERRORS,
+                 payload: err.response.data
+             })
+         );
+ };
+
 export const setEventLoading = () => {
     return{
         type: EVENT_LOADING

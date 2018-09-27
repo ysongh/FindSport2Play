@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { deleteComment } from '../../../actions/eventActions';
 
 class CommentItem extends Component{
     onDeleteClick(eventId, commentId){
-        console.log(eventId + " " + commentId);
+      this.props.deleteComment(eventId, commentId);
+      this.props.history.push(`/events`);
     }
     
     render(){
@@ -41,4 +45,4 @@ const mapStateToProps = state => ({
     events: state.events
 });
 
-export default connect(mapStateToProps)(CommentItem);
+export default withRouter(connect(mapStateToProps, {deleteComment})(CommentItem));

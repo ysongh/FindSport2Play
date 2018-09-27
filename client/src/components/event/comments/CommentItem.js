@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class CommentItem extends Component{
+    onDeleteClick(eventId, commentId){
+        console.log(eventId + " " + commentId);
+    }
     
     render(){
-        const {comment} = this.props;
+        const {comment, auth} = this.props;
+        const {event} = this.props.events;
         
         return(
             <div className="card card bg-light text-dark mb-1 p-2">
@@ -12,7 +16,14 @@ class CommentItem extends Component{
                 <div className="col-md-1">
                   <i className="far fa-user text-center"></i>
                   <p>{comment.name}</p>
-                  <br />
+                  {event.user._id === auth.user.id ? (
+                    <button 
+                      onClick={this.onDeleteClick.bind(this, event._id, comment._id)}
+                      type="button"
+                      className="btn btn-danger mr-1" >
+                      <i className="fas fa-times" />
+                    </button>
+                   ) : null}
                 </div>
                 <div className="col-md-11">
                   <p className="lead">
@@ -26,7 +37,8 @@ class CommentItem extends Component{
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    events: state.events
 });
 
 export default connect(mapStateToProps)(CommentItem);

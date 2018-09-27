@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -111,6 +111,9 @@ class CreateEvent extends Component{
                                 />
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                           </form>
+                          <Link to="/events" className="btn btn-light btn-block mt-1">
+                                Cancel
+                          </Link>
                         </div>
                     </div>
                 </div>

@@ -17,6 +17,7 @@ import CommentForm from './components/event/comments/CommentForm';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import CreateEvent from './components/create-event/CreateEvent';
+import Profile from './components/profile/Profile';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -48,6 +49,7 @@ class App extends Component {
                 <PrivateRoute exact path="/create-event" component={CreateEvent} />
                 <Route exact path="/events" component={Events} />
                 <Route exact path="/event/:id" component={Event} />
+                <Route exact path="/profile/:id" component={Profile} />
                 <PrivateRoute exact path="/event/:id/newcomment" component={CommentForm} />
               </Switch>
             </div>

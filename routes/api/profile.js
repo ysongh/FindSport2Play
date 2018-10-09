@@ -35,4 +35,21 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     });
 });
 
+router.get('/user/:user_id', (req, res) => {
+    const errors = {};
+    
+    Profile.findOne({user: req.params.user_id})
+        .populate('user', ['name', 'avatar'])
+        .then(profile => {
+            if(!profile){
+                errors.noprofile = 'This user does not exist';
+                res.status(404).json(errors);
+            }
+            res.json(profile);
+        })
+        .catch(err => 
+            res.status(404).json({profile: 'There is no profile for this user'})
+        );
+});
+
 module.exports = router;

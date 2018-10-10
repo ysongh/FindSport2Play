@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
-import Spinner from '../common/Spinner'
-import { getUser } from '../../actions/userActions';
+import Spinner from '../common/Spinner';
+import { getCurrentProfile  } from '../../actions/profileActions';
 
 class Profile extends Component{
   componentDidMount(){
-     this.props.getUser(this.props.match.params.id);
+     this.props.getCurrentProfile(this.props.match.params.id);
   }
     
   render(){
-      const {user, loading} = this.props.user;
+      const {profile, loading} = this.props.profile;
       
-      let userContent;
+      let profileContent;
         
-        if(user === null || loading){
-            userContent = <Spinner />;
+        if(profile === null || loading){
+            profileContent = <Spinner />;
         }
         else{
-            userContent = (
+            profileContent = (
                 <div>
-                  <p>{user.name}</p>
-                  <p>{user.email}</p>
-                  <p><Moment format="MM/DD/YYYY">{user.date}</Moment></p>
+                  <p>{profile.handle}</p>
+                  <p>{profile.location}</p>
+                  <p>{profile.bio}</p>
+                  <p><Moment format="MM/DD/YYYY">{profile.date}</Moment></p>
                 </div>
             );
         }
@@ -31,14 +32,14 @@ class Profile extends Component{
       return(
           <div>
             <h1 className="text-center">Profile</h1>
-            {userContent}
+            {profileContent}
           </div>
       );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.users
+  profile: state.profile
 });
 
-export default connect(mapStateToProps, {getUser})(Profile); 
+export default connect(mapStateToProps, {getCurrentProfile})(Profile); 

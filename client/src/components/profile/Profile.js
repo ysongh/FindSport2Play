@@ -21,8 +21,9 @@ class Profile extends Component{
         else{
             profileContent = (
                 <div>
-                  <p>{profile.handle}</p>
+                  <p>{profile.user.name}</p>
                   <p>{profile.location}</p>
+                  <p>{profile.favoriteSport}</p>
                   <p>{profile.bio}</p>
                   <p><Moment format="MM/DD/YYYY">{profile.date}</Moment></p>
                 </div>

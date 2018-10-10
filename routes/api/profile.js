@@ -7,6 +7,7 @@ const Profile = require('../../models/Profile');
 router.get('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const errors = {};
     Profile.findOne({user: req.user.id})
+        .populate('user', ['name'])
         .then(profile => {
             if(!profile){
                 errors.noprofile = 'There is no profile for this user';
@@ -52,7 +53,7 @@ router.get('/user/:user_id', (req, res) => {
     const errors = {};
     
     Profile.findOne({user: req.params.user_id})
-        .populate('user', ['name', 'avatar'])
+        .populate('user', ['name'])
         .then(profile => {
             if(!profile){
                 errors.noprofile = 'This user does not exist';

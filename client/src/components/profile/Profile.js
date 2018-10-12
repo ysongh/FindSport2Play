@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Spinner from '../common/Spinner';
@@ -36,9 +37,9 @@ class Profile extends Component{
           <div>
             <p className="lead text-muted">{user.name}</p>
             <p>You have not yet setup a profile, please add info</p>
-            <p className="btn btn-lg btn-info">
+            <Link to="/create-profile" className="btn btn-lg btn-info">
               Create Profile
-            </p>
+            </Link>
           </div>
         );
       }

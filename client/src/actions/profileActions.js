@@ -1,6 +1,6 @@
 import axios from '../axios-lists';
 
-import { GET_PROFILE, PROFILE_LOADING } from './types';
+import { GET_PROFILE, PROFILE_LOADING, GET_ERRORS } from './types';
 
 export const getCurrentProfile = () => dispatch => {
     dispatch(setProfileLoading());
@@ -15,6 +15,18 @@ export const getCurrentProfile = () => dispatch => {
             dispatch({
                 type: GET_PROFILE,
                 payload: {}
+            })
+        );
+};
+
+export const createProfile = (profileData, history) => dispatch => {
+    axios
+        .post('/api/profile', profileData)
+        .then(res => history.push('/create-profile'))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
             })
         );
 };

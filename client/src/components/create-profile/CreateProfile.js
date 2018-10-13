@@ -48,7 +48,7 @@ class CreateProfile extends Component{
                                     name="handle"
                                     value={this.state.handle}
                                     onChange={this.onChange}
-                                    info="A unique handle for your profile URL. Your full name, company name, nickname"
+                                    info="A unique handle for your profile URL. Your full name, nickname"
                                 />
                                 <TextFieldGroup
                                     placeholder="Location"
@@ -62,7 +62,7 @@ class CreateProfile extends Component{
                                     name="favoriteSport"
                                     value={this.state.favoriteSport}
                                     onChange={this.onChange}
-                                    info="Please use comma separated values (eg. HTML,CSS,JavaScrpit,PHP)"
+                                    info="Please use comma separated values (eg. Baseball,Tennis,Football)"
                                 />
                                 <TextAreaFieldGroup
                                     placeholder="Short Bio"

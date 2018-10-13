@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import { createProfile } from '../../actions/profileActions';
 
 class CreateProfile extends Component{
     constructor(props){
@@ -18,6 +20,12 @@ class CreateProfile extends Component{
         this.onSubmit = this.onSubmit.bind(this);
     }
     
+    componentWillReceiveProps(nextProps){
+        if(nextProps.errors){
+            this.setState({errors: nextProps.errors});
+        }
+    }
+    
     onSubmit(e){
         e.preventDefault();
         
@@ -28,13 +36,15 @@ class CreateProfile extends Component{
             bio: this.state.bio
         };
         
-        console.log(profileData);
+        this.props.createProfile(profileData, this.props.history);
     }
     
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
     }
     render(){
+        const {errors} = this.state;
+        
         return(
             <div className="create-profile">
                 <div className="container">
@@ -48,6 +58,7 @@ class CreateProfile extends Component{
                                     name="handle"
                                     value={this.state.handle}
                                     onChange={this.onChange}
+                                    error={errors.handle}
                                     info="A unique handle for your profile URL. Your full name, nickname"
                                 />
                                 <TextFieldGroup
@@ -55,6 +66,7 @@ class CreateProfile extends Component{
                                     name="location"
                                     value={this.state.location}
                                     onChange={this.onChange}
+                                    error={errors.location}
                                     info="City or city and state suggested (eg. New York, NY)"
                                 />
                                 <TextFieldGroup
@@ -62,6 +74,7 @@ class CreateProfile extends Component{
                                     name="favoriteSport"
                                     value={this.state.favoriteSport}
                                     onChange={this.onChange}
+                                    error={errors.favoriteSport}
                                     info="Please use comma separated values (eg. Baseball,Tennis,Football)"
                                 />
                                 <TextAreaFieldGroup
@@ -69,6 +82,7 @@ class CreateProfile extends Component{
                                     name="bio"
                                     value={this.state.bio}
                                     onChange={this.onChange}
+                                    error={errors.bio}
                                     info="Tell us a little about yourself"
                                 />
                                 <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
@@ -81,4 +95,9 @@ class CreateProfile extends Component{
     }
 }
 
-export default connect()(withRouter(CreateProfile));
+const mapStateToProps = state => ({
+    profile: state.profile,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));

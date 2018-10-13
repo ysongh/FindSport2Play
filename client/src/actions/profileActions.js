@@ -22,7 +22,7 @@ export const getCurrentProfile = () => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
     axios
         .post('/api/profile', profileData)
-        .then(res => history.push('/create-profile'))
+        .then(res => history.push('/profile'))
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,

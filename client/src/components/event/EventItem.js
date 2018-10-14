@@ -32,7 +32,7 @@ class EventItem extends Component{
                 
                 <span className="badge badge-info">Description</span>
                 <p>
-                    {event.description ? event.location : "None"}
+                    {event.description ? event.description : "None"}
                 </p>
                 
                 <p className="font-italic">Host By {event.user.name}</p>

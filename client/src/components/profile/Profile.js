@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Spinner from '../common/Spinner';
+import ProfileAbout from './ProfileAbout';
 import { getCurrentProfile  } from '../../actions/profileActions';
 
 class Profile extends Component{
@@ -23,13 +23,7 @@ class Profile extends Component{
     else{
       if(Object.keys(profile).length > 0){
         profileContent = (
-          <div>
-            <p className="lead text-muted">{profile.user.name}</p>
-            <p>{profile.location}</p>
-            <p>{profile.favoriteSport}</p>
-            <p>{profile.bio}</p>
-            <p><Moment format="MM/DD/YYYY">{profile.date}</Moment></p>
-          </div>
+          <ProfileAbout profile={profile} />
         );
       }
       else{

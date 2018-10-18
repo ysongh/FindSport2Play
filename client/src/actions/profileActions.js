@@ -19,6 +19,23 @@ export const getCurrentProfile = () => dispatch => {
         );
 };
 
+export const getUserProfile = (id) => dispatch => {
+    dispatch(setProfileLoading());
+    axios.get(`/api/profile/${id}`)
+        .then(res =>
+            dispatch({
+                type: GET_PROFILE,
+                payload: res.data
+            })
+        )
+        .catch(err => 
+            dispatch({
+                type: GET_PROFILE,
+                payload: {}
+            })
+        );
+};
+
 export const createProfile = (profileData, history) => dispatch => {
     axios
         .post('/api/profile', profileData)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import { deleteComment } from '../../../actions/eventActions';
 
@@ -19,7 +19,11 @@ class CommentItem extends Component{
               <div className="row">
                 <div className="col-md-1">
                   <i className="far fa-user text-center"></i>
-                  <p>{comment.name}</p>
+                  <div>
+                     <Link to={`/profile/${comment.user}`}>
+                         <p className="font-italic">{comment.name}</p>
+                    </Link>
+                  </div>
                   {event.user._id === auth.user.id ? (
                     <button 
                       onClick={this.onDeleteClick.bind(this, event._id, comment._id)}

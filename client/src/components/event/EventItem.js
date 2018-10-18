@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -35,7 +36,12 @@ class EventItem extends Component{
                     {event.description ? event.description : "None"}
                 </p>
                 
-                <p className="font-italic">Host By {event.user.name}</p>
+                <div>
+                     <p className="d-inline">Host By</p>
+                     <Link to={`/profile/${event.user._id}`}>
+                         <p className="font-italic d-inline"> {event.user.name}</p>
+                    </Link>
+                </div>
                 
                 {event.user._id === auth.user.id ? (
                     <button 

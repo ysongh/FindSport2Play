@@ -21,7 +21,7 @@ export const getCurrentProfile = () => dispatch => {
 
 export const getUserProfile = (id) => dispatch => {
     dispatch(setProfileLoading());
-    axios.get(`/api/profile/${id}`)
+    axios.get(`/api/profile/user/${id}`)
         .then(res =>
             dispatch({
                 type: GET_PROFILE,

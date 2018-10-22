@@ -15,6 +15,7 @@ class CreateEvent extends Component{
             numberofplayer: '',
             imageURL: '',
             location: '',
+            start: '',
             description: '',
             errors: {}
         };
@@ -37,6 +38,7 @@ class CreateEvent extends Component{
             numberofplayer: this.state.numberofplayer,
             imageURL: this.state.imageURL,
             location: this.state.location,
+            start: this.state.start,
             description: this.state.description
         };
         
@@ -100,6 +102,13 @@ class CreateEvent extends Component{
                                   value={this.state.location}
                                   onChange={this.onChange}
                                   error={errors.location}
+                                />
+                                <TextFieldGroup
+                                  name="start"
+                                  type="date"
+                                  value={this.state.start}
+                                  onChange={this.onChange}
+                                  error={errors.start}
                                 />
                                 <TextAreaFieldGroup
                                   placeholder="Description"

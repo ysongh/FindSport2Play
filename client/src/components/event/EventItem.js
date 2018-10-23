@@ -17,9 +17,6 @@ class EventItem extends Component{
         
         return(
             <div className="jumbotron">
-                <span className="badge badge-info">Date</span>
-                <p><Moment format="MM/DD/YYYY">{event.date}</Moment></p>
-                
                 <span className="badge badge-info">Type of Sport</span>
                 <p>{event.typeofsport}</p>
                 
@@ -31,6 +28,11 @@ class EventItem extends Component{
                     {event.location ? event.location : "To Be Announced"}
                 </p>
                 
+                <span className="badge badge-info">Start Date</span>
+                <p>
+                    {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
+                </p>
+                
                 <span className="badge badge-info">Description</span>
                 <p>
                     {event.description ? event.description : "None"}
@@ -39,8 +41,9 @@ class EventItem extends Component{
                 <div>
                      <p className="d-inline">Host By</p>
                      <Link to={`/profile/${event.user._id}`}>
-                         <p className="font-italic d-inline"> {event.user.name}</p>
+                         <p className="font-italic d-inline"> {event.user.name} </p>
                     </Link>
+                    on <Moment format="MM/DD/YYYY">{event.date}</Moment>
                 </div>
                 
                 {event.user._id === auth.user.id ? (

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Map from './map/Map.js';
 import { deleteEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
@@ -17,43 +18,50 @@ class EventItem extends Component{
         
         return(
             <div className="jumbotron">
-                <span className="badge badge-info">Type of Sport</span>
-                <p>{event.typeofsport}</p>
-                
-                <span className="badge badge-info">Number of Player</span>
-                <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
-                
-                <span className="badge badge-info">Location</span>
-                <p>
-                    {event.location ? event.location : "To Be Announced"}
-                </p>
-                
-                <span className="badge badge-info">Start Date</span>
-                <p>
-                    {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
-                </p>
-                
-                <span className="badge badge-info">Description</span>
-                <p>
-                    {event.description ? event.description : "None"}
-                </p>
-                
-                <div>
-                     <p className="d-inline">Host By</p>
-                     <Link to={`/profile/${event.user._id}`}>
-                         <p className="font-italic d-inline"> {event.user.name} </p>
-                    </Link>
-                    on <Moment format="MM/DD/YYYY">{event.date}</Moment>
+                <div className="row">
+                    <div className="col-md-4">
+                        <span className="badge badge-info">Type of Sport</span>
+                        <p>{event.typeofsport}</p>
+                        
+                        <span className="badge badge-info">Number of Player</span>
+                        <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
+                        
+                        <span className="badge badge-info">Location</span>
+                        <p>
+                            {event.location ? event.location : "To Be Announced"}
+                        </p>
+                        
+                        <span className="badge badge-info">Start Date</span>
+                        <p>
+                            {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
+                        </p>
+                        
+                        <span className="badge badge-info">Description</span>
+                        <p>
+                            {event.description ? event.description : "None"}
+                        </p>
+                        
+                        <div>
+                             <p className="d-inline">Host By</p>
+                             <Link to={`/profile/${event.user._id}`}>
+                                 <p className="font-italic d-inline"> {event.user.name} </p>
+                            </Link>
+                            on <Moment format="MM/DD/YYYY">{event.date}</Moment>
+                        </div>
+                        
+                        {event.user._id === auth.user.id ? (
+                            <button 
+                                onClick={this.onDeleteClick.bind(this, event._id)}
+                                type="button"
+                                className="btn btn-danger mr-1" >
+                                Delete
+                            </button>
+                        ) : null}
+                    </div>
+                    <div className="col-md-8">
+                        <Map />
+                    </div>
                 </div>
-                
-                {event.user._id === auth.user.id ? (
-                    <button 
-                        onClick={this.onDeleteClick.bind(this, event._id)}
-                        type="button"
-                        className="btn btn-danger mr-1" >
-                        Delete
-                    </button>
-                ) : null}
             </div>
         );
     }

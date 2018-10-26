@@ -59,7 +59,7 @@ class EventItem extends Component{
                         ) : null}
                     </div>
                     <div className="col-md-8">
-                        <Map />
+                        <Map location = {event.location}/>
                     </div>
                 </div>
             </div>

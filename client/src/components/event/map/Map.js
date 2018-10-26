@@ -10,43 +10,46 @@ class Map extends Component {
     this.state = {
       lng: -71.0596,
       lat: 42.3605,
-      zoom: 8.29
+      zoom: 8
     };
   }
 
   componentDidMount() {
-    const { lng, lat, zoom } = this.state;
+    let { zoom } = this.state;
+    const location = this.props.location;
     
     const mapboxKey = "pk.eyJ1Ijoic29uZ3dlYiIsImEiOiJjam04NWdjNXAxMzhsM3FuM2RodmlkZDM1In0.3wNwmidFRlSbKP3xbaYPfw";
     
     const options = {
-        uri: `https://api.mapbox.com/geocoding/v5/mapbox.places/newyork.json?access_token=${mapboxKey}`,
+        uri: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapboxKey}`,
         json: true
     };
         
     request(options)
       .then(res => {
-        console.log(res.features[0].center[0]);
-        console.log(res.features[0].center[1]);
+        const lng = res.features[0].center[0];
+        const lat = res.features[0].center[1];
+        
+        let center = [lng, lat];
+
+        const map = new mapboxgl.Map({
+          container: this.mapContainer,
+          style: 'mapbox://styles/mapbox/streets-v9',
+          center: center,
+          zoom
+        });
+    
+        map.on('move', () => {
+          const { lng, lat } = map.getCenter();
+    
+          this.setState({
+            lng: lng.toFixed(4),
+            lat: lat.toFixed(4),
+            zoom: map.getZoom().toFixed(2)
+          });
+        });
       }
     );
-
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v9',
-      center: [lng, lat],
-      zoom
-    });
-
-    map.on('move', () => {
-      const { lng, lat } = map.getCenter();
-
-      this.setState({
-        lng: lng.toFixed(4),
-        lat: lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2)
-      });
-    });
   }
 
   render() {

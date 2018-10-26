@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
+import request from 'request-promise';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic29uZ3dlYiIsImEiOiJjam04NWdjNXAxMzhsM3FuM2RodmlkZDM1In0.3wNwmidFRlSbKP3xbaYPfw';
 
@@ -7,14 +8,28 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lng: -73.7552,
-      lat: 40.7167,
+      lng: -71.0596,
+      lat: 42.3605,
       zoom: 8.29
     };
   }
 
   componentDidMount() {
     const { lng, lat, zoom } = this.state;
+    
+    const mapboxKey = "pk.eyJ1Ijoic29uZ3dlYiIsImEiOiJjam04NWdjNXAxMzhsM3FuM2RodmlkZDM1In0.3wNwmidFRlSbKP3xbaYPfw";
+    
+    const options = {
+        uri: `https://api.mapbox.com/geocoding/v5/mapbox.places/newyork.json?access_token=${mapboxKey}`,
+        json: true
+    };
+        
+    request(options)
+      .then(res => {
+        console.log(res.features[0].center[0]);
+        console.log(res.features[0].center[1]);
+      }
+    );
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,

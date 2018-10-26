@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import request from 'request-promise';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic29uZ3dlYiIsImEiOiJjam04NWdjNXAxMzhsM3FuM2RodmlkZDM1In0.3wNwmidFRlSbKP3xbaYPfw';
+const MAPBOX_KEY =`${process.env.REACT_APP_MAPBOX_KEY}`;
+
+mapboxgl.accessToken = MAPBOX_KEY;
 
 class Map extends Component {
   constructor(props) {
@@ -18,10 +20,8 @@ class Map extends Component {
     let { zoom } = this.state;
     const location = this.props.location;
     
-    const mapboxKey = "pk.eyJ1Ijoic29uZ3dlYiIsImEiOiJjam04NWdjNXAxMzhsM3FuM2RodmlkZDM1In0.3wNwmidFRlSbKP3xbaYPfw";
-    
     const options = {
-        uri: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapboxKey}`,
+        uri: `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${MAPBOX_KEY}`,
         json: true
     };
         

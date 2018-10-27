@@ -60,7 +60,7 @@ class EventItem extends Component{
                     </div>
                     <div className="col-md-8">
                         <span className="badge badge-info">Map</span>
-                        <Map location = {event.location}/>
+                        {event.location ? <Map location = {event.location}/> : <p>To Be Announced</p>}
                     </div>
                 </div>
             </div>

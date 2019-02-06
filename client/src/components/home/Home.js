@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Home.module.css';
-import sportImage from '../../img/sport.png';
 import sportsImage from '../../img/sports.gif';
 
 class Home extends Component{
@@ -14,10 +13,9 @@ class Home extends Component{
   render(){
       return(
           <div>
-            <header className="jumbotron bg-primary mb-0">
+            <header className={styles.header}>
           		<div className="container">
           			<h1 className="text-center">Welcome to FindSport2Play</h1>
-          			<img className={styles.image} src={sportImage} alt="Sport" />
           		</div>
           	</header>
 

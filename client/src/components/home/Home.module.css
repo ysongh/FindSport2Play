@@ -1,3 +1,11 @@
+.header{
+    background-image: url(../../img/sport.png);
+    height: 50vh;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
 .image{
     width: 50%;
     display: block;

@@ -14,9 +14,8 @@ class Home extends Component{
       return(
           <div>
             <header className={styles.header}>
-          		<div className="container">
-          			<h1 className="text-center">Welcome to FindSport2Play</h1>
-          		</div>
+          		<h1 className={styles.header__title}>Welcome to FindSport2Play</h1>
+          		<p className={styles.header__text}>Find someone to play sport with</p>
           	</header>
 
             <div className="jumbotron bg-light mb-0">

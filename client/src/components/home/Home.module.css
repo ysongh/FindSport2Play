@@ -4,10 +4,16 @@
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
+    text-align: center;
+    color: white;
 }
 
-.image{
-    width: 50%;
-    display: block;
-    margin: 0 auto;
+.header__title{
+    padding-top: 50px;
+    font-size: 50px;
+}
+
+.header__text{
+    padding-top: 50px;
+    font-size: 25px;
 }

@@ -16,6 +16,10 @@ class Home extends Component{
             <header className={styles.header}>
           		<h1 className={styles.header__title}>Welcome to FindSport2Play</h1>
           		<p className={styles.header__text}>Find someone to play sport with</p>
+          		<div className={styles.header__buttons}>
+            		<Link to="/register" className="btn btn-lg text-white bg-info mr-1">Sign Up</Link>
+            		<Link to="/login" className="btn btn-lg text-white bg-info">Login</Link>
+            	</div>
           	</header>
 
             <div className="jumbotron bg-light mb-0">

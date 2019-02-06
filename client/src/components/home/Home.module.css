@@ -17,3 +17,9 @@
     padding: 50px 0;
     font-size: 25px;
 }
+
+@media (max-width: 600px) {
+  .header {
+    height: 95vh;
+  }
+}

@@ -1,5 +1,18 @@
-findsport2play
+FindSport2Play
+---
 
-MERN Stack
+This is a MERN Stack application where player can host an event for other players to join and meet up to play any sports together.
 
-https://findsport2play.herokuapp.com/
+Link - https://findsport2play.herokuapp.com/
+
+---
+
+The technologies used to create this project:
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Bootstrap 4
+- REST API
+- Redux

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import styles from './Home.module.css';
 import sportsImage from '../../img/sports.gif';
@@ -11,15 +12,21 @@ class Home extends Component{
   }
   
   render(){
+      const { isAuthenticated } = this.props.auth;
+      
+      const guestLinks = (
+        <div className={styles.header__buttons}>
+      		<Link to="/register" className="btn btn-lg text-white bg-info mr-1">Sign Up</Link>
+      		<Link to="/login" className="btn btn-lg text-white bg-info">Login</Link>
+      	</div>
+      );
+      
       return(
           <div>
             <header className={styles.header}>
           		<h1 className={styles.header__title}>Welcome to FindSport2Play</h1>
           		<p className={styles.header__text}>Find someone to play sport with</p>
-          		<div className={styles.header__buttons}>
-            		<Link to="/register" className="btn btn-lg text-white bg-info mr-1">Sign Up</Link>
-            		<Link to="/login" className="btn btn-lg text-white bg-info">Login</Link>
-            	</div>
+          		{isAuthenticated ? null : guestLinks}
           	</header>
 
             <div className={styles.event}>
@@ -40,4 +47,8 @@ class Home extends Component{
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Home);

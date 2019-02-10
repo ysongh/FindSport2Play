@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import styles from './Login.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { loginUser } from '../../actions/authActions';
 
@@ -50,11 +51,11 @@ class Login extends Component{
         const {errors} = this.state;
         
         return(
-            <div className="login">
+            <div className={styles.login}>
                 <div className="container">
                   <div className="row">
-                    <div className="col-md-8 m-auto">
-                      <h1 className="display-4 text-center">Log In</h1>
+                    <div className="col-md-8 m-auto mt-5">
+                      <h1 className="display-4 text-center mt-5">Log In</h1>
                       <form onSubmit={this.onSubmit}>
                         <TextFieldGroup
                           placeholder="Email Address"

@@ -17,6 +17,16 @@
     background-color: #4169E1;
 }
 
+.button__login:hover{
+    background-color: #191970;
+}
+
 .button__goBack{
+    background-color: #D3D3D3;
+}
+
+.button__goBack:hover{
     background-color: #b4b4b4;
+    color: white;
+    text-decoration: none;
 }

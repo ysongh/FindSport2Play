@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import styles from './Register.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { registerUser } from '../../actions/authActions';
 
@@ -51,11 +52,11 @@ class Register extends Component{
       const {errors} = this.state;
       
       return(
-          <div className="register">
+          <div className={styles.register}>
               <div className="container">
                 <div className="row">
                   <div className="col-md-8 m-auto">
-                    <h1 className="display-4 text-center">Sign Up</h1>
+                    <h1 className="display-4 text-center mt-5">Sign Up</h1>
                     <form noValidate onSubmit={this.onSubmit}>
                       <TextFieldGroup
                         placeholder="Name"

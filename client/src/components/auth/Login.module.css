@@ -7,9 +7,16 @@
     text-align: center;
     margin: 0 auto;
     padding: 5px;
-    border: 2px solid #b4b4b4;
-    background-color: #b4b4b4;
     color: white;
     border-radius: 4px;
     width: 40%;
+    border: none;
+}
+
+.button__login{
+    background-color: #4169E1;
+}
+
+.button__goBack{
+    background-color: #b4b4b4;
 }

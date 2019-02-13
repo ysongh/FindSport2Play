@@ -73,9 +73,9 @@ class Login extends Component{
                           onChange={this.onChange}
                           error={errors.password}
                         />
-                        <input type="submit" className="btn btn-info btn-block mt-4" />
+                        <input type="submit" className={styles.login__button + ' ' + styles.button__login} />
                       </form>
-                      <Link to="/" className={styles.login__button}>
+                      <Link to="/" className={styles.login__button + ' ' + styles.button__goBack}>
                           Go Back
                       </Link>
                     </div>

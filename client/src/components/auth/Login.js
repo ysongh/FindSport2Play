@@ -56,7 +56,7 @@ class Login extends Component{
                   <div className="row">
                     <div className="col-md-8 m-auto mt-5">
                       <h1 className="display-4 text-center mt-5">Log In</h1>
-                      <form onSubmit={this.onSubmit}>
+                      <form onSubmit={this.onSubmit} className="mb-2">
                         <TextFieldGroup
                           placeholder="Email Address"
                           name="email"
@@ -75,7 +75,7 @@ class Login extends Component{
                         />
                         <input type="submit" className="btn btn-info btn-block mt-4" />
                       </form>
-                      <Link to="/" className="btn btn-light">
+                      <Link to="/" className={styles.login__button}>
                           Go Back
                       </Link>
                     </div>

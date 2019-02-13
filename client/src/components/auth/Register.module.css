@@ -1,3 +1,32 @@
 .register{
     min-height: 85vh;
 }
+
+.register__button{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5px;
+    color: white;
+    border-radius: 4px;
+    width: 40%;
+    border: none;
+}
+
+.button__register{
+    background-color: #4169E1;
+}
+
+.button__register:hover{
+    background-color: #191970;
+}
+
+.button__goBack{
+    background-color: #D3D3D3;
+}
+
+.button__goBack:hover{
+    background-color: #b4b4b4;
+    color: white;
+    text-decoration: none;
+}

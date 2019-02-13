@@ -57,7 +57,7 @@ class Register extends Component{
                 <div className="row">
                   <div className="col-md-8 m-auto">
                     <h1 className="display-4 text-center mt-5">Sign Up</h1>
-                    <form noValidate onSubmit={this.onSubmit}>
+                    <form noValidate onSubmit={this.onSubmit} className="mb-2">
                       <TextFieldGroup
                         placeholder="Name"
                         name="name"
@@ -89,9 +89,9 @@ class Register extends Component{
                         onChange={this.onChange}
                         error={errors.password2}
                       />
-                      <input type="submit" className="btn btn-info btn-block mt-4" />
+                      <input type="submit" className={styles.register__button + ' ' + styles.button__register} />
                     </form>
-                    <Link to="/" className="btn btn-light">
+                    <Link to="/" className={styles.register__button + ' ' + styles.button__goBack}>
                         Go Back
                     </Link>
                   </div>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
 import { addComment } from '../../../actions/eventActions';
+import styles from './CommentForm.module.css';
 
 class CommentForm extends Component {
   constructor(props) {
@@ -44,11 +45,9 @@ class CommentForm extends Component {
     const { errors } = this.state;
 
     return (
-        <div className="comment-form mb-3">
-            <h1 className="text-center">Create Comment</h1>
-            <Link to="/events" className="btn btn-light mb-3">
-                Back
-            </Link>
+        <div className={styles.commentForm}>
+            <h1 className="text-center mt-5 mb-3">Create Comment</h1>
+            
             <div className="card card-info">
                 <div className="card-header bg-info text-white">Make a comment...</div>
                 <div className="card-body">
@@ -65,6 +64,9 @@ class CommentForm extends Component {
                         <button type="submit" className="btn btn-dark">
                             Submit
                         </button>
+                        <Link to="/events" className="btn btn-light">
+                            Cancel
+                        </Link>
                     </form>
                 </div>
             </div>

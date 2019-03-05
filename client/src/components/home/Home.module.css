@@ -1,6 +1,5 @@
 .header{
     background-image: url(../../img/sport.png);
-    height: 50vh;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -19,8 +18,7 @@
 }
 
 .event{
-    background-color: #333300;
-    padding: 75px 20px;
+    padding: 90px 20px;
 }
 
 .event__title{

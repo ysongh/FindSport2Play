@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Map from './map/Map.js';
+//import Map from './map/Map.js';
+import sportImage from '../../img/sport.png';
 import { deleteEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
@@ -59,8 +60,9 @@ class EventItem extends Component{
                         ) : null}
                     </div>
                     <div className="col-md-8">
-                        <span className="badge badge-info">Map</span>
-                        {event.location ? <Map location = {event.location}/> : <p>To Be Announced</p>}
+                        <span className="badge badge-info">Image</span>
+                        <img className="card-img-top" style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
+                          alt="Sport" />
                     </div>
                 </div>
             </div>

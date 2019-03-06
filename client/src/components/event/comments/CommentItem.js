@@ -7,7 +7,6 @@ import { deleteComment } from '../../../actions/eventActions';
 class CommentItem extends Component{
     onDeleteClick(eventId, commentId){
       this.props.deleteComment(eventId, commentId);
-      this.props.history.push(`/events`);
     }
     
     render(){

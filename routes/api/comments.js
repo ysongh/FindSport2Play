@@ -40,8 +40,9 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
 
 router.delete('/:id/comments/:com_id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
+        .populate('user', ['name'])
         .then(event => {
-            if(event.user.toString() !== req.user.id){
+            if(event.user._id.toString() !== req.user.id){
                 return res.status(401).json({notauthorized: 'User not authorized'});
             }
             

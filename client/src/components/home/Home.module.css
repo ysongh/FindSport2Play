@@ -25,9 +25,3 @@
     color: white;
     margin: 50px 0;
 }
-
-@media (max-width: 600px) {
-  .header {
-    height: 95vh;
-  }
-}

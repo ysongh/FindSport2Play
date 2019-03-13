@@ -34,7 +34,8 @@ class CommentForm extends Component {
       name: user.name,
     };
     
-    this.props.addComment(this.props.match.params.id, commentData, this.props.history);
+    this.props.addComment(this.props.match.params.id, commentData);
+    this.setState({ text: '' });
   }
 
   onChange(e) {

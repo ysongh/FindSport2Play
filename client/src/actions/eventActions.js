@@ -52,7 +52,12 @@ export const createEvent = (eventData, history) => dispatch => {
 export const addComment = (eventID, commentData, history) => dispatch => {
     axios
         .post(`/api/events/${eventID}/comments`, commentData)
-        .then(res => history.push(`/event/${eventID}`))
+        .then(res => 
+            dispatch({
+                type: GET_EVENT,
+                payload: res.data
+            })
+        )
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,

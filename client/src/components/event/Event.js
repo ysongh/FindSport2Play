@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import EventItem from '../event/EventItem';
 import Comments from './comments/Comments';
+import CommentForm from './comments/CommentForm';
 import { getEvent } from '../../actions/eventActions';
 
 class Event extends Component{
@@ -23,10 +24,7 @@ class Event extends Component{
             eventContent = (
                 <div>
                     <EventItem event={event} />
-                    <h2>Comments</h2>
-                    <Link to={`/event/${event._id}/newcomment`} className="btn btn-light mb-3">
-                        Add Comments
-                    </Link>
+                    <CommentForm />
                     <Comments eventId={event._id} comments={event.comments} />
                 </div>
             );

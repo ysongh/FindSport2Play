@@ -18,6 +18,7 @@ router.get('/:id/comments/test', (req, res) => {
 
 router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
+        .populate('user', ['name'])
         .then(event => {
             const {errors, isValid} = validateCommentInput(req.body);
             

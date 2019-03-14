@@ -25,7 +25,7 @@ class Event extends Component{
                 <div>
                     <EventItem event={event} />
                     <CommentForm />
-                    <Comments eventId={event._id} comments={event.comments} />
+                    {event.comments.length > 0 ? <Comments eventId={event._id} comments={event.comments} /> : <h2 className="mb-5">No Comment Yet</h2>}
                 </div>
             );
         }

@@ -1,6 +1,6 @@
 import axios from '../axios-lists';
 
-import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, DELETE_EVENT  } from './types';
+import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT  } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
@@ -50,6 +50,7 @@ export const createEvent = (eventData, history) => dispatch => {
 };
 
 export const addComment = (eventID, commentData, history) => dispatch => {
+    dispatch(clearErrors());
     axios
         .post(`/api/events/${eventID}/comments`, commentData)
         .then(res => 
@@ -103,5 +104,12 @@ export const deleteComment = (eventID, com_id) => dispatch => {
 export const setEventLoading = () => {
     return{
         type: EVENT_LOADING
+    };
+};
+
+// Clear errors
+export const clearErrors = () => {
+    return{
+        type: CLEAR_ERRORS
     };
 };

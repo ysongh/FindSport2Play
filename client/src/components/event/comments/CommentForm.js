@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
@@ -47,8 +46,6 @@ class CommentForm extends Component {
 
     return (
         <div className={styles.commentForm}>
-            <h1 className="text-center mt-5 mb-3">Create Comment</h1>
-            
             <div className="card card-info">
                 <div className="card-header bg-info text-white">Make a comment...</div>
                 <div className="card-body">
@@ -65,9 +62,6 @@ class CommentForm extends Component {
                         <button type="submit" className="btn btn-dark">
                             Submit
                         </button>
-                        <Link to="/events" className="btn btn-light">
-                            Cancel
-                        </Link>
                     </form>
                 </div>
             </div>
@@ -81,4 +75,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, {addComment})(withRouter(CommentForm)); 
+export default connect(mapStateToProps, {addComment})(CommentForm); 

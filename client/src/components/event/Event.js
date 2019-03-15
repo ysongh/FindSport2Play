@@ -14,7 +14,8 @@ class Event extends Component{
     }
     
     render(){
-        const {event, loading } = this.props.events;
+        const { event, loading } = this.props.events;
+        const { isAuthenticated } = this.props.auth;
         let eventContent;
         
         if(event === null || loading  || Object.keys(event).length === 0){
@@ -24,7 +25,7 @@ class Event extends Component{
             eventContent = (
                 <div>
                     <EventItem event={event} />
-                    <CommentForm />
+                    {isAuthenticated ? <CommentForm /> : <h2>You need to login to add comment. <Link to="/login">Click Here</Link></h2>}
                     {event.comments.length > 0 ? <Comments eventId={event._id} comments={event.comments} /> : <h2 className="mb-5">No Comment Yet</h2>}
                 </div>
             );
@@ -46,6 +47,7 @@ class Event extends Component{
 
 
 const mapStateToProps = state => ({
+    auth: state.auth,
     events: state.events
 });
 

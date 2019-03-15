@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
@@ -75,4 +76,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, {addComment})(CommentForm); 
+export default connect(mapStateToProps, {addComment})(withRouter(CommentForm)); 

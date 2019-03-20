@@ -50,8 +50,8 @@ class CreateProfile extends Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Create Your Profile</h1>
-                            <small className="d-block pb-3">* = required fields</small>
+                            <h1 className="display-5 text-center mt-4">Create Your Profile</h1>
+                            <small className="d-block my-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup
                                     placeholder="* Profile Handle"
@@ -59,7 +59,7 @@ class CreateProfile extends Component{
                                     value={this.state.handle}
                                     onChange={this.onChange}
                                     error={errors.handle}
-                                    info="A unique handle for your profile URL. Your full name, nickname"
+                                    info="A unique handle for your profile URL."
                                 />
                                 <TextFieldGroup
                                     placeholder="Location"
@@ -67,7 +67,7 @@ class CreateProfile extends Component{
                                     value={this.state.location}
                                     onChange={this.onChange}
                                     error={errors.location}
-                                    info="City or city and state suggested (eg. New York, NY)"
+                                    info="City and State (eg. New York, NY)"
                                 />
                                 <TextFieldGroup
                                     placeholder="* Favorite Sports"
@@ -83,9 +83,9 @@ class CreateProfile extends Component{
                                     value={this.state.bio}
                                     onChange={this.onChange}
                                     error={errors.bio}
-                                    info="Tell us a little about yourself"
+                                    info="Information about yourself"
                                 />
-                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" value="Submit" className="btn btn-info btn-block my-4" />
                             </form>
                         </div>
                     </div>

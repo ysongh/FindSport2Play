@@ -21,7 +21,7 @@ class EventsItem extends Component{
                         <p className="card-text">
                             <i className="fas fa-users"></i> {event.numberofplayer}
                         </p>
-                        <Link to={`/event/${event._id}`} className="btn btn-info mr-1">More Info</Link>
+                        <Link to={`/event/${event._id}`} className="btn btn-info d-flex justify-content-center">More Info</Link>
                     </div>
                 </div>
             </div>

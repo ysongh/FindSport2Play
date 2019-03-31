@@ -18,6 +18,14 @@ const EventSchema = new Schema({
         type: Number,
         required: true
     },
+    listofplayer: [
+        {
+            user: {
+                type: Schema.Types.ObjectId,
+                ref: 'users'
+            }
+        }
+    ],
     location: {
         type: String
     },

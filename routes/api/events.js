@@ -51,6 +51,32 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     new Event(eventFields).save().then(event => res.json(event));
 });
 
+router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => {
+            if(!event){
+                return res.status(404).json({error: 'This event is not found'});
+            }
+            
+            for(let event of event.listofplayer){
+                if(event.toString() === req.user.id){
+                    return res.status(400).json({alreadyJoin: 'You already join this event'});
+                }
+            }
+            
+            event.listofplayer.unshift(req.user.id);
+            
+            return event.save();
+        })
+        .then(result => {
+            res.status(200).json({
+                msg: 'Success on joining that event',
+                event: result
+            });
+        })
+        .catch(err => res.status(404).json({error: "Error in put api/events/:id/join. " + err}));
+});
+
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
         .then(event => {

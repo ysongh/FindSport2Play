@@ -99,7 +99,21 @@ export const deleteComment = (eventID, com_id) => dispatch => {
                  payload: err.response.data
              })
          );
- };
+};
+ 
+export const joinEvent = (eventID) => dispatch => {
+    axios
+        .put(`/api/events/${eventID}/join`)
+        .then(res => 
+            dispatch({
+                type: GET_EVENT,
+                payload: res.data.event
+            })
+        )
+        .catch(err => 
+            console.log(err)
+        );
+};
 
 export const setEventLoading = () => {
     return{

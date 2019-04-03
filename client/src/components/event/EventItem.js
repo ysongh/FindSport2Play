@@ -6,12 +6,16 @@ import { withRouter } from 'react-router-dom';
 
 //import Map from './map/Map.js';
 import sportImage from '../../img/sport.png';
-import { deleteEvent } from '../../actions/eventActions';
+import { deleteEvent, joinEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
     onDeleteClick(id){
         this.props.deleteEvent(id);
         this.props.history.push('/events');
+    }
+    
+    onJoinClick(id){
+        this.props.joinEvent(id);
     }
     
     render(){
@@ -58,6 +62,8 @@ class EventItem extends Component{
                                 Delete
                             </button>
                         ) : null}
+                        
+                       
                     </div>
                     <div className="col-md-8">
                         <span className="badge badge-info">Image</span>
@@ -65,6 +71,17 @@ class EventItem extends Component{
                           alt="Sport" />
                     </div>
                 </div>
+                <hr />
+                <div className="d-flex">
+                    <button 
+                        onClick={this.onJoinClick.bind(this, event._id)}
+                        type="button"
+                        className="btn btn-success mr-1" >
+                        Join This Event
+                    </button>
+                    <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
+                </div>
+                
             </div>
         );
     }
@@ -74,4 +91,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, {deleteEvent})(withRouter(EventItem));
+export default connect(mapStateToProps, { deleteEvent, joinEvent })(withRouter(EventItem));

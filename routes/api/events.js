@@ -58,14 +58,12 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
                 return res.status(404).json({error: 'This event is not found'});
             }
             
-            for(let event of event.listofplayer){
-                if(event.toString() === req.user.id){
+            for(let i of event.listofplayer){
+                if(i._id.toString() === req.user.id){
                     return res.status(400).json({alreadyJoin: 'You already join this event'});
                 }
             }
-            
             event.listofplayer.unshift(req.user.id);
-            
             return event.save();
         })
         .then(result => {

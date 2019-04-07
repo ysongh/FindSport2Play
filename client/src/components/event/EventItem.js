@@ -15,6 +15,9 @@ class EventItem extends Component{
     }
     
     onJoinClick(id){
+        if(!this.props.auth.isAuthenticated){
+            this.props.history.push('/login');
+        }
         this.props.joinEvent(id);
     }
     
@@ -77,7 +80,7 @@ class EventItem extends Component{
                         onClick={this.onJoinClick.bind(this, event._id)}
                         type="button"
                         className="btn btn-success mr-1" >
-                        Join This Event
+                        {auth.isAuthenticated ? "Join This Event" : "Login to Join"}
                     </button>
                     <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
                 </div>

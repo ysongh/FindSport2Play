@@ -24,7 +24,7 @@ class Event extends Component{
         else{
             eventContent = (
                 <div>
-                    <EventItem event={event} />
+                    <EventItem event={event} auth={isAuthenticated}/>
                     {isAuthenticated ? <CommentForm /> : <h2>You need to login to add comment. <Link to="/login">Click Here</Link></h2>}
                     {event.comments.length > 0 ? <Comments eventId={event._id} comments={event.comments} /> : <h2 className="mb-5">No Comment Yet</h2>}
                 </div>

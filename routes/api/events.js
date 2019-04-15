@@ -53,6 +53,7 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
 
 router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
+        .populate('user', ['name'])
         .then(event => {
             if(!event){
                 return res.status(404).json({error: 'This event is not found'});

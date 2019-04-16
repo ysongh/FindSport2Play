@@ -18,7 +18,7 @@ class CommentItem extends Component{
               <p className="lead">
                 {comment.text}
               </p>
-              <div class="d-flex flex-row align-items-center">
+              <div className="d-flex flex-row align-items-center">
                 <i className="far fa-user mr-2"></i>
                  <Link to={`/profile/${comment.user}`}>
                      <p className="font-italic d-inline">{comment.name}</p>

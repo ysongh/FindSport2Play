@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     text-align: center;
     color: white;
+    min-height: 100vh;
 }
 
 .header__title{
@@ -15,13 +16,4 @@
 .header__text{
     padding: 50px 0;
     font-size: 25px;
-}
-
-.event{
-    padding: 90px 20px;
-}
-
-.event__title{
-    color: white;
-    margin: 50px 0;
 }

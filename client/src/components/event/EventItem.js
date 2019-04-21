@@ -84,7 +84,10 @@ class EventItem extends Component{
                     </button>
                     <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
                 </div>
-                
+                { event.listofplayer.map( player => {
+                    
+                    return <p key={player._id}>{ player.name }</p>;
+                }) }
             </div>
         );
     }

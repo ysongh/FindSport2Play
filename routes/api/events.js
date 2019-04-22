@@ -59,14 +59,17 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
                 return res.status(404).json({error: 'This event is not found'});
             }
             
-            if(Object.keys(event.listofplayer).length >= event.numberofplayer){
-                return res.status(404).json({error: 'This event is full'});
-            }
+            let count = 0;
             
             for(let i of event.listofplayer){
-                if(i["id"]._id === req.user.id){
+                if(i["id"] === req.user.id){
                     return res.status(400).json({alreadyJoin: 'You already join this event'});
                 }
+                count++;
+            }
+            
+            if(count >= event.numberofplayer){
+                return res.status(400).json({error: 'This event is full'});
             }
             
             const newPlayer = {

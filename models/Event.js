@@ -20,9 +20,9 @@ const EventSchema = new Schema({
     },
     listofplayer: [
         {
-            user: {
-                type: Schema.Types.ObjectId,
-                ref: 'users'
+            id: {
+                type: String,
+                required: true
             },
             name: {
                 type: String,

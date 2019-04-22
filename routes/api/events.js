@@ -60,7 +60,7 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
             }
             
             for(let i of event.listofplayer){
-                if(i["id"]._id.toString() === req.user.id){
+                if(i["id"]._id === req.user.id){
                     return res.status(400).json({alreadyJoin: 'You already join this event'});
                 }
             }

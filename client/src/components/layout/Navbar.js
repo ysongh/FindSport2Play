@@ -3,8 +3,23 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { logoutUser } from '../../actions/authActions';
+import styles from './Navbar.module.css';
 
 class Navbar extends Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          showNotification: false
+      };
+  }
+  
+  onShowNotification(e){
+      e.preventDefault();
+      this.setState(prevState => ({
+          showNotification: !prevState.showNotification
+      }));
+  }
+  
   onLogoutClick(e){
       e.preventDefault();
       this.props.logoutUser();
@@ -13,8 +28,23 @@ class Navbar extends Component {
   render() {
     const {isAuthenticated, user} = this.props.auth;
     
+    const notificationList = (
+      <ul className={styles.notification}>
+        <li>Someone post on your event</li>
+        <li>Someone post on your event</li>
+        <li>Someone post on your event</li>
+        <li>Someone post on your event</li>
+      </ul>
+    );
+    
     const authLinks = (
       <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <button className="btn btn-dark nav-link" onClick={this.onShowNotification.bind(this)}>
+              Notification
+          </button>
+          { this.state.showNotification ? notificationList : null }
+        </li>
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
               Welcome, {user.name}

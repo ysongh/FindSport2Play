@@ -1,4 +1,13 @@
 .notification{
+    border: 3px solid #52686d;
+    background-color: #eaeeef;
     position: absolute;
     z-index: 10;
+    padding-top: 10px;
+}
+
+.notification__item{
+    padding: 5px 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }

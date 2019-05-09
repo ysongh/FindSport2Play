@@ -29,12 +29,12 @@ class Navbar extends Component {
     const {isAuthenticated, user} = this.props.auth;
     
     const notificationList = (
-      <ul className={styles.notification}>
-        <li>Someone post on your event</li>
-        <li>Someone post on your event</li>
-        <li>Someone post on your event</li>
-        <li>Someone post on your event</li>
-      </ul>
+      <div className={styles.notification}>
+        <p className={styles.notification__item}>Someone post on your event</p>
+        <p className={styles.notification__item}>Someone post on your event</p>
+        <p className={styles.notification__item}>Someone post on your event</p>
+        <p className={styles.notification__item}>Someone post on your event</p>
+      </div>
     );
     
     const authLinks = (

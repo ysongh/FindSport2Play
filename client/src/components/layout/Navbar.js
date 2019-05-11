@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { logoutUser } from '../../actions/authActions';
+import NotificationList from './NotificationList';
 import styles from './Navbar.module.css';
 
 class Navbar extends Component {
@@ -26,14 +27,11 @@ class Navbar extends Component {
   }
   
   render() {
-    const {isAuthenticated, user} = this.props.auth;
+    const {isAuthenticated, user, notifications} = this.props.auth;
     
     const notificationList = (
       <div className={styles.notification}>
-        <p className={styles.notification__item}>Someone post on your event</p>
-        <p className={styles.notification__item}>Someone post on your event</p>
-        <p className={styles.notification__item}>Someone post on your event</p>
-        <p className={styles.notification__item}>Someone post on your event</p>
+        <NotificationList notifications={notifications.notification} />
       </div>
     );
     

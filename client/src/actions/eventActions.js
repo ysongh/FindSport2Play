@@ -1,16 +1,17 @@
 import axios from '../axios-lists';
 
-import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT  } from './types';
+import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT, GET_NOTIFICATION  } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
+    dispatch(getNotification());
     axios.get('/api/events/all')
-        .then(res =>
+        .then(res => {
             dispatch({
                 type: GET_EVENTS,
                 payload: res.data
-            })
-        )
+            });
+        })
         .catch(err => 
             dispatch({
                 type: GET_EVENTS,
@@ -126,4 +127,19 @@ export const clearErrors = () => {
     return{
         type: CLEAR_ERRORS
     };
+};
+
+export const getNotification = () => dispatch => {
+  axios
+    .get(`/api/notification`)
+    .then(res => 
+        dispatch({
+            type: GET_NOTIFICATION,
+            payload: res.data
+        })
+    )
+    .catch(err =>
+    
+        console.log(err)
+    );
 };

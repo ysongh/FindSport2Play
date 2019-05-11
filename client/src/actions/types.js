@@ -9,3 +9,5 @@ export const EVENT_LOADING = 'EVENT_LOADING';
 
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_LOADING = 'PROFILE_LOADING';
+
+export const GET_NOTIFICATION = 'GET_NOTIFICATION';

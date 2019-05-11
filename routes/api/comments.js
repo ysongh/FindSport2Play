@@ -5,6 +5,7 @@ const passport = require('passport');
 const validateCommentInput = require('../../validation/comment');
 
 const Event = require('../../models/Event');
+const Notification = require('../../models/Notification');
 
 router.get('/:id/comments/test', (req, res) => {
     Event.findById(req.params.id)
@@ -26,6 +27,12 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
                 return res.status(400).json(errors);
             }
             
+            const newNotification = new Notification({
+                userID: event.userID,
+                authorName: req.user.name,
+                text: "Someone comment your event"
+            });
+            
             const newComment = {
                 text: req.body.text,
                 name: req.user.name,
@@ -35,7 +42,10 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
             event.comments.unshift(newComment);
             
             event.save()
-                .then(event => res.json(event));
+                .then(event => {
+                    newNotification.save();
+                    return res.json(event);
+                });
         });
 });
 

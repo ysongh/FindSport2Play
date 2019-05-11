@@ -8,6 +8,7 @@ const users = require('./routes/api/users');
 const events = require('./routes/api/events');
 const comments = require('./routes/api/comments');
 const profile = require('./routes/api/profile');
+const notification = require('./routes/api/notification');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/api/users', users);
 app.use('/api/events', events);
 app.use('/api/events', comments);
 app.use('/api/profile', profile);
+app.use('/api/notification', notification);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

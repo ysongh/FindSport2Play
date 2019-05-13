@@ -11,3 +11,8 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+.notification__date{
+    margin: 0;
+    text-align: right;
+}

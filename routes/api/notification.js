@@ -14,4 +14,17 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         );
 });
 
+router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Notification.findById(req.params.id)
+        .then(notification => {
+            if(!notification){
+                return res.status(404).json({error: 'This notification is not found'});
+            }
+            notification.remove().then(() => res.json({success: true}));
+        })
+        .catch(err =>
+            res.status(404).json({error: "Error in get api/notification/. " + err})
+        );
+});
+
 module.exports = router;

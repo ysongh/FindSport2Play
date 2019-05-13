@@ -28,7 +28,7 @@ class Navbar extends Component {
   
   render() {
     const {isAuthenticated, user, notifications} = this.props.auth;
-    
+
     const notificationList = (
       <div className={styles.notification}>
         <NotificationList notifications={notifications.notification} />

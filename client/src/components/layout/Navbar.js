@@ -38,8 +38,8 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <button className="btn btn-dark nav-link" onClick={this.onShowNotification.bind(this)}>
-              Notification
+          <button className="btn btn-dark nav-link mr-2" onClick={this.onShowNotification.bind(this)}>
+              <i className="far fa-bell notification__icon"></i>
           </button>
           { this.state.showNotification ? notificationList : null }
         </li>

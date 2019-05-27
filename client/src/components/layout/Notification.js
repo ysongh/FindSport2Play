@@ -15,8 +15,11 @@ class Notification extends Component{
         
         return(
             <div>
-                <p className={styles.notification__date}><Moment format="MM/DD/YYYY">{notification.date}</Moment></p>
-                <p onClick={this.onDeleteClick.bind(this, notification._id)}>{notification.text} by {notification.authorName}</p>
+                <p className={styles.notification__date}>
+                    <Moment format="MM/DD/YYYY">{notification.date}</Moment>
+                    <button className="btn btn-danger m-0" onClick={this.onDeleteClick.bind(this, notification._id)}><i className="fas fa-times" /></button>
+                </p>
+                <p>{notification.text} by {notification.authorName}</p>
                 <hr />
             </div>
            

@@ -5,6 +5,7 @@ const passport = require('passport');
 const validateEventInput = require('../../validation/event');
 
 const Event = require('../../models/Event');
+const Notification = require('../../models/Notification');
 
 router.get('/test', (req, res) => res.json({msg: "Events Work"}));
 
@@ -52,6 +53,7 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
 });
 
 router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, res) => {
+    let newNotification;
     Event.findById(req.params.id)
         .populate('user', ['name'])
         .then(event => {
@@ -72,15 +74,24 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
                 return res.status(400).json({error: 'This event is full'});
             }
             
+            const userName = req.user.name;
+            
             const newPlayer = {
                 id: req.user.id,
-                name: req.user.name
+                name: userName
             };
+            
+            newNotification = new Notification({
+                userID: event.user._id,
+                authorName: userName,
+                text: userName + " join your event"
+            });
             
             event.listofplayer.push(newPlayer);
             return event.save();
         })
         .then(result => {
+            newNotification.save();
             res.status(200).json({
                 msg: 'Success on joining that event',
                 event: result

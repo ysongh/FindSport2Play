@@ -30,7 +30,7 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
             const newNotification = new Notification({
                 userID: event.user._id,
                 authorName: req.user.name,
-                text: "Someone comment your event"
+                text: req.user.name + " comment your event"
             });
             
             const newComment = {

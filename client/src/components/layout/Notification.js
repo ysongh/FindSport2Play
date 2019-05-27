@@ -19,7 +19,7 @@ class Notification extends Component{
                     <Moment format="MM/DD/YYYY">{notification.date}</Moment>
                     <button className="btn btn-danger m-0" onClick={this.onDeleteClick.bind(this, notification._id)}><i className="fas fa-times" /></button>
                 </p>
-                <p>{notification.text} by {notification.authorName}</p>
+                <p>{notification.text}</p>
                 <hr />
             </div>
            

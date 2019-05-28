@@ -14,7 +14,7 @@ class Notification extends Component{
         const {notification} = this.props;
         
         return(
-            <div>
+            <div className={styles.notification__container}>
                 <p className={styles.notification__date}>
                     <Moment format="MM/DD/YYYY">{notification.date}</Moment>
                     <button className="btn btn-danger m-0" onClick={this.onDeleteClick.bind(this, notification._id)}><i className="fas fa-times" /></button>

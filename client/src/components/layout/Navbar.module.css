@@ -2,8 +2,14 @@
     border: 3px solid #52686d;
     background-color: #eaeeef;
     position: absolute;
+    overflow: auto;
+    height: 300px;
     z-index: 10;
     padding-top: 10px;
+}
+
+.notification__container{
+    padding: 0 20px;
 }
 
 .notification__item{

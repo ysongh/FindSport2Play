@@ -4,6 +4,7 @@
     position: absolute;
     overflow: auto;
     height: 300px;
+    width: 300px;
     z-index: 10;
     padding-top: 10px;
 }
@@ -35,4 +36,8 @@
 
 .notification__removeButton:hover{
     font-size: 1.05rem;
+}
+
+.notification__text{
+    font-size: .8rem;
 }

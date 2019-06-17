@@ -22,3 +22,17 @@
     margin: 0;
     text-align: right;
 }
+
+.notification__removeButton{
+    display: block;
+    float: right;
+    border: none;
+    background-color: transparent;
+    color: red;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.notification__removeButton:hover{
+    font-size: 1.05rem;
+}

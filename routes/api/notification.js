@@ -6,6 +6,7 @@ const Notification = require('../../models/Notification');
 
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.find({userID: req.user.id})
+        .sort('-date')
         .then(notification => {
             res.json({notification: notification});
         })

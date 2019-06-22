@@ -6,6 +6,9 @@ const NotificationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    authorID: {
+        type: String
+    },
     authorName: {
         type: String,
     },

@@ -21,7 +21,7 @@ class Notification extends Component{
                     <button className={styles.notification__removeButton} onClick={this.onDeleteClick.bind(this, notification._id)}><i className="fas fa-times" /></button>
                 </p>
                 <p className={styles.notification__text}>
-                    <Link to={`/profile/${notification.userID}`}>{notification.authorName}</Link> {notification.text}
+                    <Link to={`/profile/${notification.authorID}`}>{notification.authorName}</Link> {notification.text}
                 </p>
                 <hr />
             </div>

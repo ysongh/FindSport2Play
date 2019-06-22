@@ -83,8 +83,9 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
             
             newNotification = new Notification({
                 userID: event.user._id,
+                authorID: req.user.id,
                 authorName: userName,
-                text: userName + " join your event"
+                text: "join your event"
             });
             
             event.listofplayer.push(newPlayer);

@@ -9,6 +9,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 const User = require('../../models/User');
+const Notification = require('../../models/Notification');
 
 router.get('/test', (req, res) => res.json({msg: "Users Work"}));
 
@@ -32,9 +33,15 @@ router.post('/register', (req, res) => {
                     password: req.body.password
                 });
                 
+                const newNotification = new Notification({
+                    userID: newUser._id,
+                    text: "Welcome to FindSport2Play, please create your profile."
+                });
+                
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
+                        newNotification.save();
                         newUser.password = hash;
                         newUser
                             .save()

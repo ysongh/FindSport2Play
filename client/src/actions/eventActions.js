@@ -22,6 +22,7 @@ export const getEvents = () => dispatch => {
 
 export const getEvent = (id) => dispatch => {
     dispatch(setEventLoading());
+    dispatch(getNotification());
     axios
         .get(`/api/events/${id}`)
         .then(res => 
@@ -139,7 +140,6 @@ export const getNotification = () => dispatch => {
         })
     )
     .catch(err =>
-    
         console.log(err)
     );
 };

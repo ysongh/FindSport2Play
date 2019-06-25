@@ -5,14 +5,21 @@ const passport = require('passport');
 const Notification = require('../../models/Notification');
 
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-    Notification.find({userID: req.user.id})
-        .sort('-date')
-        .then(notification => {
-            res.json({notification: notification});
-        })
-        .catch(err =>
-            res.status(404).json({error: "Error in get api/notification/. " + err})
-        );
+    Notification.find({userID: req.user.id, read: false })
+        .countDocuments()
+        .then(count => {
+            Notification.find({userID: req.user.id})
+                .sort('-date')
+                .then(notification => {
+                    res.json({
+                        notification: notification,
+                        unread: count
+                    });
+                })
+                .catch(err =>
+                    res.status(404).json({error: "Error in get api/notification/. " + err})
+                );
+        });
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {

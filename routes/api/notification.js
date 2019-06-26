@@ -22,6 +22,13 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         });
 });
 
+router.put('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
+    Notification.updateMany({userID: req.user.id, read: false }, {read: true})
+        .catch(err =>
+            res.status(404).json({error: "Error in get api/notification/check. " + err})
+        );
+});
+
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.findById(req.params.id)
         .then(notification => {

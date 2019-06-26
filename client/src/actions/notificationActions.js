@@ -16,6 +16,14 @@ export const getNotification = () => dispatch => {
     );
 };
 
+export const checkNotification = () => dispatch => {
+  axios
+    .put(`/api/notification/check`)
+    .catch(err =>
+        console.log(err)
+    );
+};
+
 export const removeNotification = id => dispatch => {
   axios
     .delete(`/api/notification/${id}`)

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { logoutUser } from '../../actions/authActions';
+import { checkNotification } from '../../actions/notificationActions';
 import NotificationList from './NotificationList';
 import styles from './Navbar.module.css';
 
@@ -19,6 +20,7 @@ class Navbar extends Component {
       this.setState(prevState => ({
           showNotification: !prevState.showNotification
       }));
+      this.props.checkNotification();
   }
   
   onLogoutClick(e){
@@ -109,4 +111,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, {logoutUser})(Navbar);
+export default connect(mapStateToProps, {logoutUser, checkNotification})(Navbar);

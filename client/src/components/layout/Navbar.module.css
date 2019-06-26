@@ -19,6 +19,13 @@
     border-bottom: 1px solid black;
 }
 
+.notification__number{
+    border: 1px solid red;
+    border-radius: 50%;
+    padding: 2px 3.5px 2px 2px;
+    
+}
+
 .notification__date{
     margin: 0;
     text-align: right;

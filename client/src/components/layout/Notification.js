@@ -15,12 +15,12 @@ class Notification extends Component{
         const {notification} = this.props;
         
         return(
-            <div className={styles.notification__container}>
+            <div className={styles.notification__container + " " + (!notification.read ? ( styles.notification__notRead) : null)}>
                 <p className={styles.notification__date}>
                     <Moment format="MM/DD/YYYY">{notification.date}</Moment>
                     <button className={styles.notification__removeButton} onClick={this.onDeleteClick.bind(this, notification._id)}><i className="fas fa-times" /></button>
                 </p>
-                <p className={styles.notification__text}>
+                <p className={styles.notification__text }>
                     <Link to={`/profile/${notification.authorID}`}>{notification.authorName}</Link> {notification.text}
                 </p>
                 <hr />

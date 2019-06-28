@@ -48,3 +48,7 @@
 .notification__text{
     font-size: .8rem;
 }
+
+.notification__notRead{
+    background-color: yellow;
+}

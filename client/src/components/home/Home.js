@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import styles from './Home.module.css';
+import LandingImg from '../../img/landingImg.png';
 
 class Home extends Component{
   onLogoutClick(e){
@@ -12,28 +13,37 @@ class Home extends Component{
   
   render(){
       const { isAuthenticated } = this.props.auth;
+      const {
+        header,
+        header__text,
+        header__buttons,
+        header__img } = styles;
       
       const guestLinks = (
-        <div className={styles.header__buttons}>
-      		<Link to="/register" className="btn btn-lg text-white bg-info mr-1">Sign Up</Link>
-      		<Link to="/login" className="btn btn-lg text-white bg-info">Login</Link>
+        <div className={header__buttons}>
+      		<Link to="/register" className="btn btn-lg text-white btn-primary mr-4">Get Started</Link>
+      		<Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
       	</div>
       );
       
       const userLinks = (
-        <div className={styles.header__buttons}>
-      		<Link to="/profile" className="btn btn-lg text-white bg-info mr-1">Go to Your Profile</Link>
+        <div className={header__buttons}>
+      		<Link to="/profile" className="btn btn-lg text-white btn-primary mr-4">Go to Your Profile</Link>
+          <Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
       	</div>
       );
-      
+
       return(
-          <div>
-            <header className={styles.header}>
-          		<h1 className={styles.header__title}>Welcome to FindSport2Play</h1>
-          		<p className={styles.header__text}>Find someone to play sport with</p>
-          		{isAuthenticated ? userLinks : guestLinks}
-          	</header>
-        	</div>
+        <header className={header}>
+          <div className={header__text}>
+            <h1>Search for players to play sport</h1>
+            <p>Pick a day, time, and place to play any sports with someone or group of people</p>
+            {isAuthenticated ? userLinks : guestLinks}
+          </div>
+          <div className={header__img}>
+            <img src={LandingImg} alt="Landing" />
+          </div>
+        </header>
       );
   }
 }

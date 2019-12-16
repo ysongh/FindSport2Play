@@ -1,19 +1,29 @@
 .header{
-    background-image: url(../../img/sport.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    text-align: center;
-    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     min-height: 100vh;
 }
 
-.header__title{
-    padding-top: 50px;
-    font-size: 50px;
+.header__text{
+    padding: 5rem;
 }
 
-.header__text{
-    padding: 50px 0;
-    font-size: 25px;
+.header__text h1{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.header__text p{
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #615656;
+}
+
+.header__img{
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 90%;
 }

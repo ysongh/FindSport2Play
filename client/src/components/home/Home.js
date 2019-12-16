@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import styles from './Home.module.css';
 import LandingImg from '../../img/landingImg.png';
+import HowitworkImg1 from '../../img/howitworkImg1.png';
+import HowitworkImg2 from '../../img/howitworkImg2.png';
 
 class Home extends Component{
   onLogoutClick(e){
@@ -17,7 +19,10 @@ class Home extends Component{
         header,
         header__text,
         header__buttons,
-        header__img } = styles;
+        header__img,
+        howItWork,
+        howItWork__container,
+        howItWork__text } = styles;
       
       const guestLinks = (
         <div className={header__buttons}>
@@ -34,16 +39,36 @@ class Home extends Component{
       );
 
       return(
-        <header className={header}>
-          <div className={header__text}>
-            <h1>Search for players to play sport</h1>
-            <p>Pick a day, time, and place to play any sports with someone or group of people</p>
-            {isAuthenticated ? userLinks : guestLinks}
-          </div>
-          <div className={header__img}>
-            <img src={LandingImg} alt="Landing" />
-          </div>
-        </header>
+        <div>
+          <header className={header}>
+            <div className={header__text}>
+              <h1>Search for players to play sport</h1>
+              <p>Pick a day, time, and place to play any sports with someone or group of people</p>
+              {isAuthenticated ? userLinks : guestLinks}
+            </div>
+            <img src={LandingImg} alt="Landing" className={header__img}/>
+          </header>
+          
+          <main>
+            <div className={howItWork}>
+              <div className={howItWork__container}>
+                <img src={HowitworkImg1} alt="HowitworkImg1" />
+                <div className={howItWork__text}>
+                  <h2>Search for Event</h2>
+                  <p>You can find any sport event that was post by player to join</p>
+                </div>
+              </div>
+              
+              <div className={howItWork__container}>
+                <img src={HowitworkImg2} alt="HowitworkImg2" />
+                <div className={howItWork__text}>
+                  <h2>Create an Event</h2>
+                  <p>You can create event so that any player to join you to play together</p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
       );
   }
 }

@@ -1,7 +1,7 @@
 .header{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    min-height: 100vh;
+    margin-bottom: 3rem;
 }
 
 .header__text{
@@ -28,6 +28,34 @@
     width: 90%;
 }
 
+.howItWork{
+    padding: 4rem 3rem;
+    background-color: #FBEEEE;
+}
+
+.howItWork__container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.howItWork__container img{
+    width: 100%;
+}
+
+.howItWork__text{
+    padding: 3rem;
+}
+
+.howItWork__text h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.howItWork__text p{
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
 @media(max-width: 900px){
     .header{
         grid-template-columns: 1fr;
@@ -40,7 +68,7 @@
 
     .header__text h1{
         grid-row: 2;
-        margin-top: -5rem;
+        margin-top: 0;
         margin-bottom: 1.5rem;
         font-size: 2.5rem;
     }
@@ -59,5 +87,23 @@
         grid-row: 1;
         margin: auto;
         margin-top: 1rem;
+    }
+
+    .howItWork__container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .howItWork__text{
+        padding: 0 1rem;
+    }
+
+    .howItWork__text h2{
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .howItWork__text p{
+        margin-bottom: 2rem;
     }
 }

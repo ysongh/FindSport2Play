@@ -42,6 +42,11 @@
     width: 100%;
 }
 
+.howItWork__imgReverse{
+    width: 100%;
+    order: 2;
+}
+
 .howItWork__text{
     padding: 3rem;
 }
@@ -87,6 +92,14 @@
         grid-row: 1;
         margin: auto;
         margin-top: 1rem;
+    }
+
+    .howItWork{
+        padding: 4rem 1rem;
+    }
+
+    .howItWork__imgReverse{
+        order: 0;
     }
 
     .howItWork__container{

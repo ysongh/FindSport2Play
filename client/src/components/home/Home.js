@@ -22,7 +22,8 @@ class Home extends Component{
         header__img,
         howItWork,
         howItWork__container,
-        howItWork__text } = styles;
+        howItWork__text,
+        howItWork__imgReverse } = styles;
       
       const guestLinks = (
         <div className={header__buttons}>
@@ -60,7 +61,7 @@ class Home extends Component{
               </div>
               
               <div className={howItWork__container}>
-                <img src={HowitworkImg2} alt="HowitworkImg2" />
+                <img src={HowitworkImg2} className={howItWork__imgReverse} alt="HowitworkImg2" />
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
                   <p>You can create event so that any player to join you to play together</p>

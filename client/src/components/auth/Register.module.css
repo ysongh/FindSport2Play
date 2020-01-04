@@ -11,6 +11,7 @@
     border-radius: 4px;
     width: 40%;
     border: none;
+    cursor: pointer;
 }
 
 .button__register{

@@ -53,7 +53,7 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/" onClick={this.onLogoutClick.bind(this)} className="nav-link">
+          <Link to="/" onClick={this.onLogoutClick.bind(this)} className="nav-link btn btn-danger text-white">
               Logout
           </Link>
         </li>
@@ -63,13 +63,13 @@ class Navbar extends Component {
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Sign Up
+          <Link className="nav-link" to="/login">
+            Login
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/login">
-            Login
+          <Link className="nav-link btn btn-primary text-white" to="/register">
+            Get Started
           </Link>
         </li>
       </ul>

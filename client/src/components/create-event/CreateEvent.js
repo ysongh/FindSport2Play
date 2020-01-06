@@ -53,7 +53,7 @@ class CreateEvent extends Component{
         const {errors} = this.state;
         
         return(
-            <div className="create-event">
+            <div className="create-event mt-2 mb-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">

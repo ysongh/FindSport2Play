@@ -20,7 +20,7 @@ class Events extends Component{
         }
         else{
             eventContent = (
-                <div className="row">
+                <div className="row mt-2 mb-5">
                     <EventsList events={events} />
                 </div>
             );

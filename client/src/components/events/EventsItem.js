@@ -9,7 +9,7 @@ class EventsItem extends Component{
         const {event} = this.props;
         
         return(
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-3 col-sm-6 my-2">
                 <div className="card p-1">
                     <Link to={`/event/${event._id}`}>
                         <img className="card-img-top" style={{height: '220px'}} src={event.imageURL ? event.imageURL : sportImage}

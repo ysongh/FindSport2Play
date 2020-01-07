@@ -91,7 +91,7 @@
     .header__img{
         grid-row: 1;
         margin: auto;
-        margin-top: 1rem;
+        margin-top: 0;
     }
 
     .howItWork{

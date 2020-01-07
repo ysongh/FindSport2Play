@@ -50,9 +50,16 @@ class Register extends Component{
     
     render(){
       const {errors} = this.state;
+
+      const {
+        register,
+        register__button,
+        register__buttonGroup,
+        button__register,
+        button__goBack } = styles;
       
       return(
-          <div className={styles.register}>
+          <div className={register}>
               <div className="container">
                 <div className="row">
                   <div className="col-md-8 m-auto">
@@ -89,11 +96,13 @@ class Register extends Component{
                         onChange={this.onChange}
                         error={errors.password2}
                       />
-                      <input type="submit" className={styles.register__button + ' ' + styles.button__register} />
+                      <div className={register__buttonGroup}>
+                        <input type="submit" className={register__button + ' ' + button__register} />
+                        <Link to="/" className={register__button + ' ' + button__goBack}>
+                            Go Back
+                        </Link>
+                      </div>
                     </form>
-                    <Link to="/" className={styles.register__button + ' ' + styles.button__goBack}>
-                        Go Back
-                    </Link>
                   </div>
                 </div>
               </div>

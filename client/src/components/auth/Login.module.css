@@ -2,14 +2,19 @@
     min-height: 85vh;
 }
 
+.login__buttonGroup{
+    display: flex;
+    justify-content: space-between;
+}
+
 .login__button{
     display: block;
     text-align: center;
-    margin: 0 auto;
-    padding: 5px;
+    margin: .5rem 0;
+    padding: 10px 0;
     color: white;
     border-radius: 4px;
-    width: 40%;
+    width: 45%;
     border: none;
     cursor: pointer;
 }
@@ -19,15 +24,27 @@
 }
 
 .button__login:hover{
-    background-color: #191970;
+    background-color: #8787dd;
+    color: black;
 }
 
 .button__goBack{
     background-color: #D3D3D3;
+    color: black;
 }
 
 .button__goBack:hover{
     background-color: #b4b4b4;
     color: white;
     text-decoration: none;
+}
+
+@media(max-width: 900px){
+    .login__buttonGroup{
+        flex-direction: column;
+    }
+
+    .login__button{
+        width: 100%;
+    }
 }

@@ -49,9 +49,16 @@ class Login extends Component{
     
     render(){
         const {errors} = this.state;
+
+        const {
+          login,
+          login__button,
+          login__buttonGroup,
+          button__login,
+          button__goBack } = styles;
         
         return(
-            <div className={styles.login}>
+            <div className={login}>
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 m-auto mt-5">
@@ -73,11 +80,15 @@ class Login extends Component{
                           onChange={this.onChange}
                           error={errors.password}
                         />
-                        <input type="submit" className={styles.login__button + ' ' + styles.button__login} />
+                        <div className={login__buttonGroup}>
+                          <input type="submit" className={login__button + ' ' + button__login} />
+                          <Link to="/" className={login__button + ' ' + button__goBack}>
+                            Go Back
+                          </Link>
+                        </div>
+                        
                       </form>
-                      <Link to="/" className={styles.login__button + ' ' + styles.button__goBack}>
-                          Go Back
-                      </Link>
+                      
                     </div>
                   </div>
                 </div>

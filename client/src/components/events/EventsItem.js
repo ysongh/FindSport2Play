@@ -16,8 +16,8 @@ class EventsItem extends Component{
                           alt="Sport" />
                     </Link>
                     <div className="card-body">
-                        <h5 className="card-title">{event.nameofevent}</h5>
-                        <p className="card-text">{event.typeofsport}</p>
+                        <h5 className="card-title font-weight-bold">{event.nameofevent}</h5>
+                        <p className="card-text badge badge-primary">{event.typeofsport}</p>
                         <p className="card-text">
                             <i className="fas fa-users"></i> {event.numberofplayer}
                         </p>

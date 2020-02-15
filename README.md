@@ -26,3 +26,20 @@ module.exports = {
 ```
 - Run `npm i && npm start` to start your server
 - CD to client folder and run `npm i && npm start` to start the web app
+
+## Preview
+- Landing
+![landing](https://res.cloudinary.com/ysongit/image/upload/v1581738547/project/Screen_Shot_2020-02-14_at_10.48.57_PM_b8c3lf.png "Landing")
+
+- Sign Up
+![sign up](https://res.cloudinary.com/ysongit/image/upload/v1581738611/project/Screen_Shot_2020-02-14_at_10.49.59_PM_mxgnd4.png "Sign Up")
+
+- Post Event
+![post event](https://res.cloudinary.com/ysongit/image/upload/v1581738666/project/Screen_Shot_2020-02-14_at_10.50.50_PM_icdr0w.png "Post Event")
+
+- Events
+
+![events](https://res.cloudinary.com/ysongit/image/upload/v1581738824/project/project-A2_rljirb.jpg "Events")
+
+- Event Detail
+![event detail](https://res.cloudinary.com/ysongit/image/upload/v1581738883/project/Screen_Shot_2020-02-14_at_10.54.32_PM_ayxsey.png "Event Detail")

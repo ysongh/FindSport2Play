@@ -7,6 +7,7 @@ const validateCommentInput = require('../../validation/comment');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
+// testing
 router.get('/:id/comments/test', (req, res) => {
     Event.findById(req.params.id)
         .then(comment => {
@@ -17,6 +18,7 @@ router.get('/:id/comments/test', (req, res) => {
         );
 });
 
+// add comment
 router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
         .populate('user', ['name'])
@@ -50,6 +52,7 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
         });
 });
 
+// delete comment
 router.delete('/:id/comments/:com_id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
         .populate('user', ['name'])

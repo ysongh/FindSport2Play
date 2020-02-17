@@ -38,8 +38,7 @@ module.exports = {
 ![post event](https://res.cloudinary.com/ysongit/image/upload/v1581738666/project/Screen_Shot_2020-02-14_at_10.50.50_PM_icdr0w.png "Post Event")
 
 - Events
-
-![events](https://res.cloudinary.com/ysongit/image/upload/v1581738824/project/project-A2_rljirb.jpg "Events")
+![events](https://res.cloudinary.com/ysongit/image/upload/v1581904339/project/Screen_Shot_2020-02-16_at_8.52.09_PM_omjjhk.png "Events")
 
 - Event Detail
 ![event detail](https://res.cloudinary.com/ysongit/image/upload/v1581738883/project/Screen_Shot_2020-02-14_at_10.54.32_PM_ayxsey.png "Event Detail")

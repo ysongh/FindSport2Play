@@ -7,6 +7,8 @@ import { checkNotification } from '../../actions/notificationActions';
 import NotificationList from './NotificationList';
 import styles from './Navbar.module.css';
 
+import Logo from '../../img/logo.png';
+
 class Navbar extends Component {
   constructor(props){
       super(props);
@@ -79,7 +81,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            FindSport2Play
+            <img src={Logo} className="logo" alt="Logo" />
           </Link>
           <button
             className="navbar-toggler"

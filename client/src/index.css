@@ -5,3 +5,8 @@ body {
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
+.logo{
+  width: 11rem;
+  margin-bottom: 3px;
+}

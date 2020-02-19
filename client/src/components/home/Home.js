@@ -40,7 +40,7 @@ class Home extends Component{
       );
 
       return(
-        <div>
+        <div className="container">
           <header className={header}>
             <div className={header__text}>
               <h1>Search for players to play sport</h1>

@@ -62,6 +62,22 @@
     margin-bottom: 2rem;
 }
 
+.steps__text h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.steps__list {
+    margin: 0;
+}
+
+.steps__list li{
+    font-size: 1.4rem;
+}
+
 @media(max-width: 900px){
     .header{
         grid-template-columns: 1fr;
@@ -93,13 +109,13 @@
     .header__img{
         grid-row: 1;
         margin: auto;
-        margin-top: 1rem;
+        margin-top: .4rem;
         width: 90%;
         transform: translateX(0);
     }
 
     .howItWork{
-        padding: 4rem 1rem;
+        margin: 6rem 1rem;
     }
 
     .howItWork__imgReverse{
@@ -122,5 +138,11 @@
 
     .howItWork__text p{
         margin-bottom: 1rem;
+    }
+
+    .steps__text h2{
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
 }

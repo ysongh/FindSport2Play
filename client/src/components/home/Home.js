@@ -6,6 +6,7 @@ import styles from './Home.module.css';
 import LandingImg from '../../img/landingImg.png';
 import HowitworkImg1 from '../../img/howitworkImg1.png';
 import HowitworkImg2 from '../../img/howitworkImg2.png';
+import StepsImg from '../../img/stepsImg.png';
 
 class Home extends Component{
   onLogoutClick(e){
@@ -23,7 +24,9 @@ class Home extends Component{
         howItWork,
         howItWork__container,
         howItWork__text,
-        howItWork__imgReverse } = styles;
+        howItWork__imgReverse,
+        steps__text,
+        steps__list } = styles;
       
       const guestLinks = (
         <div className={header__buttons}>
@@ -51,6 +54,21 @@ class Home extends Component{
           </header>
           
           <main>
+            <div className={howItWork}>
+              <div className={howItWork__container}>
+                <img src={StepsImg} className={howItWork__imgReverse} alt="HowitworkImg2" />
+                <div className={steps__text}>
+                  <h2>It easy to find someone to play with!</h2>
+                  <ol className={steps__list}>
+                    <li>Set up your account</li>
+                    <li>Post an event to meet</li>
+                    <li>Wait for players to join you</li>
+                    <li>Meet your players to play with</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
             <div className={howItWork}>
               <div className={howItWork__container}>
                 <img src={HowitworkImg1} alt="HowitworkImg1" />

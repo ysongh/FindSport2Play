@@ -56,7 +56,7 @@ class Home extends Component{
           <main>
             <div className={howItWork}>
               <div className={howItWork__container}>
-                <img src={StepsImg} className={howItWork__imgReverse} alt="HowitworkImg2" />
+                <img src={StepsImg} alt="HowitworkImg2" />
                 <div className={steps__text}>
                   <h2>It easy to find someone to play with!</h2>
                   <ol className={steps__list}>
@@ -71,14 +71,18 @@ class Home extends Component{
 
             <div className={howItWork}>
               <div className={howItWork__container}>
-                <img src={HowitworkImg1} alt="HowitworkImg1" />
+                <img src={HowitworkImg1} className={howItWork__imgReverse} alt="HowitworkImg1" />
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
       		        <Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
                 </div>
+              </div>
 
-                <img src={HowitworkImg2} className={howItWork__imgReverse} alt="HowitworkImg2" />
+              <div className="mb-5"></div>
+
+              <div className={howItWork__container}>
+                <img src={HowitworkImg2} alt="HowitworkImg2" />
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
                   <p>You can create event so that any player to join you to play together</p>

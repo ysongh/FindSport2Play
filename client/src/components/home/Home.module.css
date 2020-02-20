@@ -59,6 +59,7 @@
 .howItWork__text p{
     font-size: 1.5rem;
     line-height: 1.2;
+    margin-bottom: 2rem;
 }
 
 @media(max-width: 900px){
@@ -111,7 +112,7 @@
     }
 
     .howItWork__text{
-        padding: 0 1rem;
+        padding: 0;
     }
 
     .howItWork__text h2{
@@ -120,6 +121,6 @@
     }
 
     .howItWork__text p{
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 }

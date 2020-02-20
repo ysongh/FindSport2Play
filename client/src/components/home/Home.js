@@ -57,12 +57,14 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
+      		        <Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
                 </div>
-                
+
                 <img src={HowitworkImg2} className={howItWork__imgReverse} alt="HowitworkImg2" />
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
                   <p>You can create event so that any player to join you to play together</p>
+                  <Link to="/create-event" className="btn btn-lg text-white btn-primary mr-4">Post Event</Link>
                 </div>
               </div>
             </div>

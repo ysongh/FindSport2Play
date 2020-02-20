@@ -58,9 +58,7 @@ class Home extends Component{
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
                 </div>
-              </div>
-              
-              <div className={howItWork__container}>
+                
                 <img src={HowitworkImg2} className={howItWork__imgReverse} alt="HowitworkImg2" />
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>

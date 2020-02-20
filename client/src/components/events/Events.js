@@ -8,8 +8,9 @@ import { getEvents } from '../../actions/eventActions';
 
 class Events extends Component{
     componentDidMount(){
-         this.props.getEvents();
-     }
+        window.scrollTo(0, 0);
+        this.props.getEvents();
+    }
     
     render(){
         const {events, loading} = this.props.events;

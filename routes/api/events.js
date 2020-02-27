@@ -7,9 +7,6 @@ const validateEventInput = require('../../validation/event');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
-// testing
-router.get('/test', (req, res) => res.json({msg: "Events Work"}));
-
 // fetch all events
 router.get('/all', (req, res) => {
     Event.find()

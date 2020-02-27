@@ -7,17 +7,6 @@ const validateCommentInput = require('../../validation/comment');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
-// testing
-router.get('/:id/comments/test', (req, res) => {
-    Event.findById(req.params.id)
-        .then(comment => {
-            res.json({msg: "Comment Work"});
-        })
-        .catch(err =>
-            res.status(404).json({error: "Error in get api/events/:id/comments/test. " + err})
-        );
-});
-
 // add comment
 router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)

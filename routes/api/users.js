@@ -11,9 +11,6 @@ const validateLoginInput = require('../../validation/login');
 const User = require('../../models/User');
 const Notification = require('../../models/Notification');
 
-// testing
-router.get('/test', (req, res) => res.json({msg: "Users Work"}));
-
 // sign up a new user
 router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);

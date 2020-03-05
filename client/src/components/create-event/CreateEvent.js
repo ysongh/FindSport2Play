@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -61,13 +61,11 @@ class CreateEvent extends Component{
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 text-center">Host Your Event</h1>
-                            <p className="lead text-center">
-                                Create your own event for other to play with you
-                            </p>
                             <small className="d-block pb-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup
-                                  placeholder="* Name of Event"
+                                  label="Event Name *"
+                                  placeholder="Event Name"
                                   name="nameofevent"
                                   type="name"
                                   value={this.state.nameofevent}
@@ -75,7 +73,8 @@ class CreateEvent extends Component{
                                   error={errors.nameofevent}
                                 />
                                 <TextFieldGroup
-                                  placeholder="* Type of Sport"
+                                  label="Type of Sport *"
+                                  placeholder="Type of Sport"
                                   name="typeofsport"
                                   type="name"
                                   value={this.state.typeofsport}
@@ -83,7 +82,8 @@ class CreateEvent extends Component{
                                   error={errors.typeofsport}
                                 />
                                 <TextFieldGroup
-                                  placeholder="* Number of player"
+                                  label="Number of player *"
+                                  placeholder="Number of player"
                                   name="numberofplayer"
                                   type="number"
                                   value={this.state.numberofplayer}
@@ -91,6 +91,7 @@ class CreateEvent extends Component{
                                   error={errors.numberofplayer}
                                 />
                                 <TextFieldGroup
+                                  label="Image URL"
                                   placeholder="Image URL"
                                   name="imageURL"
                                   type="name"
@@ -99,6 +100,7 @@ class CreateEvent extends Component{
                                   error={errors.imageURL}
                                 />
                                 <TextFieldGroup
+                                  label="Location"
                                   placeholder="Location"
                                   name="location"
                                   type="name"
@@ -107,6 +109,7 @@ class CreateEvent extends Component{
                                   error={errors.location}
                                 />
                                 <TextFieldGroup
+                                  label="Date"
                                   name="start"
                                   type="date"
                                   value={this.state.start}
@@ -114,6 +117,7 @@ class CreateEvent extends Component{
                                   error={errors.start}
                                 />
                                 <TextAreaFieldGroup
+                                  label="Description"
                                   placeholder="Description"
                                   name="description"
                                   type="name"
@@ -123,9 +127,6 @@ class CreateEvent extends Component{
                                 />
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                           </form>
-                          <Link to="/events" className="btn btn-light btn-block mt-1">
-                                Cancel
-                          </Link>
                         </div>
                     </div>
                 </div>

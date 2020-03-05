@@ -54,7 +54,8 @@ class CreateProfile extends Component{
                             <small className="d-block my-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup
-                                    placeholder="* Profile Handle"
+                                    label="Profile Handle *"
+                                    placeholder="Profile Handle"
                                     name="handle"
                                     value={this.state.handle}
                                     onChange={this.onChange}
@@ -62,15 +63,16 @@ class CreateProfile extends Component{
                                     info="A unique handle for your profile URL."
                                 />
                                 <TextFieldGroup
+                                    label="Location"
                                     placeholder="Location"
                                     name="location"
                                     value={this.state.location}
                                     onChange={this.onChange}
                                     error={errors.location}
-                                    info="City and State (eg. New York, NY)"
                                 />
                                 <TextFieldGroup
-                                    placeholder="* Favorite Sports"
+                                    label="Favorite Sports *"
+                                    placeholder="Favorite Sports"
                                     name="favoriteSport"
                                     value={this.state.favoriteSport}
                                     onChange={this.onChange}
@@ -78,12 +80,12 @@ class CreateProfile extends Component{
                                     info="Please use comma separated values (eg. Baseball,Tennis,Football)"
                                 />
                                 <TextAreaFieldGroup
+                                    label="Bio"
                                     placeholder="Short Bio"
                                     name="bio"
                                     value={this.state.bio}
                                     onChange={this.onChange}
                                     error={errors.bio}
-                                    info="Information about yourself"
                                 />
                                 <input type="submit" value="Submit" className="btn btn-info btn-block my-4" />
                             </form>

@@ -49,12 +49,12 @@ class Navbar extends Component {
           </button>
           { this.state.showNotification ? notificationList : null }
         </li>
-        <li className="nav-item">
+        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link to="/profile" className="nav-link">
               Welcome, {user.name}
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link to="/" onClick={this.onLogoutClick.bind(this)} className="nav-link btn btn-danger text-white">
               Logout
           </Link>
@@ -64,12 +64,12 @@ class Navbar extends Component {
     
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
+        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link className="nav-link" to="/login">
             Login
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <Link className="nav-link btn btn-primary text-white" to="/register">
             Get Started
           </Link>
@@ -81,7 +81,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img src={Logo} className="logo" alt="Logo" />
+            <img src={Logo} className="logo" alt="Logo" data-toggle="collapse" data-target=".navbar-collapse.show" />
           </Link>
           <button
             className="navbar-toggler"
@@ -94,7 +94,7 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
+              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <Link className="nav-link" to="/events">
                   {' '}
                   List of Events

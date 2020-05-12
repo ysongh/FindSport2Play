@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Card, CardHeader, CardContent, CardActions, Chip, Button, Typography } from '@material-ui/core';
+import { Grid, Card, CardHeader, CardContent, CardActions, Chip, Button, Typography } from '@material-ui/core';
 
 import sportImage from '../../img/noImage.svg';
 
@@ -10,7 +10,7 @@ class EventsItem extends Component{
         const {event} = this.props;
         
         return(
-            <div className="col-md-3 col-sm-6 my-2">
+            <Grid item xs={12} sm={6} md={6} lg={4} xl={3}>
                 <Card>
                     <CardHeader title={event.nameofevent} />
                     <Link to={`/event/${event._id}`}>
@@ -31,7 +31,7 @@ class EventsItem extends Component{
                         </Button>
                     </CardActions>
                 </Card>
-            </div>
+            </Grid>
         );
     }
 }

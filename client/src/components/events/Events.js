@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
 
 import EventsList from './EventsList';
 import Spinner from '../common/Spinner';
@@ -21,9 +22,9 @@ class Events extends Component{
         }
         else{
             eventContent = (
-                <div className="row mt-2 mb-5">
+                <Grid container spacing={4}>
                     <EventsList events={events} />
-                </div>
+                </Grid>
             );
         }
         

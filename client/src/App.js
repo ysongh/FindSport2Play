@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utilis/setAuthToken';
 import { setCurrentUser, logoutUser  } from './actions/authActions';
 import { Provider } from 'react-redux';
+import { Container } from '@material-ui/core';
 import store from './store';
 
 import PrivateRoute from './components/common/PrivateRoute';
@@ -43,7 +44,7 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Home} />
-            <div className="container">
+            <Container>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Switch>
@@ -55,7 +56,7 @@ class App extends Component {
                 <PrivateRoute exact path="/event/:id/newcomment" component={CommentForm} />
                 <PrivateRoute exact path="/create-profile" component={CreateProfile} />
               </Switch>
-            </div>
+            </Container>
             <Footer />
           </div>
         </Router>

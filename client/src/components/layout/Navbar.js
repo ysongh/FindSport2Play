@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Container } from '@material-ui/core';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -79,7 +80,7 @@ class Navbar extends Component {
     
     return (
       <nav className="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
-        <div className="container">
+        <Container>
           <Link className="navbar-brand" to="/">
             <img src={Logo} className="logo" alt="Logo" data-toggle="collapse" data-target=".navbar-collapse.show" />
           </Link>
@@ -103,7 +104,7 @@ class Navbar extends Component {
             </ul>
             {isAuthenticated ? authLinks : guestLinks}
           </div>
-        </div>
+        </Container>
       </nav>
     );
   }

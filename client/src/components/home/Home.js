@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Container } from '@material-ui/core';
 
 import styles from './Home.module.css';
 import LandingImg from '../../img/landingImg.png';
@@ -43,7 +44,7 @@ class Home extends Component{
       );
 
       return(
-        <div className="container">
+        <Container maxWidth="lg">
           <header className={header}>
             <div className={header__text}>
               <h1>Search for players to play sport</h1>
@@ -91,7 +92,7 @@ class Home extends Component{
               </div>
             </div>
           </main>
-        </div>
+        </Container>
       );
   }
 }

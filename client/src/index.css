@@ -10,3 +10,10 @@ body {
   width: 11rem;
   margin-bottom: 3px;
 }
+
+.btn-link,
+.btn-link:link,
+.btn-link:visited{
+    text-decoration: none;
+    color: white;
+}

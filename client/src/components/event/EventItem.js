@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 //import Map from './map/Map.js';
-import sportImage from '../../img/sport.png';
+import sportImage from '../../img/noImage.svg';
 import { deleteEvent, joinEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{

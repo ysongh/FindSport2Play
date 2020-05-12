@@ -24,10 +24,10 @@ class EventsItem extends Component{
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" variant="contained" color="primary" fullWidth="true">
-                            <Link to={`/event/${event._id}`} className="btn-link">
+                        <Button size="large" variant="contained" color="primary" fullWidth="true"  component={Link} to={`/event/${event._id}`}>
+                            <Typography color="textPrimary">
                                 More Info
-                            </Link>
+                            </Typography>
                         </Button>
                     </CardActions>
                 </Card>

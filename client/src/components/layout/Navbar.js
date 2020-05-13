@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link } from '@material-ui/core';
+import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link, IconButton } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -118,19 +119,22 @@ class Navbar extends Component {
     );
     
     return (
-      <AppBar position="relative">
-        <Toolbar>
+      <AppBar position="static">
+        <Toolbar className="toolbar">
+          <IconButton edge="end" color="inherit" aria-label="menu">
+            <MenuIcon onClick={handleDrawerOpen} />
+          </IconButton>
           <Link component={RouterLink} to="/">
             <img src={Logo} className="logo" alt="Logo" />
           </Link>
-          <Link component={RouterLink} to="/events" color="textPrimary">
+          {/* <Link component={RouterLink} to="/events" color="textPrimary">
             {' '}
             List of Events
           </Link>
-          {isAuthenticated ? authLinks : guestLinks}
+          {isAuthenticated ? authLinks : guestLinks} */}
         </Toolbar>
-        <Button onClick={handleDrawerOpen}>Open</Button>
-        <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
+        
+        <Drawer anchor="left" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           {sideDrawer}
         </Drawer>
       </AppBar>

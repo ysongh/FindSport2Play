@@ -68,7 +68,7 @@ class Navbar extends Component {
     );
     
     const guestLinks = (
-      <div>
+      <div className="hiddenDesk">
         <Link component={RouterLink} to="/login" color="textPrimary">
           Login
         </Link>
@@ -121,20 +121,24 @@ class Navbar extends Component {
     return (
       <AppBar position="static">
         <Toolbar className="toolbar">
-          <IconButton edge="end" color="inherit" aria-label="menu">
-            <MenuIcon onClick={handleDrawerOpen} />
-          </IconButton>
           <Link component={RouterLink} to="/">
             <img src={Logo} className="logo" alt="Logo" />
           </Link>
-          {/* <Link component={RouterLink} to="/events" color="textPrimary">
+          <Link component={RouterLink} to="/events" color="textPrimary">
             {' '}
             List of Events
           </Link>
-          {isAuthenticated ? authLinks : guestLinks} */}
+          <div className="toolbarRight">
+            {isAuthenticated ? authLinks : guestLinks}
+            <div className="hiddenMobile">
+              <IconButton edge="start" color="inherit" aria-label="menu">
+                <MenuIcon onClick={handleDrawerOpen} />
+              </IconButton>
+            </div>
+          </div>
         </Toolbar>
         
-        <Drawer anchor="left" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
+        <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           {sideDrawer}
         </Drawer>
       </AppBar>

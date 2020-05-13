@@ -17,3 +17,25 @@ body {
   text-decoration: none;
   color: white;
 }
+
+.toolbarRight{
+  margin-left: auto;
+}
+
+.hiddenDesk{
+  display: block;
+}
+
+.hiddenMobile{
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .hiddenDesk{
+    display: none;
+  }
+
+  .hiddenMobile{
+    display: block;
+  }
+}

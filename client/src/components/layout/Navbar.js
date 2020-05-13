@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container } from '@material-ui/core';
+import { Container, AppBar, Toolbar, Link } from '@material-ui/core';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -41,71 +41,49 @@ class Navbar extends Component {
     );
     
     const authLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <button className="btn btn-dark nav-link mr-2" onClick={this.onShowNotification.bind(this)}>
-              <i className="far fa-bell notification__icon">
-                <sup className={styles.notification__number}>{notifications.unread}</sup>
-              </i>
-          </button>
-          { this.state.showNotification ? notificationList : null }
-        </li>
-        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <Link to="/profile" className="nav-link">
-              Welcome, {user.name}
-          </Link>
-        </li>
-        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <Link to="/" onClick={this.onLogoutClick.bind(this)} className="nav-link btn btn-danger text-white">
-              Logout
-          </Link>
-        </li>
-      </ul>
+      <div>
+        <button onClick={this.onShowNotification.bind(this)}>
+          <i className="far fa-bell notification__icon">
+            <sup className={styles.notification__number}>{notifications.unread}</sup>
+          </i>
+        </button>
+        
+        { this.state.showNotification ? notificationList : null }
+        <Link component={RouterLink} to="/profile" color="textPrimary">
+          Welcome, {user.name}
+        </Link>
+        <Link component={RouterLink} to="/" onClick={this.onLogoutClick.bind(this)} color="textPrimary">
+          Logout
+        </Link>
+      </div>
     );
     
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
-        </li>
-        <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <Link className="nav-link btn btn-primary text-white" to="/register">
-            Get Started
-          </Link>
-        </li>
-      </ul>
+      <div>
+        <Link component={RouterLink} to="/login" color="textPrimary">
+          Login
+        </Link>
+        <Link component={RouterLink} to="/register" color="textPrimary">
+          Get Started
+        </Link>
+      </div>
     );
     
     return (
-      <nav className="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
+      <AppBar>
         <Container>
-          <Link className="navbar-brand" to="/">
-            <img src={Logo} className="logo" alt="Logo" data-toggle="collapse" data-target=".navbar-collapse.show" />
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <Link className="nav-link" to="/events">
-                  {' '}
-                  List of Events
-                </Link>
-              </li>
-            </ul>
+          <Toolbar>
+            <Link component={RouterLink} to="/">
+              <img src={Logo} className="logo" alt="Logo" data-toggle="collapse" data-target=".navbar-collapse.show" />
+            </Link>
+            <Link component={RouterLink} to="/events" color="textPrimary">
+              {' '}
+              List of Events
+            </Link>
             {isAuthenticated ? authLinks : guestLinks}
-          </div>
+          </Toolbar>
         </Container>
-      </nav>
+      </AppBar>
     );
   }
 }

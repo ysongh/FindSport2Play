@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, Drawer, Button, Link } from '@material-ui/core';
+import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link } from '@material-ui/core';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -35,6 +35,14 @@ class Navbar extends Component {
   render() {
     const {isAuthenticated, user, notifications} = this.props.auth;
 
+    const handleDrawerOpen = () => {
+      this.setState({ toggleDrawer: true});
+    };
+  
+    const handleDrawerClose = () => {
+      this.setState({ toggleDrawer: false});
+    };
+
     const notificationList = (
       <div className={styles.notification}>
         <NotificationList notifications={notifications.notification} />
@@ -57,14 +65,6 @@ class Navbar extends Component {
         </Button>
       </div>
     );
-
-    const handleDrawerOpen = () => {
-      this.setState({ toggleDrawer: true});
-    };
-  
-    const handleDrawerClose = () => {
-      this.setState({ toggleDrawer: false});
-    };
     
     const guestLinks = (
       <div>
@@ -75,6 +75,46 @@ class Navbar extends Component {
           Get Started
         </Button>
       </div>
+    );
+
+    const sideAuthLinks = (
+      <div>
+        <ListItem button onClick={this.onShowNotification.bind(this)}>
+          <i className="far fa-bell notification__icon">
+            <sup className={styles.notification__number}>{notifications.unread}</sup>
+          </i>
+        </ListItem>
+        { this.state.showNotification ? notificationList : null }
+        <ListItem button component={RouterLink} to="/profile">
+          <ListItemText primary="Your Profile" />
+        </ListItem>
+        <ListItem button onClick={this.onLogoutClick.bind(this)}>
+          <ListItemText primary="Logout" />
+        </ListItem>
+      </div>
+    );
+
+    const sideGuestLinks = (
+      <div>
+        <ListItem button component={RouterLink} to="/login" color="textPrimary">
+          <ListItemText primary="Login" />
+        </ListItem>
+        <ListItem button component={RouterLink} to="/register" color="textPrimary">
+          <ListItemText primary="Get Started" />
+        </ListItem>
+      </div>
+    );
+
+    const sideDrawer = (
+      <List component="nav">
+        <ListItem button component={RouterLink} to="/">
+          <img src={Logo} className="logo" alt="Logo" />
+        </ListItem>
+        <ListItem button component={RouterLink} to="/events">
+          <ListItemText primary="List of Events" />
+        </ListItem>
+        {isAuthenticated ? sideAuthLinks : sideGuestLinks}
+      </List>
     );
     
     return (
@@ -91,16 +131,7 @@ class Navbar extends Component {
         </Toolbar>
         <Button onClick={handleDrawerOpen}>Open</Button>
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
-          <Toolbar>
-            <Link component={RouterLink} to="/">
-              <img src={Logo} className="logo" alt="Logo" />
-            </Link>
-            <Link component={RouterLink} to="/events" color="textPrimary">
-              {' '}
-              List of Events
-            </Link>
-            {isAuthenticated ? authLinks : guestLinks}
-          </Toolbar>
+          {sideDrawer}
         </Drawer>
       </AppBar>
     );

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link, IconButton } from '@material-ui/core';
+import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Badge, Button, Link, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -53,11 +54,9 @@ class Navbar extends Component {
     // Start of Desktop Navbar
     const authLinks = (
       <div className="hiddenDesk">
-        <button onClick={this.onShowNotification.bind(this)}>
-          <i className="far fa-bell notification__icon">
-            <sup className={styles.notification__number}>{notifications.unread}</sup>
-          </i>
-        </button>
+        <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
+          <NotificationsIcon />
+        </Badge>
         { this.state.showNotification ? notificationList : null }
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}

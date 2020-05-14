@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link, IconButton } from '@material-ui/core';
+import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Link, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { logoutUser } from '../../actions/authActions';
@@ -120,23 +120,25 @@ class Navbar extends Component {
     
     return (
       <AppBar position="static">
-        <Toolbar className="toolbar">
-          <Link component={RouterLink} to="/">
-            <img src={Logo} className="logo" alt="Logo" />
-          </Link>
-          <Link component={RouterLink} to="/events" color="textPrimary">
-            {' '}
-            List of Events
-          </Link>
-          <div className="toolbarRight">
-            {isAuthenticated ? authLinks : guestLinks}
-            <div className="hiddenMobile">
-              <IconButton edge="start" color="inherit" aria-label="menu">
-                <MenuIcon onClick={handleDrawerOpen} />
-              </IconButton>
+        <Container>
+          <Toolbar disableGutters="true" className="toolbar">
+            <Link component={RouterLink} to="/">
+              <img src={Logo} className="logo" alt="Logo" />
+            </Link>
+            <Link component={RouterLink} to="/events" color="textPrimary">
+              {' '}
+              List of Events
+            </Link>
+            <div className="toolbarRight">
+              {isAuthenticated ? authLinks : guestLinks}
+              <div className="hiddenMobile">
+                <IconButton edge="start" color="inherit" aria-label="menu">
+                  <MenuIcon onClick={handleDrawerOpen} />
+                </IconButton>
+              </div>
             </div>
-          </div>
-        </Toolbar>
+          </Toolbar>
+        </Container>
         
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           {sideDrawer}

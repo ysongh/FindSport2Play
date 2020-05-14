@@ -4,7 +4,10 @@ import { SET_CURRENT_USER, GET_NOTIFICATION } from '../actions/types';
 const initialState = {
     isAuthenticated: false,
     user: {},
-    notifications: {}
+    notifications: {
+        unread: 0,
+        notification: []
+    }
 };
 
 export default function(state = initialState, action){

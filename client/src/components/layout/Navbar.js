@@ -17,16 +17,26 @@ class Navbar extends Component {
       super(props);
       this.state = {
           showNotification: false,
-          toggleDrawer: false
+          toggleDrawer: false,
+          anchorEl: ""
       };
   }
   
   onShowNotification(e){
       e.preventDefault();
-      this.setState(prevState => ({
-          showNotification: !prevState.showNotification
-      }));
+      this.setState({
+          showNotification: true,
+          anchorEl: e.currentTarget
+      });
       this.props.checkNotification();
+  }
+
+  onHideNotification(e){
+      e.preventDefault();
+      this.setState({
+          showNotification: false,
+          anchorEl: null
+      });
   }
   
   onLogoutClick(e){
@@ -45,19 +55,15 @@ class Navbar extends Component {
       this.setState({ toggleDrawer: false});
     };
 
-    const notificationList = (
-      <div className={styles.notification}>
-        <NotificationList notifications={notifications.notification} />
-      </div>
-    );
-    
     // Start of Desktop Navbar
     const authLinks = (
       <div className="hiddenDesk">
         <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
           <NotificationsIcon />
         </Badge>
-        { this.state.showNotification ? notificationList : null }
+        <div className={styles.notification}>
+          <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
+        </div>
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>
@@ -87,7 +93,6 @@ class Navbar extends Component {
             <sup className={styles.notification__number}>{notifications.unread}</sup>
           </i>
         </ListItem>
-        { this.state.showNotification ? notificationList : null }
         <ListItem button component={RouterLink} to="/profile">
           <ListItemText primary="Your Profile" />
         </ListItem>

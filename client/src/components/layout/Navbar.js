@@ -8,7 +8,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
 import NotificationList from './NotificationList';
-import styles from './Navbar.module.css';
 
 import Logo from '../../img/logo.png';
 
@@ -61,9 +60,7 @@ class Navbar extends Component {
         <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
           <NotificationsIcon />
         </Badge>
-        <div className={styles.notification}>
-          <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
-        </div>
+        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>
@@ -88,11 +85,6 @@ class Navbar extends Component {
     // Start of Mobile Navbar
     const sideAuthLinks = (
       <div>
-        <ListItem button onClick={this.onShowNotification.bind(this)}>
-          <i className="far fa-bell notification__icon">
-            <sup className={styles.notification__number}>{notifications.unread}</sup>
-          </i>
-        </ListItem>
         <ListItem button component={RouterLink} to="/profile">
           <ListItemText primary="Your Profile" />
         </ListItem>

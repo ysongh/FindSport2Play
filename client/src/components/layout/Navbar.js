@@ -50,15 +50,16 @@ class Navbar extends Component {
       </div>
     );
     
+    // Start of Desktop Navbar
     const authLinks = (
-      <div>
+      <div className="hiddenDesk">
         <button onClick={this.onShowNotification.bind(this)}>
           <i className="far fa-bell notification__icon">
             <sup className={styles.notification__number}>{notifications.unread}</sup>
           </i>
         </button>
         { this.state.showNotification ? notificationList : null }
-        <Link component={RouterLink} to="/profile" color="textPrimary">
+        <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>
         <Button onClick={this.onLogoutClick.bind(this)} variant="contained" color="secondary">
@@ -69,15 +70,17 @@ class Navbar extends Component {
     
     const guestLinks = (
       <div className="hiddenDesk">
-        <Link component={RouterLink} to="/login" color="textPrimary">
+        <Link className="white-link" component={RouterLink} to="/login">
           Login
         </Link>
-        <Button component={RouterLink} to="/register" variant="contained" color="secondary">
+        <Button className="white-link" component={RouterLink} to="/register" variant="contained" color="secondary">
           Get Started
         </Button>
       </div>
     );
+    // End of Desktop Navbar
 
+    // Start of Mobile Navbar
     const sideAuthLinks = (
       <div>
         <ListItem button onClick={this.onShowNotification.bind(this)}>
@@ -105,6 +108,7 @@ class Navbar extends Component {
         </ListItem>
       </div>
     );
+    // End of Mobile Navbar
 
     const sideDrawer = (
       <List component="nav">
@@ -125,8 +129,7 @@ class Navbar extends Component {
             <Link component={RouterLink} to="/">
               <img src={Logo} className="logo" alt="Logo" />
             </Link>
-            <Link component={RouterLink} to="/events" color="textPrimary">
-              {' '}
+            <Link className="white-link" component={RouterLink} to="/events">
               List of Events
             </Link>
             <div className="toolbarRight">

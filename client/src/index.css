@@ -11,11 +11,12 @@ body {
   margin-bottom: 3px;
 }
 
-.btn-link,
-.btn-link:link,
-.btn-link:visited{
-  text-decoration: none;
+.white-link,
+.white-link:link,
+.white-link:visited{
+  text-decoration: inherit !important;
   color: white;
+  margin: 0 .7rem;
 }
 
 .toolbarRight{

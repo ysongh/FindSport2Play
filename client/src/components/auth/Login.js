@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
 
 import styles from './Login.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -58,43 +59,37 @@ class Login extends Component{
           button__goBack } = styles;
         
         return(
-            <div className={login}>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-8 m-auto mt-5">
-                      <h1 className="display-4 text-center mt-5">Log In</h1>
-                      <form onSubmit={this.onSubmit} className="mb-2">
-                        <TextFieldGroup
-                          label="Email"
-                          placeholder="Email"
-                          name="email"
-                          type="email"
-                          value={this.state.email}
-                          onChange={this.onChange}
-                          error={errors.email}
-                        />
-                        <TextFieldGroup
-                          label="Password"
-                          placeholder="Password"
-                          name="password"
-                          type="password"
-                          value={this.state.password}
-                          onChange={this.onChange}
-                          error={errors.password}
-                        />
-                        <div className={login__buttonGroup}>
-                          <input type="submit" className={login__button + ' ' + button__login} />
-                          <Link to="/" className={login__button + ' ' + button__goBack}>
-                            Go Back
-                          </Link>
-                        </div>
-                        
-                      </form>
-                      
-                    </div>
+            <Grid className={login} container justify="center">
+              <Grid item xs={12} sm={8} md={6}>
+                <h1 className="display-4 text-center mt-5">Log In</h1>
+                <form onSubmit={this.onSubmit} className="mb-2">
+                  <TextFieldGroup
+                    label="Email"
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}
+                  />
+                  <TextFieldGroup
+                    label="Password"
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                  />
+                  <div className={login__buttonGroup}>
+                    <input type="submit" className={login__button + ' ' + button__login} />
+                    <Link to="/" className={login__button + ' ' + button__goBack}>
+                      Go Back
+                    </Link>
                   </div>
-                </div>
-            </div>
+                </form>
+              </Grid>
+            </Grid>
         );
     }
 }

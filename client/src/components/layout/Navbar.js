@@ -55,8 +55,8 @@ class Navbar extends Component {
     };
 
     const notificationsList = (
-      <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
-        <NotificationsIcon className="xm-1" />
+      <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)} className="xm-1">
+        <NotificationsIcon />
       </Badge>
     );
 

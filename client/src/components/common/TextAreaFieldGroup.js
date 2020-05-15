@@ -11,7 +11,7 @@ const TextAreaFieldGroup = ({
     onChange
 }) => {
     return(
-        <FormControl fullWidth={true}>
+        <FormControl fullWidth={true} margin="normal">
             <TextField
               label={label}
               placeholder={placeholder}

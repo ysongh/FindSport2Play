@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -73,23 +74,31 @@ class CreateEvent extends Component{
                                   onChange={this.onChange}
                                   error={errors.nameofevent}
                                 />
-                                <SelectFieldGroup
-                                  label="Type of Sport *"
-                                  name="typeofsport"
-                                  type="name"
-                                  value={this.state.typeofsport}
-                                  onChange={this.onChange}
-                                  error={errors.typeofsport}
-                                />
-                                <TextFieldGroup
-                                  label="Number of player *"
-                                  placeholder="Number of player"
-                                  name="numberofplayer"
-                                  type="number"
-                                  value={this.state.numberofplayer}
-                                  onChange={this.onChange}
-                                  error={errors.numberofplayer}
-                                />
+                                <Grid container spacing={3}>
+                                    <Grid item xs={6}>
+                                        <SelectFieldGroup
+                                            label="Type of Sport *"
+                                            name="typeofsport"
+                                            type="name"
+                                            value={this.state.typeofsport}
+                                            onChange={this.onChange}
+                                            error={errors.typeofsport}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextFieldGroup
+                                            label="Number of player *"
+                                            placeholder="Number of player"
+                                            name="numberofplayer"
+                                            type="number"
+                                            value={this.state.numberofplayer}
+                                            onChange={this.onChange}
+                                            error={errors.numberofplayer}
+                                        />
+                                    </Grid>
+                                </Grid>
+                                
+                                
                                 <TextFieldGroup
                                   label="Image URL"
                                   placeholder="Image URL"

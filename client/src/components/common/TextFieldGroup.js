@@ -13,7 +13,7 @@ const TextFieldGroup = ({
     disabled
 }) => {
     return(
-        <FormControl fullWidth={true}>
+        <FormControl fullWidth={true} margin="normal">
             <TextField
               type={type}
               error={error}
@@ -23,7 +23,6 @@ const TextFieldGroup = ({
               value={value}
               onChange={onChange}
               disabled={disabled}
-              margin="normal"
               variant="outlined"
               helperText={error}/>
               {info && <small className="form-text text-muted">{info}</small>}

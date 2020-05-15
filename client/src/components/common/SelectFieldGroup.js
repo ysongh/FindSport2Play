@@ -10,7 +10,7 @@ const SelectFieldGroup = ({
     onChange
 }) => {
     return(
-        <FormControl fullWidth={true} variant="outlined">
+        <FormControl fullWidth={true} variant="outlined" margin="normal">
             <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
             <Select
                 labelId="demo-simple-select-filled-label"

@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import { FormControl, TextField } from '@material-ui/core';
 
 const TextFieldGroup = ({
     name,
@@ -13,9 +13,8 @@ const TextFieldGroup = ({
     disabled
 }) => {
     return(
-        <div >
+        <FormControl fullWidth={true}>
             <TextField
-              fullWidth={true}
               type={type}
               error={error}
               placeholder={placeholder}
@@ -28,7 +27,7 @@ const TextFieldGroup = ({
               variant="outlined"
               helperText={error}/>
               {info && <small className="form-text text-muted">{info}</small>}
-        </div>
+        </FormControl>
     );
 };
 

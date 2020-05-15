@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import SelectFieldGroup from '../common/SelectFieldGroup';
 import { createEvent } from '../../actions/eventActions';
 
 class CreateEvent extends Component{
@@ -72,9 +73,8 @@ class CreateEvent extends Component{
                                   onChange={this.onChange}
                                   error={errors.nameofevent}
                                 />
-                                <TextFieldGroup
+                                <SelectFieldGroup
                                   label="Type of Sport *"
-                                  placeholder="Type of Sport"
                                   name="typeofsport"
                                   type="name"
                                   value={this.state.typeofsport}

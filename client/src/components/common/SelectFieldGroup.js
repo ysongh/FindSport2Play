@@ -19,8 +19,7 @@ const SelectFieldGroup = ({
                 name={name}
                 value={value}
                 onChange={onChange}
-                error={error}
-                helperText={error}
+                error={error ? true : false}
             >
             <MenuItem value={value}>
                 <em>Choose Sport Type</em>

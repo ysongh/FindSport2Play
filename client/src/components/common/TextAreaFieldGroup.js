@@ -18,7 +18,7 @@ const TextAreaFieldGroup = ({
               name={name}
               value={value}
               onChange={onChange}
-              error={error}
+              error={error ? true : false}
               variant="outlined"
               rows={5} 
               multiline />

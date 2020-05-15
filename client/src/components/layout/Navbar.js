@@ -127,7 +127,7 @@ class Navbar extends Component {
     return (
       <AppBar position="static">
         <Container>
-          <Toolbar disableGutters="true" className="toolbar">
+          <Toolbar disableGutters className="toolbar">
             <Link component={RouterLink} to="/">
               <img src={Logo} className="logo" alt="Logo" />
             </Link>
@@ -145,8 +145,8 @@ class Navbar extends Component {
               {isAuthenticated ? authLinks : guestLinks}
               <div className="hiddenMobile">
                 {isAuthenticated ? notificationsList : null}
-                <IconButton edge="start" color="inherit" aria-label="menu">
-                  <MenuIcon onClick={handleDrawerOpen} />
+                <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
+                  <MenuIcon />
                 </IconButton>
               </div>
             </div>

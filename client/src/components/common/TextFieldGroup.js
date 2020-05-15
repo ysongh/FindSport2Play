@@ -16,7 +16,7 @@ const TextFieldGroup = ({
         <FormControl fullWidth={true} margin="normal">
             <TextField
               type={type}
-              error={error}
+              error={error ? true : false}
               placeholder={placeholder}
               name={name}
               label={label}

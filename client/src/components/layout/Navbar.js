@@ -115,7 +115,10 @@ class Navbar extends Component {
           <img src={Logo} className="logo" alt="Logo" />
         </ListItem>
         <ListItem button component={RouterLink} to="/events">
-          <ListItemText primary="List of Events" />
+          <ListItemText primary="Events List" />
+        </ListItem>
+        <ListItem button component={RouterLink} to="/create-event">
+          <ListItemText primary="Create Event" />
         </ListItem>
         {isAuthenticated ? sideAuthLinks : sideGuestLinks}
       </List>
@@ -128,9 +131,16 @@ class Navbar extends Component {
             <Link component={RouterLink} to="/">
               <img src={Logo} className="logo" alt="Logo" />
             </Link>
-            <Link className="white-link" component={RouterLink} to="/events">
-              List of Events
-            </Link>
+
+            <div className="hiddenDesk">
+              <Link className="white-link" component={RouterLink} to="/events">
+                Events List
+              </Link>
+              <Link className="white-link" component={RouterLink} to="/create-event">
+                Create Event
+              </Link>
+            </div>
+            
             <div className="toolbarRight">
               {isAuthenticated ? authLinks : guestLinks}
               <div className="hiddenMobile">

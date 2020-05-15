@@ -54,13 +54,16 @@ class Navbar extends Component {
       this.setState({ toggleDrawer: false});
     };
 
+    const notificationsList = (
+      <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
+        <NotificationsIcon className="xm-1" />
+      </Badge>
+    );
+
     // Start of Desktop Navbar
     const authLinks = (
       <div className="hiddenDesk">
-        <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)}>
-          <NotificationsIcon />
-        </Badge>
-        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
+        {notificationsList}
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>
@@ -131,6 +134,7 @@ class Navbar extends Component {
             <div className="toolbarRight">
               {isAuthenticated ? authLinks : guestLinks}
               <div className="hiddenMobile">
+                {isAuthenticated ? notificationsList : null}
                 <IconButton edge="start" color="inherit" aria-label="menu">
                   <MenuIcon onClick={handleDrawerOpen} />
                 </IconButton>
@@ -142,6 +146,7 @@ class Navbar extends Component {
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           {sideDrawer}
         </Drawer>
+        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
       </AppBar>
     );
   }

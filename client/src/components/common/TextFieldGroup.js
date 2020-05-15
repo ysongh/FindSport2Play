@@ -15,7 +15,6 @@ const TextFieldGroup = ({
     return(
         <div >
             <TextField
-              id="outlined-basic"
               fullWidth={true}
               type={type}
               error={error}

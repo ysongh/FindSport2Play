@@ -118,7 +118,7 @@ class CreateEvent extends Component{
                                 />
                                 <TextAreaFieldGroup
                                   label="Description"
-                                  placeholder="Description"
+                                  placeholder="Details about this event"
                                   name="description"
                                   type="name"
                                   value={this.state.description}

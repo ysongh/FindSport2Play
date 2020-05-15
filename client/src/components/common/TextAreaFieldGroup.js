@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import TextField from '@material-ui/core/TextField';
 
 const TextAreaFieldGroup = ({
     name,
@@ -11,18 +11,19 @@ const TextAreaFieldGroup = ({
     onChange
 }) => {
     return(
-        <div className="form-group">
-            <label>{label}</label>
-            <textarea
-              className={classnames('form-control form-control-lg', {
-                  'is-invalid': error
-              })}
+        <div>
+            <TextField
+              label={label}
               placeholder={placeholder}
               name={name}
               value={value}
-              onChange={onChange}/>
+              onChange={onChange}
+              error={error}
+              variant="outlined"
+              rows={5} 
+              fullWidth={true}
+              multiline />
               {info && <small className="form-text text-muted">{info}</small>}
-              {error && (<div className="invalid-feedback">{error}</div>)}
         </div>
     );
 };

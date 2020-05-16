@@ -3,6 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Paper, Grid } from '@material-ui/core';
 
 //import Map from './map/Map.js';
 import sportImage from '../../img/noImage.svg';
@@ -25,9 +26,9 @@ class EventItem extends Component{
         const {event, auth} = this.props;
         
         return(
-            <div className="jumbotron">
-                <div className="row">
-                    <div className="col-md-4">
+            <Paper className="pad-1">
+                <Grid container>
+                    <Grid item xs={12} md={4}>
                         <span className="badge badge-info">Type of Sport</span>
                         <p>{event.typeofsport}</p>
                         
@@ -67,13 +68,13 @@ class EventItem extends Component{
                         ) : null}
                         
                        
-                    </div>
-                    <div className="col-md-8">
+                    </Grid>
+                    <Grid item xs={12} md={8}>
                         <span className="badge badge-info">Image</span>
                         <img className="card-img-top" style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
-                    </div>
-                </div>
+                    </Grid>
+                </Grid>
                 <hr />
                 <div className="d-flex">
                     <button 
@@ -92,7 +93,7 @@ class EventItem extends Component{
                     </ol>
                 </div>
                 
-            </div>
+            </Paper>
         );
     }
 }

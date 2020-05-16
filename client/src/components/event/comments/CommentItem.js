@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@material-ui/core';
+import PersonIcon from '@material-ui/icons/Person';
 
 import { deleteComment } from '../../../actions/eventActions';
 
@@ -14,15 +16,14 @@ class CommentItem extends Component{
         const {event} = this.props.events;
         
         return(
-            <div className="card card bg-light text-dark mb-1 p-2">
-              <p className="lead">
-                {comment.text}
-              </p>
-              <div className="d-flex flex-row align-items-center">
-                <i className="far fa-user mr-2"></i>
-                 <Link to={`/profile/${comment.user}`}>
-                     <p className="font-italic d-inline">{comment.name}</p>
-                </Link>
+            <div>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>
+                    <PersonIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={comment.text} secondary={comment.date.slice(11, 19)} />
                 {event.user._id === auth.user.id ? (
                   <button 
                     onClick={this.onDeleteClick.bind(this, event._id, comment._id)}
@@ -31,7 +32,8 @@ class CommentItem extends Component{
                     <i className="fas fa-times" />
                   </button>
                  ) : null}
-               </div>
+              </ListItem>
+              <Divider variant="inset" />
             </div>
         );
     }

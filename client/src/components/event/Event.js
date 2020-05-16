@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Paper, List } from '@material-ui/core';
 
 import Spinner from '../common/Spinner';
 import EventItem from '../event/EventItem';
@@ -38,7 +39,11 @@ class Event extends Component{
                     <Link to="/events" className="btn btn-light mb-3">
                         Back
                     </Link>
-                    {eventContent}
+                    <Paper elevation={3}>
+                        <List>
+                        {eventContent}
+                        </List>
+                    </Paper>
                 </div>
             </div>
         );

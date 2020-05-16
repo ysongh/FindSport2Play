@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Paper, AppBar, Typography, Button } from '@material-ui/core';
 
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
 import { addComment } from '../../../actions/eventActions';
@@ -46,27 +47,22 @@ class CommentForm extends Component {
     const { errors } = this.state;
 
     return (
-        <div className={styles.commentForm}>
-            <div className="card card-info">
-                <div className="card-header bg-info text-white">Make a comment...</div>
-                <div className="card-body">
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <TextAreaFieldGroup
-                                placeholder="Comments"
-                                name="text"
-                                value={this.state.text}
-                                onChange={this.onChange}
-                                error={errors.text}
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-dark">
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <Paper className="marginX-5">
+            <AppBar className={styles.container} position="static">
+                <Typography variant="h5">Make a comment...</Typography>
+            </AppBar>
+            <form className={styles.container} onSubmit={this.onSubmit}>
+              <TextAreaFieldGroup
+                label="Comment"
+                placeholder="Your comments"
+                name="text"
+                value={this.state.text}
+                onChange={this.onChange}
+                error={errors.text}
+              />
+              <Button type="submit" variant="contained" color="primary">Submit</Button>
+            </form>
+        </Paper>
     );
   }
 }

@@ -41,6 +41,11 @@ body {
   margin-bottom: .4rem;
 }
 
+.marginX-5{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .marginT-1{ margin-top: .5rem;}
 
 .marginR-1{ margin-right: 1rem; }

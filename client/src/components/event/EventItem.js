@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, Grid } from '@material-ui/core';
+import { Paper, Grid, Chip, Avatar } from '@material-ui/core';
 
 //import Map from './map/Map.js';
 import sportImage from '../../img/noImage.svg';
@@ -85,12 +85,15 @@ class EventItem extends Component{
                     </button>
                     <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
                 </div>
-                <div className="mt-3">
-                    <ol>
-                        { event.listofplayer.map( player => {
-                            return <li key={player._id}>{ player.name }</li>;
-                        }) }
-                    </ol>
+                <div className="marginT-1">
+                    { event.listofplayer.map((player, index) => {
+                        return <Chip
+                            key={player._id}
+                            className="marginR-1 marginX-1"
+                            avatar={<Avatar>{index + 1}</Avatar>} 
+                            label={player.name}
+                            variant="outlined" />
+                    }) }
                 </div>
                 
             </Paper>

@@ -25,7 +25,9 @@ class Event extends Component{
         else{
             eventContent = (
                 <div>
-                    <EventItem event={event} auth={isAuthenticated}/>
+                    <Paper elevation={3}>
+                        <EventItem event={event} auth={isAuthenticated}/>
+                    </Paper>
                     {isAuthenticated ? <CommentForm /> : <h2>You need to login to add comment. <Link to="/login">Click Here</Link></h2>}
                     {event.comments.length > 0 ? <Comments eventId={event._id} comments={event.comments} /> : <h2 className="mb-5">No Comment Yet</h2>}
                 </div>
@@ -39,11 +41,10 @@ class Event extends Component{
                     <Link to="/events" className="btn btn-light mb-3">
                         Back
                     </Link>
-                    <Paper elevation={3}>
-                        <List>
-                        {eventContent}
-                        </List>
-                    </Paper>
+                    
+                    <List>
+                    {eventContent}
+                    </List>
                 </div>
             </div>
         );

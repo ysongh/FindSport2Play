@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Paper, Grid, Chip, Avatar } from '@material-ui/core';
 
 //import Map from './map/Map.js';
+import styles from './Event.module.css';
 import sportImage from '../../img/noImage.svg';
 import { deleteEvent, joinEvent } from '../../actions/eventActions';
 
@@ -29,23 +30,23 @@ class EventItem extends Component{
             <Paper className="pad-1">
                 <Grid container>
                     <Grid item xs={12} md={4}>
-                        <span className="badge badge-info">Type of Sport</span>
+                        <span className={styles.labelInfo}>Type of Sport</span>
                         <p>{event.typeofsport}</p>
                         
-                        <span className="badge badge-info">Number of Player</span>
+                        <span className={styles.labelInfo}>Number of Player</span>
                         <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
                         
-                        <span className="badge badge-info">Location</span>
+                        <span className={styles.labelInfo}>Location</span>
                         <p>
                             {event.location ? event.location : "To Be Announced"}
                         </p>
                         
-                        <span className="badge badge-info">Start Date</span>
+                        <span className={styles.labelInfo}>Start Date</span>
                         <p>
                             {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
                         </p>
                         
-                        <span className="badge badge-info">Description</span>
+                        <span className={styles.labelInfo}>Description</span>
                         <p>
                             {event.description ? event.description : "None"}
                         </p>
@@ -70,7 +71,7 @@ class EventItem extends Component{
                        
                     </Grid>
                     <Grid item xs={12} md={8}>
-                        <span className="badge badge-info">Image</span>
+                        <span className={styles.labelInfo}>Image</span>
                         <img className="card-img-top" style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Grid>

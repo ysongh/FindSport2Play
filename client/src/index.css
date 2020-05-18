@@ -50,7 +50,10 @@ body {
 
 .marginR-1{ margin-right: 1rem; }
 
+.marginB-2{ margin-bottom: 2rem !important; }
+
 .pad-1{ padding: 1rem; }
+.pad-2{ padding: 1.5rem; }
 
 @media only screen and (max-width: 760px) {
   .hiddenDesk{

@@ -85,7 +85,7 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
-                  <Button component={Link} to="/events" variant="contained" color="primary" size="large">
+                  <Button className="marginB-2" component={Link} to="/events" variant="contained" color="primary" size="large">
                     See Events
                   </Button>
                 </div>

@@ -78,6 +78,10 @@
     font-size: 1.4rem;
 }
 
+.mr_1{
+    margin-right: 1rem !important;
+}
+
 @media(max-width: 900px){
     .header{
         grid-template-columns: 1fr;

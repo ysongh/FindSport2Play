@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container } from '@material-ui/core';
+import { Container, Button } from '@material-ui/core';
 
 import styles from './Home.module.css';
 import LandingImg from '../../img/landingImg.png';
@@ -27,19 +27,28 @@ class Home extends Component{
         howItWork__text,
         howItWork__imgReverse,
         steps__text,
-        steps__list } = styles;
+        steps__list,
+        mr_1 } = styles;
       
       const guestLinks = (
         <div className={header__buttons}>
-      		<Link to="/register" className="btn btn-lg text-white btn-primary mr-4">Get Started</Link>
-      		<Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
+          <Button className={mr_1} component={Link} to="/register" variant="contained" color="primary" size="large">
+            Get Started
+          </Button>
+          <Button component={Link} to="/events" variant="contained" color="secondary" size="large">
+            See Events
+          </Button>
       	</div>
       );
       
       const userLinks = (
         <div className={header__buttons}>
-      		<Link to="/profile" className="btn btn-lg text-white btn-primary mr-4">Go to Your Profile</Link>
-          <Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
+          <Button className={mr_1} component={Link} to="/profile" variant="contained" color="primary" size="large">
+            Your Profile
+          </Button>
+          <Button component={Link} to="/events" variant="contained" color="secondary" size="large">
+            See Events
+          </Button>
       	</div>
       );
 
@@ -76,7 +85,9 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
-      		        <Link to="/events" className="btn btn-lg text-white bg-info">See Events</Link>
+                  <Button component={Link} to="/events" variant="contained" color="primary" size="large">
+                    See Events
+                  </Button>
                 </div>
               </div>
 
@@ -87,7 +98,9 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
                   <p>You can create event so that any player to join you to play together</p>
-                  <Link to="/create-event" className="btn btn-lg text-white btn-primary mr-4">Post Event</Link>
+                  <Button component={Link} to="/create-event" variant="contained" color="primary" size="large">
+                    Post Event
+                  </Button>
                 </div>
               </div>
             </div>

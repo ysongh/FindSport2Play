@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, Grid, Chip, Avatar } from '@material-ui/core';
+import { Paper, Grid, Chip, Avatar, Button, Typography } from '@material-ui/core';
 
 //import Map from './map/Map.js';
 import styles from './Event.module.css';
@@ -51,21 +51,19 @@ class EventItem extends Component{
                             {event.description ? event.description : "None"}
                         </p>
                         
-                        <div>
-                             <p className="d-inline">Host By</p>
+                        <Typography display="inline">
                              <Link to={`/profile/${event.user._id}`}>
-                                 <p className="font-italic d-inline"> {event.user.name} </p>
+                                <p>Host By {event.user.name} </p>
                             </Link>
-                            on <Moment format="MM/DD/YYYY">{event.date}</Moment>
-                        </div>
+                        </Typography>
                         
                         {event.user._id === auth.user.id ? (
-                            <button 
+                            <Button 
                                 onClick={this.onDeleteClick.bind(this, event._id)}
-                                type="button"
-                                className="btn btn-danger mr-1" >
+                                variant="contained"
+                                color="secondary" >
                                 Delete
-                            </button>
+                            </Button>
                         ) : null}
                         
                        
@@ -78,12 +76,12 @@ class EventItem extends Component{
                 </Grid>
                 <hr />
                 <div className="d-flex">
-                    <button 
+                    <Button 
                         onClick={this.onJoinClick.bind(this, event._id)}
-                        type="button"
-                        className="btn btn-success mr-1" >
+                        variant="contained"
+                        color="primary" >
                         {auth.isAuthenticated ? "Join This Event" : "Login to Join"}
-                    </button>
+                    </Button>
                     <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
                 </div>
                 <div className="marginT-1">

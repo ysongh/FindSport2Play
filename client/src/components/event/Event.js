@@ -37,11 +37,7 @@ class Event extends Component{
         return(
             <div className="post">
                 <div className="container">
-                    <h1 className="text-center mt-2">{event.nameofevent}</h1>
-                    <Link to="/events" className="btn btn-light mb-3">
-                        Back
-                    </Link>
-                    
+                    <h1>{event.nameofevent}</h1>
                     <List>
                     {eventContent}
                     </List>

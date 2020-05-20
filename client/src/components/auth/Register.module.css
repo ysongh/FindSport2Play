@@ -1,5 +1,10 @@
 .register{
-    min-height: 85vh;
+    min-height: 90vh;
+}
+
+.register__card{
+    margin-top: 3rem;
+    padding: 1rem;
 }
 
 .register__buttonGroup{
@@ -38,6 +43,10 @@
 }
 
 @media(max-width: 900px){
+    .register__card{
+        padding: .5rem;
+    }
+    
     .register__buttonGroup{
         flex-direction: column;
     }

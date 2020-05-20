@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography } from '@material-ui/core';
 
 import styles from './Login.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -53,6 +53,7 @@ class Login extends Component{
 
         const {
           login,
+          login__card,
           login__button,
           login__buttonGroup,
           button__login,
@@ -61,33 +62,36 @@ class Login extends Component{
         return(
             <Grid className={login} container justify="center">
               <Grid item xs={12} sm={8} md={6}>
-                <h1 className="display-4 text-center mt-5">Log In</h1>
-                <form onSubmit={this.onSubmit} className="mb-2">
-                  <TextFieldGroup
-                    label="Email"
-                    placeholder="Email"
-                    name="email"
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    error={errors.email}
-                  />
-                  <TextFieldGroup
-                    label="Password"
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                    error={errors.password}
-                  />
-                  <div className={login__buttonGroup}>
-                    <input type="submit" className={login__button + ' ' + button__login} />
-                    <Link to="/" className={login__button + ' ' + button__goBack}>
-                      Go Back
-                    </Link>
-                  </div>
-                </form>
+                <Card className={login__card}>
+                  <CardContent>
+                    <Typography variant="h5" paragraph>
+                      Log In
+                    </Typography>
+                    <form onSubmit={this.onSubmit} className="mb-2">
+                      <TextFieldGroup
+                        label="Email"
+                        placeholder="Email"
+                        name="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                        error={errors.email}
+                      />
+                      <TextFieldGroup
+                        label="Password"
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                        error={errors.password}
+                      />
+                      <div className={login__buttonGroup}>
+                        <input type="submit" className={login__button + ' ' + button__login} />
+                      </div>
+                    </form>
+                  </CardContent>
+                </Card>
               </Grid>
             </Grid>
         );

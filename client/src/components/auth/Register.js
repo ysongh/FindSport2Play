@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography } from '@material-ui/core';
 
 import styles from './Register.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -54,6 +54,7 @@ class Register extends Component{
 
       const {
         register,
+        register__card,
         register__button,
         register__buttonGroup,
         button__register,
@@ -62,50 +63,53 @@ class Register extends Component{
       return(
         <Grid className={register} container justify="center">
           <Grid item xs={12} sm={8} md={6}>
-            <h1 className="display-4 text-center mt-5">Sign Up</h1>
-            <form noValidate onSubmit={this.onSubmit} className="mb-2">
-              <TextFieldGroup
-                label="Name"
-                placeholder="Name"
-                name="name"
-                value={this.state.name}
-                onChange={this.onChange}
-                error={errors.name}
-              />
-              <TextFieldGroup
-                label="Email"
-                placeholder="Email"
-                name="email"
-                type="email"
-                value={this.state.email}
-                onChange={this.onChange}
-                error={errors.email}
-              />
-              <TextFieldGroup
-                label="Password"
-                placeholder="Password"
-                name="password"
-                type="password"
-                value={this.state.password}
-                onChange={this.onChange}
-                error={errors.password}
-              />
-              <TextFieldGroup
-                label="Confirm Password"
-                placeholder="Confirm Password"
-                name="password2"
-                type="password"
-                value={this.state.password2}
-                onChange={this.onChange}
-                error={errors.password2}
-              />
-              <div className={register__buttonGroup}>
-                <input type="submit" className={register__button + ' ' + button__register} />
-                <Link to="/" className={register__button + ' ' + button__goBack}>
-                    Go Back
-                </Link>
-              </div>
-            </form>
+            <Card className={register__card}>
+              <CardContent>
+                <Typography variant="h5" paragraph>
+                  Sign Up
+                </Typography>
+                <form noValidate onSubmit={this.onSubmit} className="mb-2">
+                  <TextFieldGroup
+                    label="Name"
+                    placeholder="Name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    error={errors.name}
+                  />
+                  <TextFieldGroup
+                    label="Email"
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}
+                  />
+                  <TextFieldGroup
+                    label="Password"
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                  />
+                  <TextFieldGroup
+                    label="Confirm Password"
+                    placeholder="Confirm Password"
+                    name="password2"
+                    type="password"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                    error={errors.password2}
+                  />
+                  <div className={register__buttonGroup}>
+                    <input type="submit" className={register__button + ' ' + button__register} />
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
       );

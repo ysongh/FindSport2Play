@@ -2,6 +2,11 @@
     min-height: 85vh;
 }
 
+.login__card{
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
 .login__buttonGroup{
     display: flex;
     justify-content: space-between;
@@ -40,6 +45,10 @@
 }
 
 @media(max-width: 900px){
+    .login__card{
+        padding: .5rem;
+    }
+
     .login__buttonGroup{
         flex-direction: column;
     }

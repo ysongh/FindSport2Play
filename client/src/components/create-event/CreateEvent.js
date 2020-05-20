@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -58,7 +58,7 @@ class CreateEvent extends Component{
         const {errors} = this.state;
         
         return(
-            <Grid container justify="center">
+            <Grid container justify="center" className="marginX-1">
                 <Grid item xs={12} sm={8} md={6}>
                     <Typography variant="h3" component="h1" align="center" gutterBottom>
                         Host Your Event
@@ -131,7 +131,9 @@ class CreateEvent extends Component{
                             onChange={this.onChange}
                             error={errors.description}
                         />
-                        <input type="submit" className="btn btn-info btn-block mt-4" />
+                        <Button className="marginB-2" type="submit" variant="contained" color="primary" fullWidth>
+                            Submit
+                        </Button>
                     </form>
                 </Grid>
             </Grid>

@@ -7,50 +7,14 @@
     padding: 1rem;
 }
 
-.login__buttonGroup{
-    display: flex;
-    justify-content: space-between;
-}
-
 .login__button{
-    display: block;
-    text-align: center;
-    margin: .5rem 0;
-    padding: 10px 0;
-    color: white;
-    border-radius: 4px;
-    width: 45%;
-    border: none;
-    cursor: pointer;
-}
-
-.button__login{
-    background-color: #4169E1;
-}
-
-.button__login:hover{
-    background-color: #8787dd;
-    color: black;
-}
-
-.button__goBack{
-    background-color: #D3D3D3;
-    color: black;
-}
-
-.button__goBack:hover{
-    background-color: #b4b4b4;
-    color: white;
-    text-decoration: none;
+    margin-top: 1rem !important;
+    width: 10rem;
 }
 
 @media(max-width: 900px){
     .login__card{
         padding: .5rem;
-    }
-
-    .login__buttonGroup{
-        flex-direction: column;
     }
 
     .login__button{

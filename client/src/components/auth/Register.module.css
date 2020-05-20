@@ -7,48 +7,15 @@
     padding: 1rem;
 }
 
-.register__buttonGroup{
-    display: flex;
-    justify-content: space-between;
-}
-
 .register__button{
-    display: block;
-    text-align: center;
-    margin: .5rem 0;
-    padding: 10px 0;
-    color: white;
-    border-radius: 4px;
-    width: 45%;
-    border: none;
-    cursor: pointer;
-}
-
-.button__register{
-    background-color: #4169E1;
-}
-
-.button__register:hover{
-    background-color: #191970;
-}
-
-.button__goBack{
-    background-color: #D3D3D3;
-}
-
-.button__goBack:hover{
-    background-color: #b4b4b4;
-    color: white;
-    text-decoration: none;
+    margin-top: 1rem !important;
+    width: 10rem;
+    background-color: red;
 }
 
 @media(max-width: 900px){
     .register__card{
         padding: .5rem;
-    }
-    
-    .register__buttonGroup{
-        flex-direction: column;
     }
 
     .register__button{

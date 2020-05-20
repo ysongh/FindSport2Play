@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, Typography } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography, Button } from '@material-ui/core';
 
 import styles from './Login.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -54,10 +54,7 @@ class Login extends Component{
         const {
           login,
           login__card,
-          login__button,
-          login__buttonGroup,
-          button__login,
-          button__goBack } = styles;
+          login__button } = styles;
         
         return(
             <Grid className={login} container justify="center">
@@ -86,9 +83,9 @@ class Login extends Component{
                         onChange={this.onChange}
                         error={errors.password}
                       />
-                      <div className={login__buttonGroup}>
-                        <input type="submit" className={login__button + ' ' + button__login} />
-                      </div>
+                      <Button className={login__button} type="submit" variant="contained" color="primary">
+                        Submit
+                      </Button>
                     </form>
                   </CardContent>
                 </Card>

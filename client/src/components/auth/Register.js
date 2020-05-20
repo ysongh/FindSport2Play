@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, Typography } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography, Button } from '@material-ui/core';
 
 import styles from './Register.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -55,10 +55,7 @@ class Register extends Component{
       const {
         register,
         register__card,
-        register__button,
-        register__buttonGroup,
-        button__register,
-        button__goBack } = styles;
+        register__button } = styles;
       
       return(
         <Grid className={register} container justify="center">
@@ -104,9 +101,9 @@ class Register extends Component{
                     onChange={this.onChange}
                     error={errors.password2}
                   />
-                  <div className={register__buttonGroup}>
-                    <input type="submit" className={register__button + ' ' + button__register} />
-                  </div>
+                  <Button className={register__button} type="submit" variant="contained" color="primary">
+                    Submit
+                  </Button>
                 </form>
               </CardContent>
             </Card>

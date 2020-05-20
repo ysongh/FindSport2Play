@@ -8,6 +8,8 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import SelectFieldGroup from '../common/SelectFieldGroup';
 import { createEvent } from '../../actions/eventActions';
 
+const sportList = ["Badminton", "Tennis", "Volleyball", "Basketball", "Baseball", "Running", "Table tennis", "Football", "Soccer"];
+
 class CreateEvent extends Component{
     constructor(props){
         super(props);
@@ -81,6 +83,7 @@ class CreateEvent extends Component{
                                     type="name"
                                     value={this.state.typeofsport}
                                     onChange={this.onChange}
+                                    sportList={sportList}
                                     error={errors.typeofsport}
                                 />
                             </Grid>

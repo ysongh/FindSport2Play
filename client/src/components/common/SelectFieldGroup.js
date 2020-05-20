@@ -7,7 +7,8 @@ const SelectFieldGroup = ({
     label,
     error,
     info,
-    onChange
+    onChange,
+    sportList
 }) => {
     return(
         <FormControl fullWidth={true} variant="outlined" margin="normal">
@@ -24,9 +25,9 @@ const SelectFieldGroup = ({
             <MenuItem value={value}>
                 <em>Choose Sport Type</em>
             </MenuItem>
-            <MenuItem value="Basketball">Basketball</MenuItem>
-            <MenuItem value="Tennis">Tennis</MenuItem>
-            <MenuItem value="Soccer">Soccer</MenuItem>
+            {sportList.map(sport => {
+                return <MenuItem key={sport} value={sport}>{sport}</MenuItem>
+            })}
             </Select>
             <FormHelperText error>{error}</FormHelperText>
       </FormControl>

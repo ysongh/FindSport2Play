@@ -70,7 +70,7 @@ class EventItem extends Component{
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <span className={styles.labelInfo}>Image</span>
-                        <img className="card-img-top" style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
+                        <img style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Grid>
                 </Grid>

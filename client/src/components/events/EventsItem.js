@@ -14,7 +14,7 @@ class EventsItem extends Component{
                 <Card>
                     <CardHeader title={event.nameofevent} />
                     <Link to={`/event/${event._id}`}>
-                        <img className="card-img-top" style={{height: '220px'}} src={event.imageURL ? event.imageURL : sportImage}
+                        <img style={{width: '100%', height: '220px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Link>
                     <CardContent>

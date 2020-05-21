@@ -13,6 +13,11 @@
     background-color: red;
 }
 
+.register__info{
+    display: block;
+    margin-top: 1rem !important;
+}
+
 @media(max-width: 900px){
     .register__card{
         padding: .5rem;

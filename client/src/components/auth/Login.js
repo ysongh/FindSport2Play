@@ -54,7 +54,8 @@ class Login extends Component{
         const {
           login,
           login__card,
-          login__button } = styles;
+          login__button,
+          login__info } = styles;
         
         return(
             <Grid className={login} container justify="center">
@@ -87,6 +88,9 @@ class Login extends Component{
                         Submit
                       </Button>
                     </form>
+                    <Typography variant="subtitle2" className={login__info}>
+                      Dont have an account? <Link to="/register">Sign Up</Link>
+                    </Typography>
                   </CardContent>
                 </Card>
               </Grid>

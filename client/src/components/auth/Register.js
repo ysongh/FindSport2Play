@@ -55,7 +55,8 @@ class Register extends Component{
       const {
         register,
         register__card,
-        register__button } = styles;
+        register__button,
+        register__info } = styles;
       
       return(
         <Grid className={register} container justify="center">
@@ -105,6 +106,9 @@ class Register extends Component{
                     Submit
                   </Button>
                 </form>
+                <Typography variant="subtitle2" className={register__info}>
+                  Already have an account? <Link to="/login">Sign In</Link>
+                </Typography>
               </CardContent>
             </Card>
           </Grid>

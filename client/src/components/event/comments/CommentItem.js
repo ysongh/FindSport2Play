@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@material-ui/core';
+import { Paper, ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 
 import { deleteComment } from '../../../actions/eventActions';
@@ -16,7 +16,7 @@ class CommentItem extends Component{
         const {event} = this.props.events;
         
         return(
-            <div>
+            <Paper elevation={3}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>
@@ -33,8 +33,7 @@ class CommentItem extends Component{
                   </button>
                  ) : null}
               </ListItem>
-              <Divider variant="inset" />
-            </div>
+            </Paper>
         );
     }
 }

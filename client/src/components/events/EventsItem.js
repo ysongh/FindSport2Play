@@ -21,6 +21,9 @@ class EventsItem extends Component{
                     <CardContent>
                         <Chip label={event.typeofsport}/>
                         <Chip icon={<GroupIcon />} label={event.numberofplayer}/>
+                        <Typography className="marginT-1" variant="body2" color="textSecondary" component="p">
+                            {event.description}
+                        </Typography>
                     </CardContent>
                     <CardActions>
                         <Button className="white-link" size="large" variant="contained" color="primary" fullWidth  component={Link} to={`/event/${event._id}`}>

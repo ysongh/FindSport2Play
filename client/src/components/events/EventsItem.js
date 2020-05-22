@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Grid, Card, CardHeader, CardContent, CardActions, Chip, Button, Typography } from '@material-ui/core';
+import GroupIcon from '@material-ui/icons/Group';
 
 import sportImage from '../../img/noImage.svg';
 
@@ -19,15 +20,11 @@ class EventsItem extends Component{
                     </Link>
                     <CardContent>
                         <Chip label={event.typeofsport}/>
-                        <Typography variant="h5" component="p">
-                            <i className="fas fa-users"></i> {event.numberofplayer}
-                        </Typography>
+                        <Chip icon={<GroupIcon />} label={event.numberofplayer}/>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" variant="contained" color="primary" fullWidth  component={Link} to={`/event/${event._id}`}>
-                            <Typography color="textPrimary">
-                                More Info
-                            </Typography>
+                        <Button className="white-link" size="large" variant="contained" color="primary" fullWidth  component={Link} to={`/event/${event._id}`}>
+                            More Info
                         </Button>
                     </CardActions>
                 </Card>

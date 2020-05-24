@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
+import { Paper, ListItem, ListItemAvatar, Avatar, ListItemText, IconButton } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
+import ClearIcon from '@material-ui/icons/Clear';
 
 import { deleteComment } from '../../../actions/eventActions';
 
@@ -25,12 +26,12 @@ class CommentItem extends Component{
                 </ListItemAvatar>
                 <ListItemText primary={comment.text} secondary={comment.date.slice(11, 19)} />
                 {event.user._id === auth.user.id ? (
-                  <button 
+                  <IconButton
+                    aria-label="delete"
                     onClick={this.onDeleteClick.bind(this, event._id, comment._id)}
-                    type="button"
-                    className="btn btn-danger ml-auto p-2" >
-                    <i className="fas fa-times" />
-                  </button>
+                    color="secondary">
+                    <ClearIcon fontSize="inherit" />
+                  </IconButton>
                  ) : null}
               </ListItem>
             </Paper>

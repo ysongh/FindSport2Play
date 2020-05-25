@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Grid, Typography, Button } from '@material-ui/core';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -46,53 +47,52 @@ class CreateProfile extends Component{
         const {errors} = this.state;
         
         return(
-            <div className="create-profile">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-5 text-center mt-4">Create Your Profile</h1>
-                            <small className="d-block my-3">* = required fields</small>
-                            <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup
-                                    label="Profile Handle *"
-                                    placeholder="Profile Handle"
-                                    name="handle"
-                                    value={this.state.handle}
-                                    onChange={this.onChange}
-                                    error={errors.handle}
-                                    info="A unique handle for your profile URL."
-                                />
-                                <TextFieldGroup
-                                    label="Location"
-                                    placeholder="Location"
-                                    name="location"
-                                    value={this.state.location}
-                                    onChange={this.onChange}
-                                    error={errors.location}
-                                />
-                                <TextFieldGroup
-                                    label="Favorite Sports *"
-                                    placeholder="Favorite Sports"
-                                    name="favoriteSport"
-                                    value={this.state.favoriteSport}
-                                    onChange={this.onChange}
-                                    error={errors.favoriteSport}
-                                    info="Please use comma separated values (eg. Baseball,Tennis,Football)"
-                                />
-                                <TextAreaFieldGroup
-                                    label="Bio"
-                                    placeholder="Short Bio"
-                                    name="bio"
-                                    value={this.state.bio}
-                                    onChange={this.onChange}
-                                    error={errors.bio}
-                                />
-                                <input type="submit" value="Submit" className="btn btn-info btn-block my-4" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Grid container justify="center" className="marginX-1">
+                <Grid item xs={12} sm={8} md={6}>
+                    <Typography variant="h3" component="h1" align="center" gutterBottom>
+                        Create Your Profile
+                    </Typography>
+                    <form onSubmit={this.onSubmit}>
+                        <TextFieldGroup
+                            label="Profile Handle *"
+                            placeholder="Profile Handle"
+                            name="handle"
+                            value={this.state.handle}
+                            onChange={this.onChange}
+                            error={errors.handle}
+                            info="A unique handle for your profile URL."
+                        />
+                        <TextFieldGroup
+                            label="Location"
+                            placeholder="Location"
+                            name="location"
+                            value={this.state.location}
+                            onChange={this.onChange}
+                            error={errors.location}
+                        />
+                        <TextFieldGroup
+                            label="Favorite Sports *"
+                            placeholder="Favorite Sports"
+                            name="favoriteSport"
+                            value={this.state.favoriteSport}
+                            onChange={this.onChange}
+                            error={errors.favoriteSport}
+                            info="Please use comma separated values (eg. Baseball,Tennis,Football)"
+                        />
+                        <TextAreaFieldGroup
+                            label="Bio"
+                            placeholder="Short Bio"
+                            name="bio"
+                            value={this.state.bio}
+                            onChange={this.onChange}
+                            error={errors.bio}
+                        />
+                        <Button className="marginB-2" type="submit" variant="contained" color="primary" fullWidth>
+                            Create
+                        </Button>
+                    </form>
+                </Grid>
+            </Grid>
         );
     }
 }

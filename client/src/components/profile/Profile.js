@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Typography, Button } from '@material-ui/core';
 
 import Spinner from '../common/Spinner';
 import ProfileAbout from './ProfileAbout';
 import { getCurrentProfile  } from '../../actions/profileActions';
+import styles from './Profile.module.css';
 
 class Profile extends Component{
   componentDidMount(){
@@ -28,12 +30,17 @@ class Profile extends Component{
       }
       else{
         profileContent = (
-          <div>
-            <p className="lead text-muted">{user.name}</p>
-            <p>You have not yet setup a profile, please add info</p>
-            <Link to="/create-profile" className="btn btn-lg btn-info">
+          <div className={styles.profile}>
+            <Typography variant="overline" component="p" gutterBottom>
+              {user.name}
+            </Typography>
+            <Typography variant="p" component="p" gutterBottom>
+              You have not yet setup a profile, please add info
+            </Typography>
+            <p></p>
+            <Button className="marginB-2" component={Link} variant="contained" color="primary" to="/create-profile">
               Create Profile
-            </Link>
+            </Button>
           </div>
         );
       }

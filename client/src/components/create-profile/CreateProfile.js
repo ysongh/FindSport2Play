@@ -87,7 +87,7 @@ class CreateProfile extends Component{
                             onChange={this.onChange}
                             error={errors.bio}
                         />
-                        <Button className="marginB-2" type="submit" variant="contained" color="primary" fullWidth>
+                        <Button className="primary-color marginB-2" type="submit" variant="contained" fullWidth>
                             Create
                         </Button>
                     </form>

@@ -27,15 +27,14 @@ class Home extends Component{
         howItWork__text,
         howItWork__imgReverse,
         steps__text,
-        steps__list,
-        mr_1 } = styles;
+        steps__list } = styles;
       
       const guestLinks = (
         <div className={header__buttons}>
-          <Button className={mr_1} component={Link} to="/register" variant="contained" color="primary" size="large">
+          <Button className="primary-color marginR-1" component={Link} to="/register" variant="contained" size="large">
             Get Started
           </Button>
-          <Button component={Link} to="/events" variant="contained" color="secondary" size="large">
+          <Button className="secondary-color" component={Link} to="/events" variant="contained" size="large">
             See Events
           </Button>
       	</div>
@@ -43,10 +42,10 @@ class Home extends Component{
       
       const userLinks = (
         <div className={header__buttons}>
-          <Button className={mr_1} component={Link} to="/profile" variant="contained" color="primary" size="large">
+          <Button className="primary-color marginR-1" component={Link} to="/profile" variant="contained" size="large">
             Your Profile
           </Button>
-          <Button component={Link} to="/events" variant="contained" color="secondary" size="large">
+          <Button className="secondary-color" component={Link} to="/events" variant="contained" size="large">
             See Events
           </Button>
       	</div>
@@ -85,7 +84,7 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Search for Event</h2>
                   <p>You can find any sport event that was post by player to join</p>
-                  <Button className="marginB-2" component={Link} to="/events" variant="contained" color="primary" size="large">
+                  <Button className="primary-color marginB-2" component={Link} to="/events" variant="contained" size="large">
                     See Events
                   </Button>
                 </div>
@@ -98,7 +97,7 @@ class Home extends Component{
                 <div className={howItWork__text}>
                   <h2>Create an Event</h2>
                   <p>You can create event so that any player to join you to play together</p>
-                  <Button component={Link} to="/create-event" variant="contained" color="primary" size="large">
+                  <Button className="primary-color" component={Link} to="/create-event" variant="contained" size="large">
                     Post Event
                   </Button>
                 </div>

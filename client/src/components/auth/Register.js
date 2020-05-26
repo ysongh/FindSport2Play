@@ -55,7 +55,6 @@ class Register extends Component{
       const {
         register,
         register__card,
-        register__button,
         register__info } = styles;
       
       return(
@@ -102,7 +101,7 @@ class Register extends Component{
                     onChange={this.onChange}
                     error={errors.password2}
                   />
-                  <Button className={register__button} type="submit" variant="contained" color="primary">
+                  <Button className="primary-color marginT-1 marginB-1" type="submit" variant="contained">
                     Submit
                   </Button>
                 </form>

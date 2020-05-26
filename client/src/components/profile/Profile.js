@@ -38,7 +38,7 @@ class Profile extends Component{
               You have not yet setup a profile, please add info
             </Typography>
             <p></p>
-            <Button className="marginB-2" component={Link} variant="contained" color="primary" to="/create-profile">
+            <Button className="primary-color marginB-2" component={Link} variant="contained" to="/create-profile">
               Create Profile
             </Button>
           </div>

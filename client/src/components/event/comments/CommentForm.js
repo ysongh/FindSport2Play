@@ -48,7 +48,7 @@ class CommentForm extends Component {
 
     return (
         <Paper className="marginX-5">
-            <AppBar className={styles.container} position="static">
+            <AppBar className="primary-color pad-1" position="static">
                 <Typography variant="h5">Make a comment...</Typography>
             </AppBar>
             <form className={styles.container} onSubmit={this.onSubmit}>
@@ -60,7 +60,7 @@ class CommentForm extends Component {
                 onChange={this.onChange}
                 error={errors.text}
               />
-              <Button type="submit" variant="contained" color="primary">Submit</Button>
+              <Button className="primary-color" type="submit" variant="contained">Submit</Button>
             </form>
         </Paper>
     );

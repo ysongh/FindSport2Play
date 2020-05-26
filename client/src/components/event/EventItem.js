@@ -77,6 +77,7 @@ class EventItem extends Component{
                 <hr />
                 <div className="d-flex">
                     <Button 
+                        className="primary-color"
                         onClick={this.onJoinClick.bind(this, event._id)}
                         variant="contained"
                         color="primary" >

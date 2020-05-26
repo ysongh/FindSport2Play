@@ -7,11 +7,6 @@
     padding: 1rem;
 }
 
-.login__button{
-    margin-top: 1rem !important;
-    width: 10rem;
-}
-
 .login__info{
     display: block;
     margin-top: 1rem !important;
@@ -20,9 +15,5 @@
 @media(max-width: 900px){
     .login__card{
         padding: .5rem;
-    }
-
-    .login__button{
-        width: 100%;
     }
 }

@@ -134,7 +134,7 @@ class CreateEvent extends Component{
                             onChange={this.onChange}
                             error={errors.description}
                         />
-                        <Button className="marginB-2" type="submit" variant="contained" color="primary" fullWidth>
+                        <Button className="primary-color marginB-2" type="submit" variant="contained" fullWidth>
                             Submit
                         </Button>
                     </form>

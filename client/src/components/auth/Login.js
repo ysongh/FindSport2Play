@@ -54,7 +54,6 @@ class Login extends Component{
         const {
           login,
           login__card,
-          login__button,
           login__info } = styles;
         
         return(
@@ -84,7 +83,7 @@ class Login extends Component{
                         onChange={this.onChange}
                         error={errors.password}
                       />
-                      <Button className={login__button} type="submit" variant="contained" color="primary">
+                      <Button className="primary-color marginT-1" type="submit" variant="contained">
                         Submit
                       </Button>
                     </form>

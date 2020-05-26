@@ -67,7 +67,7 @@ class Navbar extends Component {
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>
-        <Button onClick={this.onLogoutClick.bind(this)} variant="contained" color="secondary">
+        <Button className="secondary-color" onClick={this.onLogoutClick.bind(this)} variant="contained">
           Logout
         </Button>
       </div>
@@ -78,7 +78,7 @@ class Navbar extends Component {
         <Link className="white-link" component={RouterLink} to="/login">
           Login
         </Link>
-        <Button className="white-link" component={RouterLink} to="/register" variant="contained" color="secondary">
+        <Button className="secondary-color white-link" component={RouterLink} to="/register" variant="contained">
           Get Started
         </Button>
       </div>
@@ -125,7 +125,7 @@ class Navbar extends Component {
     );
     
     return (
-      <AppBar position="static">
+      <AppBar className="primary-color" position="static">
         <Container>
           <Toolbar disableGutters className="toolbar">
             <Link component={RouterLink} to="/">

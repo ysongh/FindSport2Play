@@ -11,6 +11,16 @@ body {
   margin-bottom: 3px;
 }
 
+.primary-color{
+  background-color: #22435A !important;
+  color: white !important;
+}
+
+.secondary-color{
+  background-color: #035aa6 !important;
+  color: white !important;
+}
+
 .white-link,
 .white-link:link,
 .white-link:visited{
@@ -41,15 +51,22 @@ body {
   margin-bottom: .4rem;
 }
 
+.marginX-2{
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
 .marginX-5{
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
 .marginT-1{ margin-top: .5rem !important; }
+.marginT-3{ margin-top: 2rem !important; }
 
-.marginR-1{ margin-right: 1rem; }
+.marginR-1{ margin-right: 1rem !important; }
 
+.marginB-1{ margin-bottom: 1rem !important; }
 .marginB-2{ margin-bottom: 2rem !important; }
 
 .pad-1{ padding: 1rem; }

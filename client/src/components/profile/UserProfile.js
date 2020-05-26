@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Typography, Button } from '@material-ui/core';
 
 import Spinner from '../common/Spinner';
 import ProfileAbout from './ProfileAbout';
 import { getUserProfile  } from '../../actions/profileActions';
+import styles from './Profile.module.css';
 
 class UserProfile extends Component{
   componentDidMount(){
@@ -27,9 +29,10 @@ class UserProfile extends Component{
       }
       else{
         profileContent = (
-          <div>
-            <p className="lead text-muted">{user.name}</p>
-            <p>This user did not setup a profile</p>
+          <div className={styles.profile}>
+            <Typography variant="p" component="p" gutterBottom>
+              This user did not setup a profile
+            </Typography>
           </div>
         );
       }

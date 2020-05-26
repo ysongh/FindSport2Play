@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Card, CardContent, Chip } from '@material-ui/core';
 
 import Moment from 'react-moment';
 import isEmpty from '../../validation/is-empty';
@@ -8,35 +9,37 @@ class ProfileAbout extends Component{
         const {profile} = this.props;
         
         const favoriteSport = profile.favoriteSport.map((sport, index) => (
-            <div key={index} className="p-3">
-                <i className="fa fa-check" /> {sport}
-            </div>
+          <Chip key={index} label={sport}/>
         ));
         
-        
         return(
-            <div className="row">
-                <div className="col-md-12">
-                  <div className="card card-body bg-light mb-3">
-                    <div>
-                        <p className="lead text-muted">{profile.user.name}</p>
-                        <p>From {profile.location}</p>
-                        <p>Join on <Moment format="MM/DD/YYYY">{profile.date}</Moment></p>
-                    </div>
-                    <hr />
-                    <h3 className="text-center text-info">Bio</h3>
-                    <p className="lead">{isEmpty(profile.bio) ? (<span>No bio</span>) : (<span>{profile.bio}</span>)}
-                    </p>
-                    <hr />
-                    <h3 className="text-center text-info">Favorite Sports</h3>
-                    <div className="row">
-                      <div className="d-flex flex-wrap justify-content-center align-items-center">
-                        {favoriteSport}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
+          <Grid className="marginB-2" container spacing={4}>
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardContent>
+                  <p><strong>Name:</strong> {profile.user.name}</p>
+                  <p><strong>From: </strong> {profile.location}</p>
+                  <p><strong>Join on: </strong><Moment format="MM/DD/YYYY">{profile.date}</Moment></p>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardContent>
+                  <h3 >Favorite Sports</h3>
+                  {favoriteSport}
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} xl={3}>
+              <Card>
+                <CardContent>
+                  <h3>Bio</h3>
+                  <p>{isEmpty(profile.bio) ? (<span>No bio</span>) : (<span>{profile.bio}</span>)}</p>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
         );
     }
 }

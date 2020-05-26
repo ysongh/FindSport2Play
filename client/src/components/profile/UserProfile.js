@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import Spinner from '../common/Spinner';
 import ProfileAbout from './ProfileAbout';
@@ -13,7 +13,7 @@ class UserProfile extends Component{
   }
   
   render(){
-    const {user} = this.props.auth;
+    //const {user} = this.props.auth;
     const {profile, loading} = this.props.profile;
     
     let profileContent;

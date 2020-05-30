@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, Grid, Chip, Avatar, Button, Typography } from '@material-ui/core';
+import { Paper, Grid, Box, Chip, Avatar, Button, Typography } from '@material-ui/core';
 
 //import Map from './map/Map.js';
 import styles from './Event.module.css';
@@ -68,14 +68,13 @@ class EventItem extends Component{
                         
                        
                     </Grid>
-                    <Grid item xs={12} md={8}>
-                        <span className={styles.labelInfo}>Image</span>
+                    <Grid container item xs={12} md={8}>
                         <img style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Grid>
                 </Grid>
                 <hr />
-                <div className="d-flex">
+                <Box display="flex">
                     <Button 
                         className="primary-color"
                         onClick={this.onJoinClick.bind(this, event._id)}
@@ -83,8 +82,8 @@ class EventItem extends Component{
                         color="primary" >
                         {auth.isAuthenticated ? "Join This Event" : "Login to Join"}
                     </Button>
-                    <p className="mt-3">{event.numberofplayer - event.listofplayer.length} spots left</p>
-                </div>
+                    <p className="marginL-1">{event.numberofplayer - event.listofplayer.length} spots left</p>
+                </Box>
                 <div className="marginT-1">
                     { event.listofplayer.map((player, index) => {
                         return <Chip

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Badge, Button, Link, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import PersonIcon from '@material-ui/icons/Person';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
@@ -64,6 +65,9 @@ class Navbar extends Component {
     const authLinks = (
       <div className="hiddenDesk">
         {notificationsList}
+        <Badge color="secondary" className="xm-1">
+          <PersonIcon />
+        </Badge>
         <Link className="white-link" component={RouterLink} to="/profile">
           Welcome, {user.name}
         </Link>

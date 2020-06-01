@@ -9,6 +9,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
 import NotificationList from './NotificationList';
+import UserMenu from './UserMenu';
 
 import Logo from '../../img/logo.png';
 
@@ -17,8 +18,10 @@ class Navbar extends Component {
       super(props);
       this.state = {
           showNotification: false,
+          showUserMenu: false,
           toggleDrawer: false,
-          anchorEl: ""
+          anchorEl1: "",
+          anchorEl2: ""
       };
   }
   
@@ -26,18 +29,34 @@ class Navbar extends Component {
       e.preventDefault();
       this.setState({
           showNotification: true,
-          anchorEl: e.currentTarget
+          anchorEl1: e.currentTarget
       });
       this.props.checkNotification();
+  }
+
+  onShowUserMenu(e){
+    e.preventDefault();
+    this.setState({
+        showUserMenu: true,
+        anchorEl2: e.currentTarget
+    });
   }
 
   onHideNotification(e){
       e.preventDefault();
       this.setState({
           showNotification: false,
-          anchorEl: null
+          anchorEl1: null
       });
   }
+
+  onHideUserMenu(e){
+    e.preventDefault();
+    this.setState({
+        showUserMenu: false,
+        anchorEl2: null
+    });
+}
   
   onLogoutClick(e){
       e.preventDefault();
@@ -65,7 +84,7 @@ class Navbar extends Component {
     const authLinks = (
       <div className="hiddenDesk">
         {notificationsList}
-        <Badge color="secondary" className="xm-1">
+        <Badge color="secondary" onClick={this.onShowUserMenu.bind(this)} className="xm-1">
           <PersonIcon />
         </Badge>
         <Link className="white-link" component={RouterLink} to="/profile">
@@ -160,7 +179,9 @@ class Navbar extends Component {
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           {sideDrawer}
         </Drawer>
-        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl} onClose={this.onHideNotification.bind(this)} />
+
+        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl1} onClose={this.onHideNotification.bind(this)} />
+        <UserMenu anchorEl={this.state.anchorEl2} onClose={this.onHideUserMenu.bind(this)} />
       </AppBar>
     );
   }

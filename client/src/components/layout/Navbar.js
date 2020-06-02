@@ -87,12 +87,6 @@ class Navbar extends Component {
         <Badge color="secondary" onClick={this.onShowUserMenu.bind(this)} className="xm-1">
           <PersonIcon />
         </Badge>
-        <Link className="white-link" component={RouterLink} to="/profile">
-          Welcome, {user.name}
-        </Link>
-        <Button className="secondary-color" onClick={this.onLogoutClick.bind(this)} variant="contained">
-          Logout
-        </Button>
       </div>
     );
     
@@ -181,7 +175,7 @@ class Navbar extends Component {
         </Drawer>
 
         <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl1} onClose={this.onHideNotification.bind(this)} />
-        <UserMenu anchorEl={this.state.anchorEl2} onClose={this.onHideUserMenu.bind(this)} />
+        <UserMenu anchorEl={this.state.anchorEl2} onClose={this.onHideUserMenu.bind(this)} onLogOut={this.onLogoutClick.bind(this)}/>
       </AppBar>
     );
   }

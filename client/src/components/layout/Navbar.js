@@ -8,7 +8,7 @@ import PersonIcon from '@material-ui/icons/Person';
 
 import { logoutUser } from '../../actions/authActions';
 import { checkNotification } from '../../actions/notificationActions';
-import NotificationList from './NotificationList';
+import NotificationList from '../notification/NotificationList';
 import UserMenu from './UserMenu';
 
 import Logo from '../../img/logo.png';

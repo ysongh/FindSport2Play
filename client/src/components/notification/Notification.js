@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 
-import styles from './Navbar.module.css';
+import styles from './Notification.module.css';
 import { removeNotification } from '../../actions/notificationActions';
 
 class Notification extends Component{

@@ -8,7 +8,7 @@ import { Container } from '@material-ui/core';
 import store from './store';
 
 import PrivateRoute from './components/common/PrivateRoute';
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/layout/navbar/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './components/home/Home';
 import Events from './components/events/Events';

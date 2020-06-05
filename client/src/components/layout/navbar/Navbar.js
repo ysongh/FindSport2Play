@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Badge, Button, Link, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import PersonIcon from '@material-ui/icons/Person';
 
-import { logoutUser } from '../../actions/authActions';
-import { checkNotification } from '../../actions/notificationActions';
-import NotificationList from '../notification/NotificationList';
-import UserMenu from './UserMenu';
+import { logoutUser } from '../../../actions/authActions';
+import { checkNotification } from '../../../actions/notificationActions';
+import Desktop from './Desktop';
+import NotificationList from '../../notification/NotificationList';
+import UserMenu from '../UserMenu';
 
-import Logo from '../../img/logo.png';
+import Logo from '../../../img/logo.png';
 
 class Navbar extends Component {
   constructor(props){
@@ -64,7 +64,7 @@ class Navbar extends Component {
   }
   
   render() {
-    const {isAuthenticated, user, notifications} = this.props.auth;
+    const {isAuthenticated, notifications} = this.props.auth;
 
     const handleDrawerOpen = () => {
       this.setState({ toggleDrawer: true});
@@ -81,25 +81,7 @@ class Navbar extends Component {
     );
 
     // Start of Desktop Navbar
-    const authLinks = (
-      <div className="hiddenDesk">
-        {notificationsList}
-        <Badge color="secondary" onClick={this.onShowUserMenu.bind(this)} className="xm-1">
-          <PersonIcon />
-        </Badge>
-      </div>
-    );
     
-    const guestLinks = (
-      <div className="hiddenDesk">
-        <Link className="white-link" component={RouterLink} to="/login">
-          Login
-        </Link>
-        <Button className="secondary-color white-link" component={RouterLink} to="/register" variant="contained">
-          Get Started
-        </Button>
-      </div>
-    );
     // End of Desktop Navbar
 
     // Start of Mobile Navbar
@@ -159,7 +141,12 @@ class Navbar extends Component {
             </div>
             
             <div className="toolbarRight">
-              {isAuthenticated ? authLinks : guestLinks}
+              <Desktop
+                isAuthenticated={isAuthenticated}
+                notificationsUnread={notifications.unread}
+                onShowNotification={this.onShowNotification.bind(this)}
+                onShowUserMenu={this.onShowUserMenu.bind(this)} />
+                
               <div className="hiddenMobile">
                 {isAuthenticated ? notificationsList : null}
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>

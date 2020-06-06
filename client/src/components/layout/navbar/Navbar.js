@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Badge, Link, IconButton } from '@material-ui/core';
+import { Container, AppBar, Toolbar, Drawer, Badge, Link, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { logoutUser } from '../../../actions/authActions';
 import { checkNotification } from '../../../actions/notificationActions';
 import Desktop from './Desktop';
-import Mobile from './Mobile';
+import SideDrawer from './SideDrawer';
 import NotificationList from '../../notification/NotificationList';
 import UserMenu from '../UserMenu';
 
@@ -80,23 +80,6 @@ class Navbar extends Component {
         <NotificationsIcon />
       </Badge>
     );
-
-    const sideDrawer = (
-      <List component="nav">
-        <ListItem button component={RouterLink} to="/">
-          <img src={Logo} className="logo" alt="Logo" />
-        </ListItem>
-        <ListItem button component={RouterLink} to="/events">
-          <ListItemText primary="Events List" />
-        </ListItem>
-        <ListItem button component={RouterLink} to="/create-event">
-          <ListItemText primary="Create Event" />
-        </ListItem>
-        <Mobile
-          isAuthenticated={isAuthenticated}
-          logout={this.onLogoutClick.bind(this)} />
-      </List>
-    );
     
     return (
       <AppBar className="primary-color" position="static">
@@ -133,7 +116,9 @@ class Navbar extends Component {
         </Container>
         
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
-          {sideDrawer}
+          <SideDrawer
+          isAuthenticated={isAuthenticated}
+          logout={this.onLogoutClick.bind(this)} />
         </Drawer>
 
         <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl1} onClose={this.onHideNotification.bind(this)} />

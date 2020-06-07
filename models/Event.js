@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const geocoder = require("../config/geocoder");
+
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
@@ -76,5 +78,15 @@ const EventSchema = new Schema({
         type: Date,
     }
 });
+
+EventSchema.pre("save", async function(next){
+    const data = await geocoder.geocode(this.location);
+    this.address = {
+        type: "Point",
+        coordinates: [data[0].longitude, data[0].latitude]
+    }
+
+    next();
+})
 
 module.exports = Event = mongoose.model('event', EventSchema);

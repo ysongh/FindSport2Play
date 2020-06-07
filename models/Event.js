@@ -33,6 +33,16 @@ const EventSchema = new Schema({
     location: {
         type: String
     },
+    address: {
+        type: {
+            type: String,
+            enum: ["Point"]
+        },
+        coordinates: {
+            type: [Number],
+            index: "2dsphere"
+        }
+    },
     description: {
         type: String
     },

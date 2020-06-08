@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper, Grid, Box, Chip, Avatar, Button, Typography } from '@material-ui/core';
 
-//import Map from './map/Map.js';
+import MapView from './map/MapView';
 import styles from './Event.module.css';
 import sportImage from '../../img/noImage.svg';
 import { deleteEvent, joinEvent } from '../../actions/eventActions';
@@ -53,7 +53,7 @@ class EventItem extends Component{
                         
                         <Typography display="inline">
                              <Link to={`/profile/${event.user._id}`}>
-                                <p>Host By {event.user.name} </p>
+                                Host By {event.user.name}
                             </Link>
                         </Typography>
                         
@@ -73,6 +73,7 @@ class EventItem extends Component{
                           alt="Sport" />
                     </Grid>
                 </Grid>
+                <MapView />
                 <hr />
                 <Box display="flex">
                     <Button 

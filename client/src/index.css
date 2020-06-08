@@ -6,6 +6,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.map{
+  height: 500px;
+} 
+
 .logo{
   width: 11rem;
   margin-bottom: 3px;

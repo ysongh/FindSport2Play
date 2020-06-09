@@ -25,7 +25,6 @@ class EventItem extends Component{
     
     render(){
         const {event, auth} = this.props;
-        
         return(
             <Paper className="pad-1">
                 <Grid container>
@@ -73,7 +72,7 @@ class EventItem extends Component{
                           alt="Sport" />
                     </Grid>
                 </Grid>
-                <MapView />
+                <MapView coordinates={event.address.coordinates} />
                 <hr />
                 <Box display="flex">
                     <Button 

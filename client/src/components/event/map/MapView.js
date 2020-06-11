@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import L from 'leaflet';
-import { Map, Marker, TileLayer } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import Icon from '../../../img/icon1.svg';
 
@@ -30,7 +30,11 @@ class MapView extends Component {
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={position} icon={markerIcon}></Marker>
+            <Marker position={position} icon={markerIcon}>
+              <Popup>
+                {this.props.location}
+              </Popup>
+            </Marker>
         </Map>
     )
   }

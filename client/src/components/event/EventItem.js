@@ -28,7 +28,7 @@ class EventItem extends Component{
         return(
             <Paper className="pad-1">
                 <Grid container>
-                    <Grid item xs={12} md={4}>
+                    <Grid item xs={12} md={6}>
                         <span className={styles.labelInfo}>Type of Sport</span>
                         <p>{event.typeofsport}</p>
                         
@@ -67,8 +67,8 @@ class EventItem extends Component{
                         
                        
                     </Grid>
-                    <Grid container item xs={12} md={8}>
-                        <img style={{height: '350px'}} src={event.imageURL ? event.imageURL : sportImage}
+                    <Grid container item xs={12} md={6}>
+                        <img className="marginB-1" style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Grid>
                 </Grid>

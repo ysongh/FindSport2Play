@@ -72,7 +72,7 @@ class EventItem extends Component{
                           alt="Sport" />
                     </Grid>
                 </Grid>
-                <MapView coordinates={event.address.coordinates} location={event.location}/>
+                {event.address ? <MapView coordinates={event.address.coordinates} location={event.location}/> : null}
                 <hr />
                 <Box display="flex">
                     <Button 

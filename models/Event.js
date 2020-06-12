@@ -80,12 +80,14 @@ const EventSchema = new Schema({
 });
 
 EventSchema.pre("save", async function(next){
-    const data = await geocoder.geocode(this.location);
-    this.address = {
-        type: "Point",
-        coordinates: [data[0].longitude, data[0].latitude]
+    if(this.location){
+        const data = await geocoder.geocode(this.location);
+        this.address = {
+            type: "Point",
+            coordinates: [data[0].longitude, data[0].latitude]
+        }
     }
-
+    
     next();
 })
 

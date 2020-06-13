@@ -7,7 +7,7 @@ import Icon from '../../../img/icon1.svg';
 const markerIcon = L.icon({
   iconUrl: Icon,
   iconRetinaUrl: Icon,
-  iconSize: [25, 41],
+  iconSize: [35, 41],
   popupAnchor: [0, -10]
 });
 

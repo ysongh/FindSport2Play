@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import L from 'leaflet';
+
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-
-import Icon from '../../../img/icon1.svg';
-
-const markerIcon = L.icon({
-  iconUrl: Icon,
-  iconRetinaUrl: Icon,
-  iconSize: [35, 41],
-  popupAnchor: [0, -10]
-});
+import { markerIcon } from './MapIcons';
 
 class MapView extends Component {
   constructor(props) {

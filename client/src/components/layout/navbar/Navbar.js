@@ -24,6 +24,11 @@ class Navbar extends Component {
           anchorEl1: "",
           anchorEl2: ""
       };
+      this.onShowNotification = this.onShowNotification.bind(this);
+      this.onShowUserMenu = this.onShowUserMenu.bind(this);
+      this.onHideNotification = this.onHideNotification.bind(this);
+      this.onHideUserMenu = this.onHideUserMenu.bind(this);
+      this.onLogoutClick = this.onLogoutClick.bind(this);
   }
   
   onShowNotification(e){
@@ -76,7 +81,7 @@ class Navbar extends Component {
     };
 
     const notificationsList = (
-      <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification.bind(this)} className="xm-1">
+      <Badge badgeContent={notifications.unread} color="secondary" onClick={this.onShowNotification} className="xm-1">
         <NotificationsIcon />
       </Badge>
     );
@@ -102,8 +107,8 @@ class Navbar extends Component {
               <Desktop
                 isAuthenticated={isAuthenticated}
                 notificationsUnread={notifications.unread}
-                onShowNotification={this.onShowNotification.bind(this)}
-                onShowUserMenu={this.onShowUserMenu.bind(this)} />
+                onShowNotification={this.onShowNotification}
+                onShowUserMenu={this.onShowUserMenu} />
                 
               <div className="hiddenMobile">
                 {isAuthenticated ? notificationsList : null}
@@ -118,11 +123,11 @@ class Navbar extends Component {
         <Drawer anchor="right" open={this.state.toggleDrawer} onClick={handleDrawerClose} onClose={handleDrawerClose} onKeyDown={handleDrawerClose}>
           <SideDrawer
           isAuthenticated={isAuthenticated}
-          logout={this.onLogoutClick.bind(this)} />
+          logout={this.onLogoutClick} />
         </Drawer>
 
-        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl1} onClose={this.onHideNotification.bind(this)} />
-        <UserMenu anchorEl={this.state.anchorEl2} onClose={this.onHideUserMenu.bind(this)} onLogOut={this.onLogoutClick.bind(this)}/>
+        <NotificationList notifications={notifications.notification} anchorEl={this.state.anchorEl1} onClose={this.onHideNotification} />
+        <UserMenu anchorEl={this.state.anchorEl2} onClose={this.onHideUserMenu} onLogOut={this.onLogoutClick}/>
       </AppBar>
     );
   }

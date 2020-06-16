@@ -6,11 +6,26 @@ import { withRouter } from 'react-router-dom';
 import { Paper, Grid, Box, Chip, Avatar, Button, Typography } from '@material-ui/core';
 
 import MapView from './map/MapView';
+import DeleteDialog from '../common/DeleteDialog';
 import styles from './Event.module.css';
 import sportImage from '../../img/noImage.svg';
 import { deleteEvent, joinEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
+    constructor(){
+        super();
+        this.state = {
+            openDeleteDialog: '',
+        };
+    }
+    handleClickOpen(){
+        this.setState({ openDeleteDialog : true});
+    };
+    
+    handleClose(){
+        this.setState({ openDeleteDialog : false});
+    };
+
     onDeleteClick(id){
         this.props.deleteEvent(id);
         this.props.history.push('/events');
@@ -58,7 +73,7 @@ class EventItem extends Component{
                         
                         {event.user._id === auth.user.id ? (
                             <Button 
-                                onClick={this.onDeleteClick.bind(this, event._id)}
+                                onClick={this.handleClickOpen.bind(this)}
                                 variant="contained"
                                 color="secondary" >
                                 Delete
@@ -94,7 +109,10 @@ class EventItem extends Component{
                             variant="outlined" />
                     }) }
                 </div>
-                
+                <DeleteDialog
+                    onDeleteClick={this.onDeleteClick.bind(this, event._id)}
+                    openDeleteDialog={this.state.openDeleteDialog}
+                    handleClose={this.handleClose.bind(this)} />
             </Paper>
         );
     }

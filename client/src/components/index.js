@@ -1,0 +1,13 @@
+export { default as PrivateRoute} from './common/PrivateRoute';
+export { default as Navbar} from './layout/navbar/Navbar';
+export { default as Footer} from './layout/Footer';
+export { default as Home } from './home/Home';
+export { default as Events } from './events/Events';
+export { default as Event } from './event/Event';
+export { default as CommentForm } from'./event/comments/CommentForm';
+export { default as Register } from './auth/Register';
+export { default as Login } from './auth/Login';
+export { default as CreateEvent } from './create-event/CreateEvent';
+export { default as Profile } from './profile/Profile';
+export { default as CreateProfile } from './create-profile/CreateProfile';
+export { default as UserProfile } from './profile/UserProfile';

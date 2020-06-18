@@ -7,19 +7,21 @@ import { Provider } from 'react-redux';
 import { Container } from '@material-ui/core';
 import store from './store';
 
-import PrivateRoute from './components/common/PrivateRoute';
-import Navbar from './components/layout/navbar/Navbar';
-import Footer from './components/layout/Footer';
-import Home from './components/home/Home';
-import Events from './components/events/Events';
-import Event from './components/event/Event';
-import CommentForm from './components/event/comments/CommentForm';
-import Register from './components/auth/Register';
-import Login from './components/auth/Login';
-import CreateEvent from './components/create-event/CreateEvent';
-import Profile from './components/profile/Profile';
-import CreateProfile from './components/create-profile/CreateProfile';
-import UserProfile from './components/profile/UserProfile';
+import { 
+  PrivateRoute,
+  Navbar,
+  Footer,
+  Home,
+  Events,
+  Event,
+  CommentForm,
+  Register,
+  Login,
+  CreateEvent,
+  Profile,
+  CreateProfile,
+  UserProfile
+ } from './components';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);

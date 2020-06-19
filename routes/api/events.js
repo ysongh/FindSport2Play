@@ -33,9 +33,10 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/events
-// create an event
+// create or update an event
 router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const {errors, isValid} = validateEventInput(req.body);
+    const event_Id = req.query.eventId;
     
     if(!isValid){
         return res.status(400).json(errors);
@@ -52,7 +53,25 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     if(req.body.imageURL) eventFields.imageURL = req.body.imageURL;
     if(req.body.start) eventFields.start = req.body.start;
 
-    new Event(eventFields).save().then(event => res.json(event));
+    Event.findById(event_Id)
+        .then(event => {
+            // update an event
+            if(event){
+                if(req.body.nameofevent) event.nameofevent = req.body.nameofevent;
+                if(req.body.typeofsport) event.typeofsport = req.body.typeofsport;
+                if(req.body.numberofplayer) event.numberofplayer = req.body.numberofplayer;
+                if(req.body.location) event.location = req.body.location;
+                if(req.body.description) event.description = req.body.description;
+                if(req.body.imageURL) event.imageURL = req.body.imageURL;
+                if(req.body.start) event.start = req.body.start;
+
+                return event.save().then(event => res.json(event));;
+            }
+            // create a new event
+            else{
+                new Event(eventFields).save().then(event => res.json(event));
+            }
+        })
 });
 
 // PUT /api/events/<:event_id>/join

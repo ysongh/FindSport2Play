@@ -5,6 +5,7 @@ const passport = require('passport');
 const Profile = require('../../models/Profile');
 const validateProfileInput = require('../../validation/profile');
 
+// GET /api/profile
 // fetch the player profile
 router.get('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const errors = {};
@@ -20,6 +21,7 @@ router.get('/', passport.authenticate('jwt', {session: false}),(req, res) => {
         .catch(err => res.status(404).json(err));
 });
 
+// POST /api/profile
 // create player profile
 router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const {errors, isValid} = validateProfileInput(req.body);
@@ -58,6 +60,7 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     });
 });
 
+// GET /api/profile/user/<:user_id>
 // fetch player profile by Id
 router.get('/user/:user_id', (req, res) => {
     const errors = {};

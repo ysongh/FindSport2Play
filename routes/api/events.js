@@ -7,6 +7,7 @@ const validateEventInput = require('../../validation/event');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
+// GET /api/events/all
 // fetch all events
 router.get('/all', (req, res) => {
     Event.find()
@@ -20,6 +21,7 @@ router.get('/all', (req, res) => {
         );
 });
 
+// GET /api/events/<:event_id>
 // find an event by Id
 router.get('/:id', (req, res) => {
     Event.findById(req.params.id)
@@ -30,6 +32,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
+// POST /api/events
 // create an event
 router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     const {errors, isValid} = validateEventInput(req.body);
@@ -48,10 +51,11 @@ router.post('/', passport.authenticate('jwt', {session: false}),(req, res) => {
     if(req.body.description) eventFields.description = req.body.description;
     if(req.body.imageURL) eventFields.imageURL = req.body.imageURL;
     if(req.body.start) eventFields.start = req.body.start;
-    
+
     new Event(eventFields).save().then(event => res.json(event));
 });
 
+// PUT /api/events/<:event_id>/join
 // add player to the event
 router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, res) => {
     let newNotification;
@@ -102,6 +106,7 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
         .catch(err => res.status(404).json({error: "Error in put api/events/:id/join. " + err}));
 });
 
+// DELETE /api/events/<:event_id>
 // delete an event
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)

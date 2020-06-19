@@ -4,6 +4,7 @@ const passport = require('passport');
 
 const Notification = require('../../models/Notification');
 
+// GET /api/notification
 // fetch all notification
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.find({userID: req.user.id, read: false })
@@ -23,6 +24,7 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
         });
 });
 
+// PUT /api/notification/check
 // set notification read to true
 router.put('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.updateMany({userID: req.user.id, read: false }, {read: true})
@@ -31,6 +33,7 @@ router.put('/check', passport.authenticate('jwt', {session: false}), (req, res) 
         );
 });
 
+// DELETE /api/notification/<:id>
 // delete a notification
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.findById(req.params.id)

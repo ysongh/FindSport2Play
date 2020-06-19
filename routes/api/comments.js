@@ -7,6 +7,7 @@ const validateCommentInput = require('../../validation/comment');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
+// POST /api/events/<:event_id>/comments
 // add comment
 router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)
@@ -41,6 +42,7 @@ router.post('/:id/comments', passport.authenticate('jwt', {session: false}), (re
         });
 });
 
+// DELETE /api/events/<:event_id>/comments/<:comment_id>
 // delete comment
 router.delete('/:id/comments/:com_id', passport.authenticate('jwt', {session: false}), (req, res) => {
     Event.findById(req.params.id)

@@ -11,6 +11,7 @@ const validateLoginInput = require('../../validation/login');
 const User = require('../../models/User');
 const Notification = require('../../models/Notification');
 
+// POST /api/users/register
 // sign up a new user
 router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);
@@ -52,6 +53,7 @@ router.post('/register', (req, res) => {
         });
 });
 
+// POST /api/users/login
 // login the user
 router.post('/login', (req, res) => {
     const {errors, isValid} = validateLoginInput(req.body);
@@ -92,6 +94,7 @@ router.post('/login', (req, res) => {
         });
 });
 
+// GET /api/users/current
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
         id: req.user.id,
@@ -100,6 +103,7 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     });
 });
 
+// GET /api/users/<:user_id>
 router.get('/:id', (req, res) => {
     User.findById(req.params.id)
         .then(user => res.json(user))

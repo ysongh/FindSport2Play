@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, Grid, Box, Chip, Avatar, Button, Typography } from '@material-ui/core';
+import { Paper, Grid, Box, Chip, Avatar, ButtonGroup, Button, Typography } from '@material-ui/core';
 
 import MapView from './map/MapView';
 import DeleteDialog from '../common/DeleteDialog';
@@ -72,12 +72,21 @@ class EventItem extends Component{
                         </Typography>
                         
                         {event.user._id === auth.user.id ? (
-                            <Button 
-                                onClick={this.handleClickOpen.bind(this)}
-                                variant="contained"
-                                color="secondary" >
-                                Delete
-                            </Button>
+                            <ButtonGroup className="marginL-1">
+                                <Button
+                                    component={Link}
+                                    to="/create-event"
+                                    variant="contained"
+                                    color="primary" >
+                                    Edit
+                                </Button>
+                                <Button 
+                                    onClick={this.handleClickOpen.bind(this)}
+                                    variant="contained"
+                                    color="secondary" >
+                                    Delete
+                                </Button>
+                            </ButtonGroup>
                         ) : null}
                         
                        

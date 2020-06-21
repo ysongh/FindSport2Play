@@ -15,7 +15,7 @@ class EventItem extends Component{
     constructor(){
         super();
         this.state = {
-            openDeleteDialog: '',
+            openDeleteDialog: false,
         };
     }
     handleClickOpen(){

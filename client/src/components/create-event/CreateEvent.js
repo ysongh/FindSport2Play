@@ -28,6 +28,20 @@ class CreateEvent extends Component{
     }
     componentDidMount() {
         window.scrollTo(0, 0);
+
+        if(this.props.match.params.id){
+            const event = this.props.event.event;
+
+            this.setState({
+                nameofevent: event.nameofevent,
+                typeofsport: event.typeofsport,
+                numberofplayer: event.numberofplayer,
+                imageURL: event.imageURL,
+                location: event.location,
+                start: event.start,
+                description: event.description
+            });
+        }
     }
     
     componentWillReceiveProps(nextProps){
@@ -145,7 +159,7 @@ class CreateEvent extends Component{
 }
 
 const mapStateToProps = state => ({
-    event: state.event,
+    event: state.events,
     errors: state.errors
 });
 

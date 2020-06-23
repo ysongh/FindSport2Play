@@ -21,7 +21,7 @@ class Events extends Component{
         }
         else{
             eventContent = (
-                <Grid container spacing={4}>
+                <Grid container spacing={2}>
                     <EventsList events={events} />
                 </Grid>
             );

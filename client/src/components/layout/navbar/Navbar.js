@@ -113,7 +113,7 @@ class Navbar extends Component {
               <div className="hiddenMobile">
                 {isAuthenticated ? notificationsList : null}
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
-                  <MenuIcon />
+                  <MenuIcon fontSize="large"/>
                 </IconButton>
               </div>
             </div>

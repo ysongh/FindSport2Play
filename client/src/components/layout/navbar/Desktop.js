@@ -7,15 +7,15 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 const Desktop = ({ isAuthenticated, notificationsUnread, onShowNotification, onShowUserMenu }) => {
     const notificationsList = (
         <Badge badgeContent={notificationsUnread} color="secondary" onClick={onShowNotification} className="xm-1">
-          <NotificationsIcon />
+          <NotificationsIcon className="icon-s" />
         </Badge>
     );
 
     const authLinks = (
         <div className="hiddenDesk">
             {notificationsList}
-            <Badge color="secondary" onClick={onShowUserMenu} className="xm-1">
-                <PersonIcon />
+            <Badge color="secondary" onClick={onShowUserMenu}>
+                <PersonIcon className="icon-m" />
             </Badge>
         </div>
     );

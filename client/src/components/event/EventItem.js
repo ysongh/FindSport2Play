@@ -77,7 +77,8 @@ class EventItem extends Component{
                                     component={Link}
                                     to={`/edit-event/${event.user._id}`}
                                     variant="contained"
-                                    color="primary" >
+                                    color="primary"
+                                    disabled >
                                     Edit
                                 </Button>
                                 <Button 

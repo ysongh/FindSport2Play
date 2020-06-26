@@ -103,8 +103,8 @@ class CreateEvent extends Component{
                             </Grid>
                             <Grid item xs={6}>
                                 <TextFieldGroup
-                                    label="Number of player *"
-                                    placeholder="Number of player"
+                                    label="Number of Player *"
+                                    placeholder="2-100 Players"
                                     name="numberofplayer"
                                     type="number"
                                     value={this.state.numberofplayer}

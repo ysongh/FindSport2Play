@@ -47,7 +47,7 @@ class EventItem extends Component{
     }
     
     render(){
-        const {event, auth} = this.props;
+        const {event, snackbarMessage, auth} = this.props;
         return(
             <Paper className="pad-2">
                 <Grid container>
@@ -140,7 +140,7 @@ class EventItem extends Component{
                         open={this.state.openSnackbar}
                         autoHideDuration={5000}
                         onClose={this.handleCloseSnackbar.bind(this)}
-                        message="Event Joined"
+                        message={snackbarMessage}
                         action={
                         <React.Fragment>
                             <IconButton size="small" aria-label="close" color="inherit" onClick={this.handleCloseSnackbar.bind(this)}>

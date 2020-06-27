@@ -1,6 +1,7 @@
 const initialState = {
     events: [],
     event: [],
+    snackbarMessage: "You are going to this event",
     loading: false
 };
 

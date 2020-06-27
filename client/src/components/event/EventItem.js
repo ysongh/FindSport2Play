@@ -3,7 +3,8 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper, Grid, Box, Chip, Avatar, ButtonGroup, Button, Typography } from '@material-ui/core';
+import { Paper, Grid, Box, Chip, Avatar, Snackbar, IconButton, ButtonGroup, Button, Typography } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 import MapView from './map/MapView';
 import DeleteDialog from '../common/DeleteDialog';
@@ -16,6 +17,7 @@ class EventItem extends Component{
         super();
         this.state = {
             openDeleteDialog: false,
+            openSnackbar: false
         };
     }
     handleClickOpen(){
@@ -24,6 +26,10 @@ class EventItem extends Component{
     
     handleClose(){
         this.setState({ openDeleteDialog : false});
+    };
+
+    handleCloseSnackbar(){
+        this.setState({ openSnackbar : false});
     };
 
     onDeleteClick(id){
@@ -35,6 +41,8 @@ class EventItem extends Component{
         if(!this.props.auth.isAuthenticated){
             this.props.history.push('/login');
         }
+        this.setState({ openSnackbar : true});
+
         this.props.joinEvent(id);
     }
     
@@ -123,6 +131,24 @@ class EventItem extends Component{
                     onDeleteClick={this.onDeleteClick.bind(this, event._id)}
                     openDeleteDialog={this.state.openDeleteDialog}
                     handleClose={this.handleClose.bind(this)} />
+
+                    <Snackbar
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        open={this.state.openSnackbar}
+                        autoHideDuration={5000}
+                        onClose={this.handleCloseSnackbar.bind(this)}
+                        message="Event Joined"
+                        action={
+                        <React.Fragment>
+                            <IconButton size="small" aria-label="close" color="inherit" onClick={this.handleCloseSnackbar.bind(this)}>
+                                <CloseIcon fontSize="small" />
+                            </IconButton>
+                        </React.Fragment>
+                        }
+                    />
             </Paper>
         );
     }

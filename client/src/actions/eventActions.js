@@ -1,6 +1,6 @@
 import axios from '../axios-lists';
 
-import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT, GET_NOTIFICATION  } from './types';
+import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT, GET_NOTIFICATION, CHANGE_SNACKBAR_MESSAGE  } from './types';
 
 export const getEvents = () => dispatch => {
     dispatch(setEventLoading());
@@ -112,9 +112,14 @@ export const joinEvent = (eventID) => dispatch => {
                 payload: res.data.event
             })
         )
-        .catch(err => 
-            console.log(err)
-        );
+        .catch(err => {
+            if (err.response) {
+                dispatch({
+                    type: CHANGE_SNACKBAR_MESSAGE,
+                    payload: err.response.data.error
+                })
+            }
+        });
 };
 
 export const setEventLoading = () => {

@@ -29,6 +29,11 @@ export default function(state = initialState, action){
                 ...state,
                 events: state.events.filter(event => event._id !== action.payload)
             };
+        case 'CHANGE_SNACKBAR_MESSAGE':
+            return{
+                ...state,
+                snackbarMessage: action.payload
+            }
         default:
             return state;
     }

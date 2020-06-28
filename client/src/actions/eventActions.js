@@ -106,11 +106,17 @@ export const deleteComment = (eventID, com_id) => dispatch => {
 export const joinEvent = (eventID) => dispatch => {
     axios
         .put(`/api/events/${eventID}/join`)
-        .then(res => 
+        .then(res =>{
+            dispatch({
+                type: CHANGE_SNACKBAR_MESSAGE,
+                payload: res.data.join
+            });
             dispatch({
                 type: GET_EVENT,
                 payload: res.data.event
-            })
+            });
+        }
+            
         )
         .catch(err => {
             if (err.response) {

@@ -119,7 +119,8 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
             newNotification.save();
             res.status(200).json({
                 msg: 'Success on joining that event',
-                event: result
+                event: result,
+                join: "You are going to this event"
             });
         })
         .catch(err => res.status(404).json({error: "Error in put api/events/:id/join. " + err}));

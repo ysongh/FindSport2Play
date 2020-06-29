@@ -78,6 +78,8 @@ body {
 .pad-1{ padding: 1rem; }
 .pad-2{ padding: 1.5rem; }
 
+.padB-0{ padding-bottom: 0 !important; }
+
 .icon-s{ font-size: 1.9rem !important; }
 .icon-m{ font-size: 2.1rem !important; }
 

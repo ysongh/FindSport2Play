@@ -14,17 +14,18 @@ class EventsItem extends Component{
         return(
             <Grid item xs={12} sm={6} md={4} lg={3}>
                 <Card>
-                    <CardHeader title={event.nameofevent} />
                     <Link to={`/event/${event._id}`}>
                         <img style={{width: '100%', height: '220px'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
                     </Link>
+                    <CardHeader className="padB-0" title={event.nameofevent} />
                     <CardContent>
-                        <Chip icon={<SportsBasketballIcon />} label={event.typeofsport}/>
-                        <Chip icon={<GroupIcon />} label={event.numberofplayer}/>
-                        <Typography className="marginT-1" variant="body2" color="textSecondary" component="p">
+                        <Typography className="marginB-1" variant="body2" color="textSecondary" component="p">
                             {event.description}
                         </Typography>
+                        <Chip icon={<SportsBasketballIcon />} label={event.typeofsport}/>
+                        <Chip icon={<GroupIcon />} label={event.numberofplayer}/>
+                        
                     </CardContent>
                     <CardActions>
                         <Button className="primary-color white-link" size="large" variant="contained" fullWidth  component={Link} to={`/event/${event._id}`}>

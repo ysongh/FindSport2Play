@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Moment from 'react-moment';
 import { Paper, ListItem, ListItemAvatar, Avatar, ListItemText, IconButton } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -24,7 +25,7 @@ class CommentItem extends Component{
                     <PersonIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={comment.text} secondary={comment.date.slice(11, 19)} />
+                <ListItemText primary={comment.text} secondary={<Moment format="MMMM Do YYYY, h:mm:ss a">{comment.date}</Moment>}/>
                 {event.user._id === auth.user.id ? (
                   <IconButton
                     aria-label="delete"

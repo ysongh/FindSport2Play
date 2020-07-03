@@ -82,7 +82,7 @@ class CreateEvent extends Component{
                     <form onSubmit={this.onSubmit}>
                         <TextFieldGroup
                             label="Event Name *"
-                            placeholder="Event Name"
+                            placeholder=""
                             name="nameofevent"
                             type="name"
                             value={this.state.nameofevent}
@@ -115,7 +115,7 @@ class CreateEvent extends Component{
                         </Grid>
                         <TextFieldGroup
                             label="Image URL"
-                            placeholder="Image URL"
+                            placeholder="EX: https://unsplash.com/photos/-JzHSIzNYnU"
                             name="imageURL"
                             type="name"
                             value={this.state.imageURL}
@@ -124,7 +124,7 @@ class CreateEvent extends Component{
                         />
                         <TextFieldGroup
                             label="Location"
-                            placeholder="Location"
+                            placeholder="EX: West 96th Street, New York, NY 10025"
                             name="location"
                             type="name"
                             value={this.state.location}
@@ -132,7 +132,7 @@ class CreateEvent extends Component{
                             error={errors.location}
                         />
                         <TextFieldGroup
-                            label="Date"
+                            label="Start Date"
                             name="start"
                             type="date"
                             value={this.state.start}

@@ -14,7 +14,7 @@ Link - https://findsport2play.herokuapp.com/
 - Express.js
 - MongoDB
 - Mongoose
-- Bootstrap 4
+- Material-UI
 - REST API
 - Redux
 

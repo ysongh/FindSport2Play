@@ -132,7 +132,6 @@ class CreateEvent extends Component{
                             error={errors.location}
                         />
                         <TextFieldGroup
-                            label="Start Date"
                             name="start"
                             type="date"
                             value={this.state.start}

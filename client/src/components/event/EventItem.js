@@ -52,12 +52,18 @@ class EventItem extends Component{
             <Paper className="pad-2">
                 <Grid container>
                     <Grid item xs={12} md={6}>
-                        <span className={styles.labelInfo}>Type of Sport</span>
-                        <p>{event.typeofsport}</p>
-                        
-                        <span className={styles.labelInfo}>Number of Player</span>
-                        <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
-                        
+                        <Grid container spacing={6}>
+                            <Grid item xs={6}>
+                                <span className={styles.labelInfo}>Type of Sport</span>
+                                <p>{event.typeofsport}</p>
+                            </Grid>
+                            
+                            <Grid item xs={6}>
+                                <span className={styles.labelInfo}>Number of Player</span>
+                                <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
+                            </Grid>
+                        </Grid>
+
                         <span className={styles.labelInfo}>Location</span>
                         <p>
                             {event.location ? event.location : "To Be Announced"}

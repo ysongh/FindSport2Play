@@ -98,9 +98,12 @@ class Navbar extends Component {
               <Link className="white-link" component={RouterLink} to="/events">
                 Events List
               </Link>
-              <Link className="white-link" component={RouterLink} to="/create-event">
-                Create Event
-              </Link>
+              
+              { isAuthenticated ? (
+                <Link className="white-link" component={RouterLink} to="/create-event">
+                  Create Event
+                </Link>
+              ) : null }
             </div>
             
             <div className="toolbarRight">
@@ -111,7 +114,7 @@ class Navbar extends Component {
                 onShowUserMenu={this.onShowUserMenu} />
                 
               <div className="hiddenMobile">
-                {isAuthenticated ? notificationsList : null}
+                { isAuthenticated ? notificationsList : null }
                 <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                   <MenuIcon fontSize="large"/>
                 </IconButton>

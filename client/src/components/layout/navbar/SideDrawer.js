@@ -7,6 +7,9 @@ import Logo from '../../../img/logo.png';
 const SideDrawer = ({ isAuthenticated, logout }) => {
     const authLinks = (
       <div>
+        <ListItem button component={RouterLink} to="/create-event">
+          <ListItemText primary="Create Event" />
+        </ListItem>
         <ListItem button component={RouterLink} to="/profile">
           <ListItemText primary="Your Profile" />
         </ListItem>
@@ -34,9 +37,6 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
         </ListItem>
         <ListItem button component={RouterLink} to="/events">
           <ListItemText primary="Events List" />
-        </ListItem>
-        <ListItem button component={RouterLink} to="/create-event">
-          <ListItemText primary="Create Event" />
         </ListItem>
         {isAuthenticated ? authLinks : guestLinks}
       </List>

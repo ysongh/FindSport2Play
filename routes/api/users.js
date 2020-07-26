@@ -108,7 +108,7 @@ router.get('/:id', (req, res) => {
     User.findById(req.params.id)
         .then(user => res.json(user))
         .catch(err =>
-            res.status(404).json({error: "Error in get api/users/:id. " + err})
+            res.status(500).json({error: "Error in get api/users/:id. " + err})
         );
 });
 

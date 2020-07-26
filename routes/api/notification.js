@@ -19,7 +19,7 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
                     });
                 })
                 .catch(err =>
-                    res.status(404).json({error: "Error in get api/notification/. " + err})
+                    res.status(500).json({error: "Error in get api/notification/. " + err})
                 );
         });
 });
@@ -29,7 +29,7 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 router.put('/check', passport.authenticate('jwt', {session: false}), (req, res) => {
     Notification.updateMany({userID: req.user.id, read: false }, {read: true})
         .catch(err =>
-            res.status(404).json({error: "Error in get api/notification/check. " + err})
+            res.status(500).json({error: "Error in get api/notification/check. " + err})
         );
 });
 
@@ -44,7 +44,7 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
             notification.remove().then(() => res.json({success: true}));
         })
         .catch(err =>
-            res.status(404).json({error: "Error in get api/notification/. " + err})
+            res.status(500).json({error: "Error in get api/notification/. " + err})
         );
 });
 

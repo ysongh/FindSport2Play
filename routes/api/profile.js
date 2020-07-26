@@ -18,7 +18,7 @@ router.get('/', passport.authenticate('jwt', {session: false}),(req, res) => {
             }
             res.json(profile);
         })
-        .catch(err => res.status(404).json(err));
+        .catch(err => res.status(500).json(err));
 });
 
 // POST /api/profile
@@ -75,7 +75,7 @@ router.get('/user/:user_id', (req, res) => {
             res.json(profile);
         })
         .catch(err => 
-            res.status(404).json({profile: 'There is no profile for this user'})
+            res.status(500).json({ errors: err })
         );
 });
 

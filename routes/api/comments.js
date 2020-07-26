@@ -61,7 +61,7 @@ router.delete('/:id/comments/:com_id', passport.authenticate('jwt', {session: fa
             event.save()
                 .then(event => res.json(event));
         })
-        .catch(err => res.status(404).json(err));
+        .catch(err => res.status(500).json(err));
 });
 
 module.exports = router;

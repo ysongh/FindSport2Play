@@ -123,7 +123,7 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
                 join: "You are going to this event"
             });
         })
-        .catch(err => res.status(404).json({error: "Error in put api/events/:id/join. " + err}));
+        .catch(err => res.status(500).json({error: "Error in put api/events/:id/join. " + err}));
 });
 
 // DELETE /api/events/<:event_id>
@@ -136,7 +136,7 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
             }
             event.remove().then(() => res.json({success: true}));
         })
-        .catch(err => res.status(404).json({error: "Error in delete api/events/:id. " + err}));
+        .catch(err => res.status(500).json({error: "Error in delete api/events/:id. " + err}));
 });
 
 module.exports = router;

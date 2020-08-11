@@ -60,7 +60,11 @@ class Events extends Component{
                     />
                     </Grid>
                 </Grid>
-                {eventContent}
+                { events.length ? eventContent : (
+                    <Typography className="marginT-2" variant="subtitle1" color="secondary" component="p">
+                       No Events Yet
+                    </Typography>
+                )}
             </div>
         );
     }

@@ -2,10 +2,14 @@ import axios from '../axios-lists';
 
 import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT, GET_NOTIFICATION, CHANGE_SNACKBAR_MESSAGE  } from './types';
 
-export const getEvents = () => dispatch => {
+export const getEvents = sport => dispatch => {
     dispatch(setEventLoading());
     dispatch(getNotification());
-    axios.get('/api/events/all')
+
+    let url = '/api/events/all';
+    if(sport) url = `/api/events/all?sport=${sport}`;
+
+    axios.get(url)
         .then(res => {
             dispatch({
                 type: GET_EVENTS,

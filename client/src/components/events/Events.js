@@ -19,11 +19,12 @@ class Events extends Component{
     }
     componentDidMount(){
         window.scrollTo(0, 0);
-        this.props.getEvents();
+        this.props.getEvents('');
     }
 
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
+        this.props.getEvents(e.target.value);
     }
     
     render(){

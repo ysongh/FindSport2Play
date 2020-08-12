@@ -10,7 +10,7 @@ const Notification = require('../../models/Notification');
 // GET /api/events/all
 // fetch all events
 router.get('/all', (req, res) => {
-    Event.find()
+    Event.find(req.query.sport && {typeofsport: req.query.sport})
         .sort('-date')
         .populate('user', ['name'])
         .then(events => {

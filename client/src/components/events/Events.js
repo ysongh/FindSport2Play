@@ -7,7 +7,7 @@ import SelectFieldGroup from '../common/SelectFieldGroup';
 import Spinner from '../common/Spinner';
 import { getEvents } from '../../actions/eventActions';
 
-const sportList = ["Badminton", "Tennis", "Volleyball", "Basketball", "Baseball", "Running", "Table tennis", "Football", "Soccer"];
+const sportList = ["All Sports", "Badminton", "Tennis", "Volleyball", "Basketball", "Baseball", "Running", "Table tennis", "Football", "Soccer"];
 
 class Events extends Component{
     constructor(props){

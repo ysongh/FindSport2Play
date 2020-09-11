@@ -70,12 +70,16 @@ const EventSchema = new Schema({
             }
         }
     ],
-    date:{
+    date: {
         type: Date,
         default: Date.now
     },
     start: {
         type: Date,
+    },
+    flag: {
+        type: Boolean,
+        default: false
     }
 });
 

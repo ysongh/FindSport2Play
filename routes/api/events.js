@@ -126,6 +126,27 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
         .catch(err => res.status(500).json({error: "Error in put api/events/:id/join. " + err}));
 });
 
+// PUT /api/events/<:event_id>/flag
+// flag an event
+router.put('/:id/flag', (req, res) => {
+    Event.findById(req.params.id)
+        .then(event => {
+            if(!event){
+                return res.status(404).json({error: 'This event is not found'});
+            }
+
+            event.flag = true;
+            return event.save();
+        })
+        .then(result => {
+            res.status(200).json({
+                msg: 'Success on flagging that event',
+                event: result
+            });
+        })
+        .catch(err => res.status(500).json({error: "Error in put api/events/:id/flag. " + err}));
+});
+
 // DELETE /api/events/<:event_id>
 // delete an event
 router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {

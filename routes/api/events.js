@@ -130,6 +130,7 @@ router.put('/:id/join', passport.authenticate('jwt', {session: false}), (req, re
 // flag an event
 router.put('/:id/flag', (req, res) => {
     Event.findById(req.params.id)
+        .populate('user', ['name'])
         .then(event => {
             if(!event){
                 return res.status(404).json({error: 'This event is not found'});

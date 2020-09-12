@@ -10,7 +10,7 @@ import MapView from './map/MapView';
 import DeleteDialog from '../common/DeleteDialog';
 import styles from './Event.module.css';
 import sportImage from '../../img/noImage.svg';
-import { deleteEvent, joinEvent } from '../../actions/eventActions';
+import { deleteEvent, joinEvent, flagEvent } from '../../actions/eventActions';
 
 class EventItem extends Component{
     constructor(){
@@ -107,8 +107,17 @@ class EventItem extends Component{
                        
                     </Grid>
                     <Grid container item xs={12} md={6}>
-                        <img className="marginB-1" style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage}
+                        <img style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage}
                           alt="Sport" />
+                        <Box style={{width: '100%', display: 'block'}}>
+                            <Button
+                                className="marginB-1 floatRight"
+                                onClick={this.props.flagEvent.bind(this, event._id)}
+                                variant="contained"
+                                color="secondary" >
+                                Report
+                            </Button>
+                        </Box>
                     </Grid>
                 </Grid>
                 {event.address ? <MapView coordinates={event.address.coordinates} location={event.location}/> : null}
@@ -164,4 +173,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteEvent, joinEvent })(withRouter(EventItem));
+export default connect(mapStateToProps, { deleteEvent, joinEvent, flagEvent })(withRouter(EventItem));

@@ -131,7 +131,6 @@ export const joinEvent = (eventID) => dispatch => {
 };
 
 export const flagEvent = (eventID) => dispatch => {
-    console.log('f')
     axios
         .put(`/api/events/${eventID}/flag`)
         .then(res =>{

@@ -119,9 +119,7 @@ export const joinEvent = (eventID) => dispatch => {
                 type: GET_EVENT,
                 payload: res.data.event
             });
-        }
-            
-        )
+        })
         .catch(err => {
             if (err.response) {
                 dispatch({
@@ -130,6 +128,18 @@ export const joinEvent = (eventID) => dispatch => {
                 })
             }
         });
+};
+
+export const flagEvent = (eventID) => dispatch => {
+    console.log('f')
+    axios
+        .put(`/api/events/${eventID}/flag`)
+        .then(res =>{
+            dispatch({
+                type: GET_EVENT,
+                payload: res.data.event
+            });
+        })
 };
 
 export const setEventLoading = () => {

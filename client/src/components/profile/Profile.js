@@ -47,7 +47,7 @@ class Profile extends Component{
     }
     
     return(
-        <div>
+        <div className="minHeight">
           <h1 className="text-center">Profile</h1>
           {profileContent}
         </div>

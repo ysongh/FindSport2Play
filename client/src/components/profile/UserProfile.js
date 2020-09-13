@@ -13,7 +13,6 @@ class UserProfile extends Component{
   }
   
   render(){
-    //const {user} = this.props.auth;
     const {profile, loading} = this.props.profile;
     
     let profileContent;
@@ -39,7 +38,7 @@ class UserProfile extends Component{
     }
     
     return(
-        <div>
+        <div className="minHeight">
           <h1 className="text-center">Profile</h1>
           {profileContent}
         </div>

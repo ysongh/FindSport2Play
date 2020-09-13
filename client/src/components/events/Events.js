@@ -43,7 +43,7 @@ class Events extends Component{
         }
         
         return(
-            <div>
+            <div className="minHeight">
                 <Grid container className="marginX-1">
                     <Grid item xs={12} sm={6} md={6}>
                         <Typography className="marginT-2" variant="h3" component="h1">

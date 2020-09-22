@@ -48,6 +48,7 @@ class EventItem extends Component{
     
     render(){
         const {event, snackbarMessage, auth} = this.props;
+        
         return(
             <Paper className="pad-2">
                 <Grid container>
@@ -114,8 +115,9 @@ class EventItem extends Component{
                                 className="marginB-1 floatRight"
                                 onClick={this.props.flagEvent.bind(this, event._id)}
                                 variant="contained"
-                                color="secondary" >
-                                Report
+                                color="secondary"
+                                disabled={event.flag} >
+                                { event.flag ? "Reported" : "Report" }
                             </Button>
                         </Box>
                     </Grid>

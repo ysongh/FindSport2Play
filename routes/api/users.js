@@ -53,9 +53,9 @@ router.post('/register', (req, res) => {
         });
 });
 
-// POST /api/users/login
+// PATCH /api/users/login
 // login the user
-router.post('/login', (req, res) => {
+router.patch('/login', (req, res) => {
     const {errors, isValid} = validateLoginInput(req.body);
     if(!isValid){
         return res.status(400).json(errors);

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Grid, Typography, Button } from '@material-ui/core';
 
 import TextFieldGroup from '../common/TextFieldGroup';
+import DateFieldGroup from '../common/DateFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import SelectFieldGroup from '../common/SelectFieldGroup';
 import { createEvent } from '../../actions/eventActions';
@@ -131,9 +132,9 @@ class CreateEvent extends Component{
                             onChange={this.onChange}
                             error={errors.location}
                         />
-                        <TextFieldGroup
+                        <DateFieldGroup
+                            label="Start Date"
                             name="start"
-                            type="date"
                             value={this.state.start}
                             onChange={this.onChange}
                             error={errors.start}

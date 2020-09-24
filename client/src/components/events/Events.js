@@ -31,8 +31,12 @@ class Events extends Component{
         const {events, loading} = this.props.events;
         let eventContent;
         
-        if(events === null || loading){
-            eventContent = <Spinner />;
+        if(!events.length){
+            eventContent = (
+                <Typography className="marginT-2" variant="subtitle1" color="secondary" component="p">
+                    No Events Yet
+                </Typography>
+            );
         }
         else{
             eventContent = (
@@ -61,11 +65,8 @@ class Events extends Component{
                     />
                     </Grid>
                 </Grid>
-                { events.length ? eventContent : (
-                    <Typography className="marginT-2" variant="subtitle1" color="secondary" component="p">
-                       No Events Yet
-                    </Typography>
-                )}
+                
+                { loading ? <Spinner /> : eventContent }
             </div>
         );
     }

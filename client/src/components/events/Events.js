@@ -33,7 +33,7 @@ class Events extends Component{
         
         if(!events.length){
             eventContent = (
-                <Typography className="marginT-2" variant="subtitle1" color="secondary" component="p">
+                <Typography className="marginT-5" variant="h3" color="secondary" component="p" align="center">
                     No Events Yet
                 </Typography>
             );
@@ -65,7 +65,7 @@ class Events extends Component{
                     />
                     </Grid>
                 </Grid>
-                
+
                 { loading ? <Spinner /> : eventContent }
             </div>
         );

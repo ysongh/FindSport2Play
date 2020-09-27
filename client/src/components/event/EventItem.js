@@ -57,29 +57,27 @@ class EventItem extends Component{
                         <Grid container spacing={6}>
                             <Grid item xs={6}>
                                 <span className={styles.labelInfo}>Type of Sport</span>
-                                <p>{event.typeofsport}</p>
+                                <Typography variant="h6" paragraph>{event.typeofsport}</Typography>
                             </Grid>
                             
                             <Grid item xs={6}>
                                 <span className={styles.labelInfo}>Number of Player</span>
-                                <p>{event.numberofplayer} <GroupIcon /></p>
+                                <Typography variant="h6" paragraph><GroupIcon fontSize="small" /> {event.numberofplayer}</Typography>
                             </Grid>
                         </Grid>
 
                         <span className={styles.labelInfo}>Location</span>
-                        <p>
-                            {event.location ? event.location : "To Be Announced"}
-                        </p>
+                        <Typography variant="h6" paragraph>{event.location ? event.location : "To Be Announced"}</Typography>
                         
                         <span className={styles.labelInfo}>Start Date</span>
-                        <p>
+                        <Typography variant="h6" paragraph>
                             {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
-                        </p>
+                        </Typography>
                         
                         <span className={styles.labelInfo}>Description</span>
-                        <p>
+                        <Typography variant="h6" paragraph>
                             {event.description ? event.description : "None"}
-                        </p>
+                        </Typography>
                         
                         <Typography display="inline">
                              <Link to={`/profile/${event.user._id}`}>

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper, Grid, Box, Chip, Avatar, Snackbar, IconButton, ButtonGroup, Button, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import GroupIcon from '@material-ui/icons/Group';
 
 import MapView from './map/MapView';
 import DeleteDialog from '../common/DeleteDialog';
@@ -61,7 +62,7 @@ class EventItem extends Component{
                             
                             <Grid item xs={6}>
                                 <span className={styles.labelInfo}>Number of Player</span>
-                                <p><i className="fas fa-users"></i>{event.numberofplayer}</p>
+                                <p>{event.numberofplayer} <GroupIcon /></p>
                             </Grid>
                         </Grid>
 

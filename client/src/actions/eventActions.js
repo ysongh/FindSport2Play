@@ -6,8 +6,8 @@ export const getEvents = sport => dispatch => {
     dispatch(setEventLoading());
     dispatch(getNotification());
 
-    let url = '/api/events/all';
-    if(sport && sport !== 'All Sports') url = `/api/events/all?sport=${sport}`;
+    let url = '/api/events/events';
+    if(sport && sport !== 'All Sports') url = `/api/events/events?sport=${sport}`;
 
     axios.get(url)
         .then(res => {

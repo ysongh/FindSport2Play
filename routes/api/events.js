@@ -7,9 +7,10 @@ const validateEventInput = require('../../validation/event');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
-// GET /api/events/all
-// fetch all events
-router.get('/all', (req, res) => {
+// GET /api/events/events
+// or /api/events/events?sport=${sport}
+// fetch all events or by type of sport
+router.get('/events', (req, res) => {
     Event.find(req.query.sport ? {typeofsport: req.query.sport, flag: false} : { flag: false })
         .sort('-date')
         .populate('user', ['name'])

@@ -5,7 +5,7 @@ import { Grid, Typography } from '@material-ui/core';
 import EventsList from './EventsList';
 import SelectFieldGroup from '../common/SelectFieldGroup';
 import Spinner from '../common/Spinner';
-import { getEvents } from '../../actions/eventActions';
+import { getAllEvents, getEvents } from '../../actions/eventActions';
 
 const sportList = ["All Sports", "Badminton", "Tennis", "Volleyball", "Basketball", "Baseball", "Running", "Table tennis", "Football", "Soccer"];
 
@@ -19,7 +19,12 @@ class Events extends Component{
     }
     componentDidMount(){
         window.scrollTo(0, 0);
-        this.props.getEvents('');
+        if(this.props.match.params.type){
+            this.props.getAllEvents();
+        }
+        else{
+            this.props.getEvents('');
+        }
     }
 
     onChange(e){
@@ -76,4 +81,4 @@ const mapStateToProps = (state) => ({
     events: state.events
 });
 
-export default connect(mapStateToProps, { getEvents})(Events);
+export default connect(mapStateToProps, { getAllEvents, getEvents })(Events);

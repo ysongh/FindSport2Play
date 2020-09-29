@@ -2,6 +2,25 @@ import axios from '../axios-lists';
 
 import { GET_EVENTS, GET_EVENT, EVENT_LOADING, GET_ERRORS, CLEAR_ERRORS, DELETE_EVENT, GET_NOTIFICATION, CHANGE_SNACKBAR_MESSAGE  } from './types';
 
+export const getAllEvents = () => dispatch => {
+    dispatch(setEventLoading());
+    dispatch(getNotification());
+
+    axios.get('/api/events/all')
+        .then(res => {
+            dispatch({
+                type: GET_EVENTS,
+                payload: res.data
+            });
+        })
+        .catch(err => 
+            dispatch({
+                type: GET_EVENTS,
+                payload: {}
+            })
+        );
+};
+
 export const getEvents = sport => dispatch => {
     dispatch(setEventLoading());
     dispatch(getNotification());

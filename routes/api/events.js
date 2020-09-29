@@ -7,9 +7,23 @@ const validateEventInput = require('../../validation/event');
 const Event = require('../../models/Event');
 const Notification = require('../../models/Notification');
 
+// GET /api/events/all
+// fetch all events
+router.get('/all', (req, res) => {
+    Event.find()
+        .sort('-date')
+        .populate('user', ['name'])
+        .then(events => {
+            res.json(events);
+        })
+        .catch(err => 
+            res.status(404).json({error: "Error in get api/events/all. " + err})
+        );
+});
+
 // GET /api/events/events
 // or /api/events/events?sport=${sport}
-// fetch all events or by type of sport
+// fetch all events or by type of sport that are not flag
 router.get('/events', (req, res) => {
     Event.find(req.query.sport ? {typeofsport: req.query.sport, flag: false} : { flag: false })
         .sort('-date')
@@ -18,7 +32,7 @@ router.get('/events', (req, res) => {
             res.json(events);
         })
         .catch(err => 
-            res.status(404).json({error: "Error in get api/events/all. " + err})
+            res.status(404).json({error: "Error in get api/events/events. " + err})
         );
 });
 

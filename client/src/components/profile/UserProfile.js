@@ -29,7 +29,7 @@ class UserProfile extends Component{
       else{
         profileContent = (
           <div className={styles.profile}>
-            <Typography variant="p" component="p" gutterBottom>
+            <Typography variant="h6" component="p" gutterBottom>
               This user did not setup a profile
             </Typography>
           </div>

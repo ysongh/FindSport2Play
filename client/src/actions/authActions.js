@@ -2,14 +2,14 @@ import jwt_decode from 'jwt-decode';
 
 import axios from '../axios-lists';
 import setAuthToken from '../utilis/setAuthToken';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import { AUTH_ERRORS, SET_CURRENT_USER } from './types';
 
 export const registerUser = (userData, history) => dispatch => {
   axios.post('/api/users/register', userData)
     .then(res => history.push('/login'))
     .catch(err =>
       dispatch({
-        type: GET_ERRORS,
+        type: AUTH_ERRORS,
         payload: err.response.data
       })
     );
@@ -25,9 +25,9 @@ export const loginUser = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
     })
-    .catch(err => 
+    .catch(err =>
       dispatch({
-        type: GET_ERRORS,
+        type: AUTH_ERRORS,
         payload: err.response.data
     }));
 };

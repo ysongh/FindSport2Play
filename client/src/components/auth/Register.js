@@ -65,6 +65,9 @@ class Register extends Component{
                 <Typography variant="h5" paragraph>
                   Sign Up
                 </Typography>
+                <Typography variant="body2" color="secondary">
+                  {errors.servererror}
+                </Typography>
                 <form noValidate onSubmit={this.onSubmit} className="mb-2">
                   <TextFieldGroup
                     label="Name"

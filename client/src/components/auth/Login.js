@@ -64,6 +64,9 @@ class Login extends Component{
                     <Typography variant="h5" paragraph>
                       Log In
                     </Typography>
+                    <Typography variant="body2" color="secondary">
+                      {errors.servererror}
+                    </Typography>
                     <form onSubmit={this.onSubmit} className="mb-2">
                       <TextFieldGroup
                         label="Email"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Grid, Typography, Button } from '@material-ui/core';
+import { Grid, Card, CardContent, Typography, Button } from '@material-ui/core';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import DateFieldGroup from '../common/DateFieldGroup';
@@ -77,81 +77,85 @@ class CreateEvent extends Component{
         return(
             <Grid container justify="center" className="marginX-1">
                 <Grid item xs={12} sm={8} md={6}>
-                    <Typography variant="h3" component="h1" align="center" gutterBottom>
-                        Host Your Event
-                    </Typography>
-                    <form onSubmit={this.onSubmit}>
-                        <TextFieldGroup
-                            label="Event Name *"
-                            placeholder=""
-                            name="nameofevent"
-                            type="name"
-                            value={this.state.nameofevent}
-                            onChange={this.onChange}
-                            error={errors.nameofevent}
-                        />
-                        <Grid container spacing={3}>
-                            <Grid item xs={6}>
-                                <SelectFieldGroup
-                                    label="Type of Sport *"
-                                    name="typeofsport"
-                                    type="name"
-                                    value={this.state.typeofsport}
-                                    onChange={this.onChange}
-                                    sportList={sportList}
-                                    error={errors.typeofsport}
-                                />
-                            </Grid>
-                            <Grid item xs={6}>
+                    <Card className="card">
+                        <CardContent>
+                            <Typography variant="h3" component="h1" align="center" gutterBottom>
+                                Host Your Event
+                            </Typography>
+                            <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup
-                                    label="Number of Player *"
-                                    placeholder="2-100 Players"
-                                    name="numberofplayer"
-                                    type="number"
-                                    value={this.state.numberofplayer}
+                                    label="Event Name *"
+                                    placeholder=""
+                                    name="nameofevent"
+                                    type="name"
+                                    value={this.state.nameofevent}
                                     onChange={this.onChange}
-                                    error={errors.numberofplayer}
+                                    error={errors.nameofevent}
                                 />
-                            </Grid>
-                        </Grid>
-                        <TextFieldGroup
-                            label="Image URL"
-                            placeholder="EX: https://unsplash.com/photos/-JzHSIzNYnU"
-                            name="imageURL"
-                            type="name"
-                            value={this.state.imageURL}
-                            onChange={this.onChange}
-                            error={errors.imageURL}
-                        />
-                        <TextFieldGroup
-                            label="Location"
-                            placeholder="EX: West 96th Street, New York, NY 10025"
-                            name="location"
-                            type="name"
-                            value={this.state.location}
-                            onChange={this.onChange}
-                            error={errors.location}
-                        />
-                        <DateFieldGroup
-                            label="Start Date"
-                            name="start"
-                            value={this.state.start}
-                            onChange={this.onChange}
-                            error={errors.start}
-                        />
-                        <TextAreaFieldGroup
-                            label="Description"
-                            placeholder="Details about this event"
-                            name="description"
-                            type="name"
-                            value={this.state.description}
-                            onChange={this.onChange}
-                            error={errors.description}
-                        />
-                        <Button className="primary-color marginB-2" type="submit" variant="contained" fullWidth>
-                            Submit
-                        </Button>
-                    </form>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={6}>
+                                        <SelectFieldGroup
+                                            label="Type of Sport *"
+                                            name="typeofsport"
+                                            type="name"
+                                            value={this.state.typeofsport}
+                                            onChange={this.onChange}
+                                            sportList={sportList}
+                                            error={errors.typeofsport}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextFieldGroup
+                                            label="Number of Player *"
+                                            placeholder="2-100 Players"
+                                            name="numberofplayer"
+                                            type="number"
+                                            value={this.state.numberofplayer}
+                                            onChange={this.onChange}
+                                            error={errors.numberofplayer}
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <TextFieldGroup
+                                    label="Image URL"
+                                    placeholder="EX: https://unsplash.com/photos/-JzHSIzNYnU"
+                                    name="imageURL"
+                                    type="name"
+                                    value={this.state.imageURL}
+                                    onChange={this.onChange}
+                                    error={errors.imageURL}
+                                />
+                                <TextFieldGroup
+                                    label="Location"
+                                    placeholder="EX: West 96th Street, New York, NY 10025"
+                                    name="location"
+                                    type="name"
+                                    value={this.state.location}
+                                    onChange={this.onChange}
+                                    error={errors.location}
+                                />
+                                <DateFieldGroup
+                                    label="Start Date"
+                                    name="start"
+                                    value={this.state.start}
+                                    onChange={this.onChange}
+                                    error={errors.start}
+                                />
+                                <TextAreaFieldGroup
+                                    label="Description"
+                                    placeholder="Details about this event"
+                                    name="description"
+                                    type="name"
+                                    value={this.state.description}
+                                    onChange={this.onChange}
+                                    error={errors.description}
+                                />
+                                <Button className="primary-color marginB-2" type="submit" variant="contained" fullWidth>
+                                    Submit
+                                </Button>
+                            </form>
+                        </CardContent>
+                    </Card>
                 </Grid>
             </Grid>
         );

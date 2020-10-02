@@ -15,6 +15,11 @@ body {
   margin-bottom: 3px;
 }
 
+.card{
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
 .primary-color{
   background-color: #22435A !important;
   color: white !important;

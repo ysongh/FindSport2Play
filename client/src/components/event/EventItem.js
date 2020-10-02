@@ -62,7 +62,10 @@ class EventItem extends Component{
                             
                             <Grid item xs={6}>
                                 <span className={styles.labelInfo}>Number of Player</span>
-                                <Typography variant="h6" paragraph><GroupIcon fontSize="small" /> {event.numberofplayer}</Typography>
+                                <Box display="flex">
+                                    <GroupIcon className={styles.icon} />
+                                    <Typography variant="h6" paragraph>{event.numberofplayer}</Typography>
+                                </Box>
                             </Grid>
                         </Grid>
 

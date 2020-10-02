@@ -1,7 +1,12 @@
 .labelInfo{
     background-color: #22435A;
-    padding: 3px 5px;
+    padding: 3px 6px;
     border-radius: 10px;
     color: white;
     font-size: 1rem;
+}
+
+.icon{
+    margin-top: 3.5px;
+    margin-right: .4rem;
 }

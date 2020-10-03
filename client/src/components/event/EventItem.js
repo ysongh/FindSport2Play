@@ -74,7 +74,7 @@ class EventItem extends Component{
                         
                         <span className={styles.labelInfo}>Start Date</span>
                         <Typography variant="h6" paragraph>
-                            {event.start ? <Moment format="MM/DD/YYYY">{event.start}</Moment> : "To Be Announced"}
+                            {event.start ? <Moment format="MMMM Do, YYYY">{event.start}</Moment> : "To Be Announced"}
                         </Typography>
                         
                         <span className={styles.labelInfo}>Description</span>

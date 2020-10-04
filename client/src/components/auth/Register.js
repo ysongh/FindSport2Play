@@ -15,6 +15,7 @@ class Register extends Component{
             email: '',
             password: '',
             password2: '',
+            loading: false,
             errors: {}
         };
         this.onChange = this.onChange.bind(this);
@@ -38,6 +39,8 @@ class Register extends Component{
     }
     
     onSubmit(e){
+        this.setState({loading: true});
+
         e.preventDefault();
         const newUser = {
             name: this.state.name,
@@ -45,6 +48,7 @@ class Register extends Component{
             password: this.state.password,
             password2: this.state.password2
         };
+        this.setState({loading: false});
         
         this.props.registerUser(newUser, this.props.history);
     }
@@ -104,7 +108,11 @@ class Register extends Component{
                     onChange={this.onChange}
                     error={errors.password2}
                   />
-                  <Button className="primary-color marginT-1 marginB-1" type="submit" variant="contained">
+                  <Button
+                    className={this.state.loading ? "" : "primary-color marginT-1"}
+                    type="submit"
+                    variant="contained"
+                    disabled={this.state.loading}>
                     Submit
                   </Button>
                 </form>

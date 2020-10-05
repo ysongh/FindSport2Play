@@ -15,7 +15,6 @@ class Register extends Component{
             email: '',
             password: '',
             password2: '',
-            loading: false,
             errors: {}
         };
         this.onChange = this.onChange.bind(this);
@@ -39,8 +38,6 @@ class Register extends Component{
     }
     
     onSubmit(e){
-        this.setState({loading: true});
-
         e.preventDefault();
         const newUser = {
             name: this.state.name,
@@ -48,13 +45,13 @@ class Register extends Component{
             password: this.state.password,
             password2: this.state.password2
         };
-        this.setState({loading: false});
         
         this.props.registerUser(newUser, this.props.history);
     }
     
     render(){
       const {errors} = this.state;
+      const {auth} = this.props;
 
       const {
         register,
@@ -109,10 +106,10 @@ class Register extends Component{
                     error={errors.password2}
                   />
                   <Button
-                    className={this.state.loading ? "" : "primary-color marginT-1"}
+                    className={auth.loading ? "" : "primary-color marginT-1"}
                     type="submit"
                     variant="contained"
-                    disabled={this.state.loading}>
+                    disabled={auth.loading}>
                     Submit
                   </Button>
                 </form>

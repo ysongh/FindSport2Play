@@ -13,7 +13,6 @@ class Login extends Component{
         this.state = {
             email: '',
             password: '',
-            loading: false,
             errors: {}
         };
         this.onChange = this.onChange.bind(this);
@@ -40,7 +39,6 @@ class Login extends Component{
     }
     
     onSubmit(e){
-        this.setState({loading: true});
         e.preventDefault();
         const userData = {
             email: this.state.email,
@@ -48,11 +46,11 @@ class Login extends Component{
         };
         
         this.props.loginUser(userData);
-        this.setState({loading: false});
     }
     
     render(){
         const {errors} = this.state;
+        const {auth} = this.props;
 
         const {
           login,
@@ -90,10 +88,10 @@ class Login extends Component{
                         error={errors.password}
                       />
                       <Button
-                        className={this.state.loading ? "" : "primary-color marginT-1"}
+                        className={auth.loading ? "" : "primary-color marginT-1"}
                         type="submit"
                         variant="contained"
-                        disabled={this.state.loading} >
+                        disabled={auth.loading} >
                         Submit
                       </Button>
                     </form>

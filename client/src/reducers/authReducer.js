@@ -1,8 +1,9 @@
 import isEmpty from '../validation/is-empty';
-import { SET_CURRENT_USER, GET_NOTIFICATION } from '../actions/types';
+import { SET_CURRENT_USER, GET_NOTIFICATION, SET_AUTH_LOADING, REMOVE_AUTH_LOADING } from '../actions/types';
 
 const initialState = {
     isAuthenticated: false,
+    loading: false,
     user: {},
     notifications: {
         unread: 0,
@@ -11,7 +12,6 @@ const initialState = {
 };
 
 export default function(state = initialState, action){
-    console.log(action.payload)
     switch(action.type){
         case SET_CURRENT_USER:
             return{
@@ -24,6 +24,16 @@ export default function(state = initialState, action){
                 ...state,
                 notifications: action.payload
             };
+        case SET_AUTH_LOADING:
+            return{
+                ...state,
+                loading: true
+            };
+        case REMOVE_AUTH_LOADING:
+            return{
+                ...state,
+                loading: false
+            }
         default:
             return state;
     }

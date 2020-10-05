@@ -2,11 +2,16 @@ import jwt_decode from 'jwt-decode';
 
 import axios from '../axios-lists';
 import setAuthToken from '../utilis/setAuthToken';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import { GET_ERRORS, SET_CURRENT_USER, SET_AUTH_LOADING, REMOVE_AUTH_LOADING } from './types';
 
 export const registerUser = (userData, history) => dispatch => {
+  dispatch(setAuthLoading());
+
   axios.post('/api/users/register', userData)
-    .then(res => history.push('/login'))
+    .then(res => {
+      history.push('/login');
+      dispatch(removeAuthLoading());
+    })
     .catch(err => {
       let errorData;
       if(err.response) errorData = err.response.data;
@@ -15,11 +20,14 @@ export const registerUser = (userData, history) => dispatch => {
       dispatch({
         type: GET_ERRORS,
         payload: errorData
-      })
+      });
+      dispatch(removeAuthLoading());
     });
 };
 
 export const loginUser = (userData) => dispatch => {
+  dispatch(setAuthLoading());
+
   axios.patch('/api/users/login', userData)
     .then(res => {
       const { token } = res.data;
@@ -28,6 +36,7 @@ export const loginUser = (userData) => dispatch => {
       
       const decoded = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
+      dispatch(removeAuthLoading());
     })
     .catch(err => {
       let errorData;
@@ -37,7 +46,8 @@ export const loginUser = (userData) => dispatch => {
       dispatch({
         type: GET_ERRORS,
         payload: errorData
-      })
+      });
+      dispatch(removeAuthLoading());
     });
 };
 
@@ -53,3 +63,15 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
 };
+
+const setAuthLoading = () => {
+  return{
+      type: SET_AUTH_LOADING
+  }
+}
+
+const removeAuthLoading = () => {
+  return{
+      type: REMOVE_AUTH_LOADING
+  }
+}

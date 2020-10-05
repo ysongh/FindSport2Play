@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, Typography, Button } from '@material-ui/core';
+import { Grid, Card, CardContent, CircularProgress, Typography, Button } from '@material-ui/core';
 
 import styles from './Register.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -56,7 +56,8 @@ class Register extends Component{
       const {
         register,
         register__card,
-        register__info } = styles;
+        register__info,
+        btn__progress } = styles;
       
       return(
         <Grid className={register} container justify="center">
@@ -106,11 +107,12 @@ class Register extends Component{
                     error={errors.password2}
                   />
                   <Button
-                    className={auth.loading ? "" : "primary-color marginT-1"}
+                    className={auth.loading ? "relative" : "relative primary-color marginT-1"}
                     type="submit"
                     variant="contained"
                     disabled={auth.loading}>
                     Submit
+                    {auth.loading && <CircularProgress size={24} className={btn__progress} />}
                   </Button>
                 </form>
                 <Typography variant="subtitle2" className={register__info}>

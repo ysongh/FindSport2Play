@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, Typography, Button } from '@material-ui/core';
+import { Grid, Card, CardContent, CircularProgress, Typography, Button } from '@material-ui/core';
 
 import styles from './Login.module.css';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -55,7 +55,8 @@ class Login extends Component{
         const {
           login,
           login__card,
-          login__info } = styles;
+          login__info,
+          btn__progress } = styles;
         
         return(
             <Grid className={login} container justify="center">
@@ -87,13 +88,14 @@ class Login extends Component{
                         onChange={this.onChange}
                         error={errors.password}
                       />
-                      <Button
-                        className={auth.loading ? "" : "primary-color marginT-1"}
-                        type="submit"
-                        variant="contained"
-                        disabled={auth.loading} >
-                        Submit
-                      </Button>
+                       <Button
+                          className={auth.loading ? "relative" : "relative primary-color marginT-1"}
+                          type="submit"
+                          variant="contained"
+                          disabled={auth.loading}>
+                          Submit
+                          {auth.loading && <CircularProgress size={24} className={btn__progress} />}
+                        </Button>
                     </form>
                     <Typography variant="subtitle2" className={login__info}>
                       Dont have an account? <Link to="/register">Sign Up</Link>

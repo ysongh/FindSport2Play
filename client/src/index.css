@@ -94,6 +94,8 @@ body {
 
 .minHeight{ min-height: 570px; }
 
+.relative{ position: relative !important; }
+
 @media only screen and (max-width: 760px) {
   .hiddenDesk{
     display: none;

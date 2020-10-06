@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItemIcon, ListItem, ListItemText } from '@material-ui/core';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import EventIcon from '@material-ui/icons/Event';
+import CreateIcon from '@material-ui/icons/Create';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import Logo from '../../../img/logo.png';
 
@@ -8,12 +14,21 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
     const authLinks = (
       <div>
         <ListItem button component={RouterLink} to="/create-event">
+          <ListItemIcon>
+            <PostAddIcon />
+          </ListItemIcon>
           <ListItemText primary="Create Event" />
         </ListItem>
         <ListItem button component={RouterLink} to="/profile">
+          <ListItemIcon>
+            <AccountBoxIcon />
+          </ListItemIcon>
           <ListItemText primary="Your Profile" />
         </ListItem>
         <ListItem button onClick={logout}>
+          <ListItemIcon>
+            <ExitToAppIcon />
+          </ListItemIcon>
           <ListItemText primary="Logout" />
         </ListItem>
       </div>
@@ -22,9 +37,15 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
     const guestLinks = (
       <div>
         <ListItem button component={RouterLink} to="/login" color="textPrimary">
+          <ListItemIcon>
+            <VpnKeyIcon />
+          </ListItemIcon>
           <ListItemText primary="Login" />
         </ListItem>
         <ListItem button component={RouterLink} to="/register" color="textPrimary">
+          <ListItemIcon>
+            <CreateIcon />
+          </ListItemIcon>
           <ListItemText primary="Get Started" />
         </ListItem>
       </div>
@@ -36,6 +57,9 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
           <img src={Logo} className="logo" alt="Logo" />
         </ListItem>
         <ListItem button component={RouterLink} to="/events">
+          <ListItemIcon>
+            <EventIcon />
+          </ListItemIcon>
           <ListItemText primary="Events List" />
         </ListItem>
         {isAuthenticated ? authLinks : guestLinks}

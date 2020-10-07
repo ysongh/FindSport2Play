@@ -14,19 +14,19 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
     const authLinks = (
       <div>
         <ListItem button component={RouterLink} to="/create-event">
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <PostAddIcon />
           </ListItemIcon>
           <ListItemText primary="Create Event" />
         </ListItem>
         <ListItem button component={RouterLink} to="/profile">
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <AccountBoxIcon />
           </ListItemIcon>
           <ListItemText primary="Your Profile" />
         </ListItem>
         <ListItem button onClick={logout}>
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <ExitToAppIcon />
           </ListItemIcon>
           <ListItemText primary="Logout" />
@@ -37,13 +37,13 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
     const guestLinks = (
       <div>
         <ListItem button component={RouterLink} to="/login" color="textPrimary">
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <VpnKeyIcon />
           </ListItemIcon>
           <ListItemText primary="Login" />
         </ListItem>
         <ListItem button component={RouterLink} to="/register" color="textPrimary">
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <CreateIcon />
           </ListItemIcon>
           <ListItemText primary="Get Started" />
@@ -57,7 +57,7 @@ const SideDrawer = ({ isAuthenticated, logout }) => {
           <img src={Logo} className="logo" alt="Logo" />
         </ListItem>
         <ListItem button component={RouterLink} to="/events">
-          <ListItemIcon>
+          <ListItemIcon className="siderdrawer-icon">
             <EventIcon />
           </ListItemIcon>
           <ListItemText primary="Events List" />

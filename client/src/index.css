@@ -20,6 +20,10 @@ body {
   padding: 1rem;
 }
 
+.siderdrawer-icon{
+  min-width: 2.4rem !important;
+}
+
 .primary-color{
   background-color: #22435A !important;
   color: white !important;

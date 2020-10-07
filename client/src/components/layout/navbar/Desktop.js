@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Badge, Button, Link } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Desktop = ({ isAuthenticated, notificationsUnread, onShowNotification, onShowUserMenu }) => {
     const notificationsList = (
@@ -16,6 +17,7 @@ const Desktop = ({ isAuthenticated, notificationsUnread, onShowNotification, onS
             {notificationsList}
             <Badge color="secondary" onClick={onShowUserMenu}>
                 <PersonIcon className="icon-m" />
+                <ExpandMoreIcon className="down-arrow" />
             </Badge>
         </div>
     );

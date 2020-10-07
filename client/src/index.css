@@ -24,6 +24,11 @@ body {
   min-width: 2.4rem !important;
 }
 
+.down-arrow{
+  margin-left: -5px;
+  margin-top: 4.5px;
+}
+
 .primary-color{
   background-color: #22435A !important;
   color: white !important;

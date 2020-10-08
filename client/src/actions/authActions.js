@@ -9,8 +9,15 @@ export const registerUser = (userData, history) => dispatch => {
 
   axios.post('/api/users/register', userData)
     .then(res => {
-      history.push('/login');
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+      setAuthToken(token);
+      
+      const decoded = jwt_decode(token);
+      dispatch(setCurrentUser(decoded));
       dispatch(removeAuthLoading());
+
+      history.push('/profile');
     })
     .catch(err => {
       let errorData;

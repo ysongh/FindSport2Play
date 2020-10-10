@@ -19,7 +19,7 @@ class Notification extends Component{
         return(
             <div className={styles.notification__container + " " + (!notification.read ? ( styles.notification__notRead) : null)}>
                 <p className={styles.notification__date}>
-                    <Moment format="MM/DD/YYYY">{notification.date}</Moment>
+                    <Moment fromNow>{notification.date}</Moment>
                     <IconButton size="small" onClick={this.onDeleteClick.bind(this, notification._id)}>
                         <HighlightOffIcon />
                     </IconButton>

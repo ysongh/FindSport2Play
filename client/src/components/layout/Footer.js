@@ -21,12 +21,16 @@ export default() => {
                             Events List
                         </Link>
                         <span>/</span>
-                        <Link className="white-link" component={RouterLink} to="/events">
+                        <Link className="white-link" component={RouterLink} to="/create-event">
                             Create Event
                         </Link>
                         <span>/</span>
-                        <Link className="white-link" component={RouterLink} to="/events">
+                        <Link className="white-link" component={RouterLink} to="/register">
                             Get Started
+                        </Link>
+                        <span>/</span>
+                        <Link className="white-link" component={RouterLink} to="/privacypolicy">
+                            Privacy Policy
                         </Link>
                     </Grid>
                     <Grid item xs={12} sm={3}></Grid>

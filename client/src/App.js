@@ -20,7 +20,8 @@ import {
   CreateEvent,
   Profile,
   CreateProfile,
-  UserProfile
+  UserProfile,
+  PrivacyPolicy
  } from './components';
 
 if(localStorage.jwtToken){
@@ -47,6 +48,7 @@ class App extends Component {
             <Container>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/privacypolicy" component={PrivacyPolicy} />
               <Switch>
                 <Route exact path="/events" component={Events} />
                 <Route exact path="/events/:type" component={Events} />

@@ -11,3 +11,4 @@ export { default as CreateEvent } from './create-event/CreateEvent';
 export { default as Profile } from './profile/Profile';
 export { default as CreateProfile } from './create-profile/CreateProfile';
 export { default as UserProfile } from './profile/UserProfile';
+export { default as PrivacyPolicy } from './other/PrivacyPolicy';

@@ -12,3 +12,4 @@ export { default as Profile } from './profile/Profile';
 export { default as CreateProfile } from './create-profile/CreateProfile';
 export { default as UserProfile } from './profile/UserProfile';
 export { default as PrivacyPolicy } from './other/PrivacyPolicy';
+export { default as TermsofService } from './other/TermsofService';

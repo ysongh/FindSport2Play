@@ -29,8 +29,12 @@ export default() => {
                             Get Started
                         </Link>
                         <span>/</span>
+                        <Link className="white-link" component={RouterLink} to="/termsofservice">
+                            Terms
+                        </Link>
+                        <span>/</span>
                         <Link className="white-link" component={RouterLink} to="/privacypolicy">
-                            Privacy Policy
+                            Privacy
                         </Link>
                     </Grid>
                     <Grid item xs={12} sm={3}></Grid>

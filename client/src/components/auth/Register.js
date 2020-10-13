@@ -106,12 +106,15 @@ class Register extends Component{
                     onChange={this.onChange}
                     error={errors.password2}
                   />
+                  <Typography variant="subtitle2">
+                    By creating an account, you accept FindSport2Play <Link to="/termsofservice">Terms of Service</Link> and <Link to="/privacypolicy">Privacy Policy</Link>
+                  </Typography>
                   <Button
                     className={auth.loading ? "relative" : "relative primary-color marginT-1"}
                     type="submit"
                     variant="contained"
                     disabled={auth.loading}>
-                    Submit
+                    Create Account
                     {auth.loading && <CircularProgress size={24} className={btn__progress} />}
                   </Button>
                 </form>

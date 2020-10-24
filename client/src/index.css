@@ -44,6 +44,8 @@ body {
   color: white !important;
 }
 
+.primary-textColor{ color: #22435A !important; }
+
 .white-link,
 .white-link:link,
 .white-link:visited{

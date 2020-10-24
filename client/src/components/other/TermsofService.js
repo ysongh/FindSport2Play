@@ -9,7 +9,7 @@ class TermsofService extends Component{
   render(){
       return(
         <Container maxWidth="lg" className="minHeight">
-          <h1>Terms of Service</h1>
+          <h1 className="primary-textColor">Terms of Service</h1>
 
           <Typography variant="h6">
             User Content

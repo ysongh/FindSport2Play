@@ -37,7 +37,7 @@ class Event extends Component{
         return(
             <div className="post">
                 <div className="container">
-                    <h1>{event.nameofevent}</h1>
+                    <h1 className="primary-textColor">{event.nameofevent}</h1>
                     <List>
                     {eventContent}
                     </List>

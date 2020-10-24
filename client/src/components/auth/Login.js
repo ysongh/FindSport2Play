@@ -63,7 +63,7 @@ class Login extends Component{
               <Grid item xs={12} sm={8} md={6}>
                 <Card className={login__card}>
                   <CardContent>
-                    <Typography variant="h5" paragraph>
+                    <Typography className="primary-textColor" variant="h5" paragraph>
                       Log In
                     </Typography>
                     <Typography variant="body2" color="secondary">

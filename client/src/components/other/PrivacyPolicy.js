@@ -9,7 +9,7 @@ class PrivacyPolicy extends Component{
   render(){
       return(
         <Container maxWidth="lg" className="minHeight">
-          <h1>Privacy Policy</h1>
+          <h1 className="primary-textColor">Privacy Policy</h1>
 
           <Typography variant="h6">
             This web app may collects data such as:

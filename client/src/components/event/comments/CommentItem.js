@@ -25,7 +25,7 @@ class CommentItem extends Component{
                     <PersonIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={comment.text} secondary={<Moment fromNow>{comment.date}</Moment>} />
+                <ListItemText primary={comment.text} secondary={<span>{comment.name} - <Moment fromNow>{comment.date}</Moment></span>} />
                 {event.user._id === auth.user.id ? (
                   <IconButton
                     aria-label="delete"

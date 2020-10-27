@@ -87,41 +87,36 @@ class EventItem extends Component{
                                 {event.user.name}
                             </Link>
                         </Typography>
-                        
-                        {event.user._id === auth.user.id ? (
-                            <ButtonGroup className="marginL-1">
-                                <Button
-                                    component={Link}
-                                    to={`/edit-event/${event.user._id}`}
-                                    variant="contained"
-                                    color="primary"
-                                    disabled >
-                                    Edit
-                                </Button>
-                                <Button 
-                                    onClick={this.handleClickOpen.bind(this)}
-                                    variant="contained"
-                                    color="secondary" >
-                                    Delete
-                                </Button>
-                            </ButtonGroup>
-                        ) : null}
-                        
-                       
                     </Grid>
                     <Grid container item xs={12} md={6}>
-                        <img style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage}
-                          alt="Sport" />
-                        <Box style={{width: '100%', display: 'block'}}>
-                            <Button
-                                className="marginB-1 floatRight"
-                                onClick={this.props.flagEvent.bind(this, event._id)}
-                                variant="contained"
-                                color="secondary"
-                                disabled={event.flag} >
-                                { event.flag ? "Reported" : "Report" }
-                            </Button>
-                        </Box>
+                        <img style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage} alt="Sport" />
+                        {event.user._id === auth.user.id ? (
+                            <Box style={{width: '100%', display: 'block'}}>
+                                <ButtonGroup className="marginT-1 marginB-1 floatRight">
+                                    <Button
+                                        component={Link}
+                                        to={`/edit-event/${event.user._id}`}
+                                        variant="contained"
+                                        color="primary"
+                                        disabled >
+                                        Edit
+                                    </Button>
+                                    <Button 
+                                        onClick={this.handleClickOpen.bind(this)}
+                                        variant="contained"
+                                        color="secondary" >
+                                        Delete
+                                    </Button>
+                                    <Button
+                                        onClick={this.props.flagEvent.bind(this, event._id)}
+                                        variant="contained"
+                                        color="secondary"
+                                        disabled={event.flag} >
+                                        { event.flag ? "Reported" : "Report" }
+                                    </Button>
+                                </ButtonGroup>
+                            </Box>
+                        ) : null}
                     </Grid>
                 </Grid>
                 {event.address ? <MapView coordinates={event.address.coordinates} location={event.location}/> : null}

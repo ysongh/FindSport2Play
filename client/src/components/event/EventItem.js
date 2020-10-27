@@ -82,9 +82,9 @@ class EventItem extends Component{
                             {event.description ? event.description : "None"}
                         </Typography>
                         
-                        <Typography display="inline">
-                             <Link to={`/profile/${event.user._id}`}>
-                                Host By {event.user.name}
+                        <Typography paragraph>
+                            Host By <Link to={`/profile/${event.user._id}`}>
+                                {event.user.name}
                             </Link>
                         </Typography>
                         

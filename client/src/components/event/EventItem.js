@@ -6,6 +6,9 @@ import { withRouter } from 'react-router-dom';
 import { Paper, Grid, Box, Chip, Avatar, Snackbar, IconButton, ButtonGroup, Button, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import GroupIcon from '@material-ui/icons/Group';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import ReportIcon from '@material-ui/icons/Report';
 
 import MapView from './map/MapView';
 import DeleteDialog from '../common/DeleteDialog';
@@ -89,36 +92,40 @@ class EventItem extends Component{
                         </Typography>
                     </Grid>
                     <Grid container item xs={12} md={6}>
+                        <Box style={{width: '100%', display: 'block'}}>
+                            <ButtonGroup className="floatRight">
+                                {event.user._id === auth.user.id ? (
+                                    <div>
+                                        <IconButton
+                                            component={Link}
+                                            to={`/edit-event/${event.user._id}`}
+                                            variant="contained"
+                                            color="primary"
+                                            disabled >
+                                            <EditIcon style={{ fontSize: 30 }} />
+                                        </IconButton>
+                                        <IconButton 
+                                            onClick={this.handleClickOpen.bind(this)}
+                                            variant="contained"
+                                            color="secondary" >
+                                            <DeleteForeverIcon style={{ fontSize: 30 }} />
+                                        </IconButton>
+                                    </div>
+                                ) : null}
+                                <IconButton
+                                    onClick={this.props.flagEvent.bind(this, event._id)}
+                                    variant="contained"
+                                    color="secondary"
+                                    edge="start"
+                                    disabled={event.flag} >
+                                    <ReportIcon style={{ fontSize: 30 }} />
+                                </IconButton>
+                            </ButtonGroup>
+                        </Box>
                         <img style={{width: '100%'}} src={event.imageURL ? event.imageURL : sportImage} alt="Sport" />
-                        {event.user._id === auth.user.id ? (
-                            <Box style={{width: '100%', display: 'block'}}>
-                                <ButtonGroup className="marginT-1 marginB-1 floatRight">
-                                    <Button
-                                        component={Link}
-                                        to={`/edit-event/${event.user._id}`}
-                                        variant="contained"
-                                        color="primary"
-                                        disabled >
-                                        Edit
-                                    </Button>
-                                    <Button 
-                                        onClick={this.handleClickOpen.bind(this)}
-                                        variant="contained"
-                                        color="secondary" >
-                                        Delete
-                                    </Button>
-                                    <Button
-                                        onClick={this.props.flagEvent.bind(this, event._id)}
-                                        variant="contained"
-                                        color="secondary"
-                                        disabled={event.flag} >
-                                        { event.flag ? "Reported" : "Report" }
-                                    </Button>
-                                </ButtonGroup>
-                            </Box>
-                        ) : null}
                     </Grid>
                 </Grid>
+                <hr />
                 {event.address ? <MapView coordinates={event.address.coordinates} location={event.location}/> : null}
                 <hr />
                 <Box display="flex">

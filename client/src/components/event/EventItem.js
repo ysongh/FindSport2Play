@@ -116,8 +116,7 @@ class EventItem extends Component{
                                     onClick={this.props.flagEvent.bind(this, event._id)}
                                     variant="contained"
                                     color="secondary"
-                                    edge="start"
-                                    disabled={event.flag} >
+                                    edge="start">
                                     <ReportIcon style={{ fontSize: 30 }} />
                                 </IconButton>
                             </ButtonGroup>

@@ -151,7 +151,7 @@ router.put('/:id/flag', (req, res) => {
                 return res.status(404).json({error: 'This event is not found'});
             }
 
-            event.flag = true;
+            event.flag = !event.flag;
             return event.save();
         })
         .then(result => {
